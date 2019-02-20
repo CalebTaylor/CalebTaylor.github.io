@@ -1,16 +1,476 @@
-<!doctype html>
-<html lang="en">
-	<head>
-	  	<meta charset="utf-8">
-	  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  	<title>Caleb Taylor</title>
+<!DOCTYPE html>
+<!-- 
+   .d88b      8       8       88888             8            
+   8P    .d88 8 .d88b 88b.      8   .d88 Yb  dP 8 .d8b. 8d8b 
+   8b    8  8 8 8.dP' 8  8      8   8  8  YbdP  8 8' .8 8P   
+   `Y88P `Y88 8 `Y88P 88P'      8   `Y88   dP   8 `Y8P' 8    
+                                          dP                 
+   
+     Welcome to my source code.
+   
+     To explain a few of my choices:
+   
+   - I've only externally referenced 2 resources to reduce the amount of HTTP requests my website needs to make to load,
+     shrinking my waterfall. My site doesn't need to be big, I want it to load fast and look good on every device, so to be
+     totally mobile friendly I don't want people wasting battery/data loading a simplle web page.
+   
+   - I'm not using a framework either. I can, but I chose to "make my own" both to reduce load time (negligible, but whatever)
+     and to show I can. What good am I if I can only work with Bootstrap? Obviously this isn't the most impressive website 
+     technology wise, but that's not the point!
+   
+   - Hosted on GitHub to save money, haha
 
-	  	<link href="css/style.css" rel="stylesheet">
+   - I use <br> a lot. It looks fine for this simple website & I'd use a different solution for something more serious, so don't worry. I'm aware
+   
+   <a href="#">
+   -->
+<html>
+   <head>
+     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+      <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+   </head>
+   <style>
 
-	</head>
 
-	<body>
-		
-	</body>
+
+
+:root {
+  --mainColor: #1c0b7c;
+}
+
+
+h1{
+font-family: 'Libre Baskerville', serif;
+font-size: 350%;
+}
+
+h2{
+
+font-family: 'Libre Baskerville', serif;
+font-size: 250%;
+
+
+}
+h3{
+
+font-family: 'Libre Baskerville', serif;
+font-size: 125%;
+color:#454545;
+
+}
+h4{
+
+font-family: 'Libre Baskerville', serif;
+font-size: 110%;
+color:#454545;
+}
+h5{
+font-family: 'Libre Baskerville', serif;
+color:#454545;
+font-size: 100%;
+
+}
+h6{
+font-family: 'Libre Baskerville', serif;
+color:#454545;
+font-size: 90%;
+
+}
+p{
+
+font-family: 'Libre Baskerville', serif;
+font-size: 110%;
+
+}
+
+.skip{
+    float:left;
+font-family: 'Libre Baskerville', serif;
+font-size: 110%;
+
+
+}
+.skills{
+
+font-family: 'Libre Baskerville', serif;
+font-size: 80%;
+
+}
+a{
+
+
+  padding-bottom: .1em;
+  text-decoration: none;
+
+}
+a:visited{
+
+
+  padding-bottom: .1em;
+  text-decoration: none;
+
+}
+ul{
+
+    color:black;
+    display:block;
+}
+.skip a:hover{
+color:#001337;
+background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23F4B9CE' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: 9%;
+  border-bottom: 0;
+  padding-bottom: .1em;
+
+
+
+}
+.links{
+
+    margin-top: 7em;
+}
+.links a{
+
+    line-height: 4.6;
+    margin-top: 900px;
+}
+.links a:hover{
+    color:#000000;
+    line-height: 4.6;
+    margin-top: 900px;
+}
+
+.left-column {
+    width: 48%;
+  margin: 0px 20px 0px 20px;
+    float: left;
+        display:inline;
+            animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+
+.right-column {
+    width: 40%;
+  margin: 0px 20px 0px 20px;
+    float: right;
+    display:inline;
+        animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+
+
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.read-more-state {
+  display: none;
+  
+}
+
+
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: .2s ease;
+}
+
+.read-more-state:checked ~ .read-more-wrap .read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+}
+
+.read-more-state ~ .read-more-trigger:before {
+  content: 'Show more';
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: 'Show less';
+}
+
+.read-more-trigger {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 .5em;
+  color: #666;
+  font-size: .9em;
+  line-height: 2;
+  border: 1px solid #ddd;
+  border-radius: .25em;
+  font-family: 'Open Sans', sans-serif;
+font-size: 80%;
+transition: .3s ease;
+}
+
+.read-more-trigger:hover {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 .5em;
+  color: #444;
+  font-size: .9em;
+  line-height: 2;
+  border: 1px solid limegreen;
+  border-radius: .25em;
+  font-family: 'Open Sans', sans-serif;
+font-size: 80%;
+transition: .3s ease;
+
+}
+
+
+
+@media only screen and (max-width: 1190px) {
+.skip{
+
+    float:left;
+    margin-bottom: 3em;
+}
+
+.left-column {
+     width: 100%;
+     padding-bottom: 10px;
+     float: none;
+     display:inline;
+     animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+    }
+
+    .right-column {
+        width: 100%;
+        padding-bottom: 10px;
+        float: none;
+            display:inline;
+                animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+    }
+    .links a{
+
+    line-height: 1.6;
+}
+    .links a:hover{
+
+    line-height: 1.6;
+}
+.links{
+
+}
+    @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+    
+}
+
+html, body { width: 99%; }
+
+.valign { display: table; width: 100%; height: 100%; }
+.valign > div { display: table-cell; width: 100%; height: 100%; }
+
+.valign.middle > div { vertical-align: middle; }
+
+
+
+
+
+
+   </style>
+   <body>
+      <div class="left-column">
+         <h1>Caleb<img src="caleb.png">Taylor</h1>
+         <h4>Front-End Web Developer & Designer</h4>
+         <p>3rd Year School of Interactive Arts and Technology student,<br> Interactive Systems BSc Candidate<br>Simon Fraser University</p>
+         <p>
+            Welcome to my website. Learn about what I’ve done, what I know, and how I do things. Feel free to contact me at:<br> <strong>calebtaylor26@gmail.com</strong> or <strong>+1 778-791-2870</strong>.
+         </p>
+         <p>
+         <div class="skip">
+            (Don't like this layout? <a href="#">Cick here to skip to the resume</a>)<br>
+         </div>
+      </div>
+      <div class="right-column">
+         <p class="links"><a href=""><i class="fab fa-linkedin"></i> LinkedIn: Caleb Taylor<br></a><a href=""><i class="fab fa-github"></i> GitHub: Caleb Taylor<br></a><a href=""><i class="fas fa-file"></i> Resume (September 2018)</a></p>
+      </div>
+      </div>
+      <div class="valign bottom">
+         <div>
+               <br><br><br><br>
+            <div class="left-column">
+               <h2>Work Experience</h2>
+               <h3>Junior Developer | <a href="#">Sanmar Canada</a> (Part time, July 2018 - Present)</h3>
+            </div>
+            <div class="left-column">
+               <div>
+                  <input type="checkbox" class="read-more-state" id="post-1" />
+                  <p class="read-more-wrap">
+                     I developed proprietary B2B web tools for our clients/customers and internal use.<span class="read-more-target">
+                     <strong>I coded needed functionalities from scratch when an open-source solution didn't exist.</strong> I made a tool with which customers or staff could search product photos by style number, sort by color, shot angle/type,etc. and add wanted images to a “cart”. At session end, the user would download their cart contents in a folder. The site in question was built with Magento, <strong>so a strict MVC structure had to be followed when creating this tool.</strong></span>
+                  </p>
+                  </p>
+                  <p class="read-more-wrap">I designed and styled proprietary tools & elements of our online properties.<span class="read-more-target"> My personal process involved <strong>a ton of design sketches and rubber ducking debugging notes.</strong> I mostly worked independently but I didn't hesitate to ask for help and assist others where needed.</span></p>
+                  <p class="read-more-wrap">
+                     I spearhead SEO efforts with the marketing and retail department and provide analytics updates. I regularly applied my knowledge in digital marketing to assist in the development of online marketing strategies. <span class="read-more-target">I provided in-depth SEO audits for our online properties and <strong>fixed outlined issues.</strong></span>
+                  </p>
+                  <p class="read-more-wrap">
+                     We applied Scrum principles to our development cycle. <span class="read-more-target">To avoid writing code that would require refactoring/copious amounts of upkeep, we start projects with <strong>Product Backlog planning sessions to mitigate these problems.</strong> We engaged in periodic Scrums to avoid “feature creep” and keep communication about problems or progress open.</span>
+                  </p>
+                  <label for="post-1" class="read-more-trigger"></label>
+               </div>
+               <h6>Skills used/obtained:</h6>
+               <p class="skills">HTML 5 | CSS 3 | PHP | Javascript | React | Node | | JSON | AJAX | XML | API Design | AWS | Magento | MVC | Scrum | B2B | eCommerce | Git | Apache Solr</p>
+            </div>
+
+         </div>
+      </div>
+      <br><br><br><br>
+      <div class="valign bottom">
+         <div>
+            <div class="left-column">
+               <h3>Digital Marketing Coordinator | <a href="#">Vireo Video</a> (December 2017 - July 2018)</h3>
+               <!-- Include unstyled a href links to these company listings, the underlined part -->
+            </div>
+            <div class="left-column">
+               <input type="checkbox" class="read-more-state" id="post-2" />
+               <p class="read-more-wrap">
+                  Designed and developed websites for clients and internal use.<span class="read-more-target">Using wordpress, UnBounce, or custom code, <strong>I deployed websites and landing pages. </strong>Applying conversion optimization techniques, I created pages with the intention of converting visitors into warm leads or paying customers.
+                  </span>
+               </p>
+               <p class="read-more-wrap">
+                  Tracked ad performance, web traffic, social media performance and more for clients and Vireo Video. <span class="read-more-target"> Using analytics tools like SERPStat, HotJar, Google Analytics and more to <strong>track ROI across the board.</strong></span>
+               </p>
+               <p class="read-more-wrap">
+                  Created material for and updated internal digital front-facing aspects of the business. <span class="read-more-target">Developed automated sales funnel using <> and created promotional material to <strong> improve ad performance. traffic and conversions</strong></span>
+               </p>
+               <p>
+                  Designed and created well performing image ads for Vireo Video and clients.
+               </p>
+               <p class="read-more-wrap">
+                  Conducted content research and planning for Vireo Video and clients.
+               </p>
+               <label for="post-2" class="read-more-trigger"></label>
+               <h6>Skills used/obtained:</h6>
+               <p class="skills">Funnel thing | UnBounce | HotJar | Faceebook Ads | Google Adwords | Photoshop | Illustrator | Premier | Google Analytics
+</p>
+            </div>
+
+         </div>
+      </div>
+      <br><br><br><br>
+      <div class="valign bottom">
+         <div>
+            <div class="left-column">
+<h3>SEO Speialist & Web Developer | <a href="#">ElementIQ</a> (June 2016 - September 2017)</h3>
+               <!-- Include unstyled a href links to these company listings, the underlined part -->
+            </div>
+            <div class="left-column">
+               <input type="checkbox" class="read-more-state" id="post-3" />
+               <p class="read-more-wrap">
+                  Developed websites on Wordpress, Joomla.<span class="read-more-target">Handled <strong>different hosting platforms, wordpress installs, themes, proprietary code, plugin interaction </strong>while catering to client’s needs.
+
+                  </span>
+               </p>
+               <p class="read-more-wrap">
+                  Developed  tools for internal use. <span class="read-more-target"> Coded 2 python programs to assist in <strong>SEO related research.</strong></span>
+               </p>
+               <p class="read-more-wrap">
+                  Conducted SEO audits and developed SEO strategies. <span class="read-more-target">Designed reports and tests ased on industry & site structure,<strong> campaign intent</strong> and client need.</span>
+               </p>
+               <p class="read-more-wrap">
+                  Managed Client accounts.
+<span class="read-more-target">Oversaw SEO efforts & performance, ran correspondence with clients, <strong>ensured the client’s wants and needs were met</strong> and that the client was sufficiently educated on how our work would improve their business.</span>
+               </p>
+               <p class="read-more-wrap"> Lead weekly meetings and daily Scrums. <span class="read-more-target">Taught team about SEO/Web development practices and <strong>ran morning Scrums</strong> to ensure optimal team performance.</span></p>
+
+               <label for="post-3" class="read-more-trigger"></label>
+
+               <h6>Skills used/obtained:</h6>
+               <p class="skills">Python | HTML 5 | CSS 3 | Javascript | Ahrefs | Search Console | Excel | Screaming Frog | Wordpress | Wordpress Engine | Joomla</p>
+            </div>
+
+         </div>
+      </div>
+      <br><br><br><br>
+      <div class="valign bottom">
+         <div>
+            <div class="left-column">
+               <h2>Other positions/freelance work:</h2>
+               <h6>-Content Manager | <a href="#">Teccrab inc.</a> (December 2015 - Present)</h6>
+               <h6>-Columnist | <a href="#">Slickster Magazine</a> (April 2016 - May 2018)</h6>
+               <h6>-Web Developer | <a href="#">Quarterback Academy</a> (October 2017 - March 2018)</h6>
+               <h6>-Marketing Coordinator | <a href="#">TEDxSFU</a> (February 2017 - November 2017)</h6>
+               <h6>-PPC, Paid Traffic & Video Advertisment | <a href="#">Zenva Academy</a> (April 2017 - May  2017)</h6>
+
+         </div>
+      </div>
+     
+   </body>
 </html>
-
