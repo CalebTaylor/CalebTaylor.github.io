@@ -31,14 +31,88 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
    </head>
    <style>
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: #000;
+}
 
-
-
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
 :root {
   --mainColor: #1c0b7c;
 }
+.triangle {
+  display: inline-block;
+  margin: 0;
 
+}
+.triangle2 {
+
+  margin: 0;
+
+}
+.triangle-0 {
+  width: 600px;
+  height: 600px;
+  position: relative;
+  top:17em;
+  border-bottom: solid 300px rgb(0,0,0);
+  border-left: solid 300px rgb(0,0,0);
+  border-right: solid 300px transparent;
+  border-top: solid 300px transparent;
+}
+.triangle-1 {
+  width: 600px;
+  height: 600px;
+  position: relative;
+  top:0em;
+  right:0em;
+  border-bottom: solid 300px transparent;
+  border-left: solid 300px transparent;
+  border-right: solid 300px rgb(0,0,0);
+  border-top: solid 300px rgb(0,0,0);
+}
+
+.hero-image {
+  background-image:url("hero.png");
+  height: 90%;
+
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #555;
+  color: white;
+}
 
 h1{
 font-family: 'Libre Baskerville', serif;
@@ -331,7 +405,7 @@ transition: .3s ease;
     
 }
 
-html, body { width: 99%; }
+html, body {  }
 
 .valign { display: table; width: 100%; height: 100%; }
 .valign > div { display: table-cell; width: 100%; height: 100%; }
@@ -345,6 +419,15 @@ html, body { width: 99%; }
 
    </style>
    <body>
+   	<div class="hero-image">
+   		<div class="triangle triangle-0"></div>
+   		<div class="triangle2 triangle-1"></div>
+  <div class="hero-text">
+    <h1 style="font-size:50px">I am John Doe</h1>
+    <p>And I'm a Photographer</p>
+    <button>Hire me</button>
+  </div>
+</div>
       <div class="left-column">
          <h1>Caleb<img src="caleb.png">Taylor</h1>
          <h4>Front-End Web Developer & Designer</h4>
