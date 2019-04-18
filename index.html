@@ -1,559 +1,290 @@
 <!DOCTYPE html>
-<!-- 
-   .d88b      8       8       88888             8            
-   8P    .d88 8 .d88b 88b.      8   .d88 Yb  dP 8 .d8b. 8d8b 
-   8b    8  8 8 8.dP' 8  8      8   8  8  YbdP  8 8' .8 8P   
-   `Y88P `Y88 8 `Y88P 88P'      8   `Y88   dP   8 `Y8P' 8    
-                                          dP                 
-   
-     Welcome to my source code.
-   
-     To explain a few of my choices:
-   
-   - I've only externally referenced 2 resources to reduce the amount of HTTP requests my website needs to make to load,
-     shrinking my waterfall. My site doesn't need to be big, I want it to load fast and look good on every device, so to be
-     totally mobile friendly I don't want people wasting battery/data loading a simplle web page.
-   
-   - I'm not using a framework either. I can, but I chose to "make my own" both to reduce load time (negligible, but whatever)
-     and to show I can. What good am I if I can only work with Bootstrap? Obviously this isn't the most impressive website 
-     technology wise, but that's not the point!
-   
-   - Hosted on GitHub to save money, haha
-
-   - I use <br> a lot. It looks fine for this simple website & I'd use a different solution for something more serious, so don't worry. I'm aware
-   
-   <a href="#">
-   -->
-<html>
-   <head>
-     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-      <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-   </head>
-   <style>
-body, html {
-  height: 100%;
-  margin: 0;
-  background-color: #000;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-:root {
-  --mainColor: #1c0b7c;
-}
-.triangle {
-  display: inline-block;
-  margin: 0;
-
-}
-.triangle2 {
-
-  margin: 0;
-
-}
-.triangle-0 {
-  width: 600px;
-  height: 600px;
-  position: relative;
-  top:17em;
-  border-bottom: solid 300px rgb(0,0,0);
-  border-left: solid 300px rgb(0,0,0);
-  border-right: solid 300px transparent;
-  border-top: solid 300px transparent;
-}
-.triangle-1 {
-  width: 600px;
-  height: 600px;
-  position: relative;
-  top:0em;
-  right:0em;
-  border-bottom: solid 300px transparent;
-  border-left: solid 300px transparent;
-  border-right: solid 300px rgb(0,0,0);
-  border-top: solid 300px rgb(0,0,0);
-}
-
-.hero-image {
-  background-image:url("hero.png");
-  height: 90%;
-
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
-
-.hero-text button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 10px 25px;
-  color: black;
-  background-color: #ddd;
-  text-align: center;
-  cursor: pointer;
-}
-
-.hero-text button:hover {
-  background-color: #555;
-  color: white;
-}
-
-h1{
-font-family: 'Libre Baskerville', serif;
-font-size: 350%;
-}
-
-h2{
-
-font-family: 'Libre Baskerville', serif;
-font-size: 250%;
-
-
-}
-h3{
-
-font-family: 'Libre Baskerville', serif;
-font-size: 125%;
-color:#454545;
-
-}
-h4{
-
-font-family: 'Libre Baskerville', serif;
-font-size: 110%;
-color:#454545;
-}
-h5{
-font-family: 'Libre Baskerville', serif;
-color:#454545;
-font-size: 100%;
-
-}
-h6{
-font-family: 'Libre Baskerville', serif;
-color:#454545;
-font-size: 90%;
-
-}
-p{
-
-font-family: 'Libre Baskerville', serif;
-font-size: 110%;
-
-}
-
-.skip{
-    float:left;
-font-family: 'Libre Baskerville', serif;
-font-size: 110%;
-
-
-}
-.skills{
-
-font-family: 'Libre Baskerville', serif;
-font-size: 80%;
-
-}
-a{
-
-
-  padding-bottom: .1em;
-  text-decoration: none;
-
-}
-a:visited{
-
-
-  padding-bottom: .1em;
-  text-decoration: none;
-
-}
-ul{
-
-    color:black;
-    display:block;
-}
-.skip a:hover{
-color:#001337;
-background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23F4B9CE' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
-  background-position: bottom;
-  background-repeat: repeat-x;
-  background-size: 9%;
-  border-bottom: 0;
-  padding-bottom: .1em;
-
-
-
-}
-.links{
-
-    margin-top: 7em;
-}
-.links a{
-
-    line-height: 4.6;
-    margin-top: 900px;
-}
-.links a:hover{
-    color:#000000;
-    line-height: 4.6;
-    margin-top: 900px;
-}
-
-.left-column {
-    width: 48%;
-  margin: 0px 20px 0px 20px;
-    float: left;
-        display:inline;
-            animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-    -o-animation: fadein 2s; /* Opera */
-}
-
-.right-column {
-    width: 40%;
-  margin: 0px 20px 0px 20px;
-    float: right;
-    display:inline;
-        animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-    -o-animation: fadein 2s; /* Opera */
-
-
-}
-@keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-moz-keyframes fadein { /* Firefox */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-webkit-keyframes fadein { /* Safari and Chrome */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-o-keyframes fadein { /* Opera */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.read-more-state {
-  display: none;
-  
-}
-
-
-.read-more-target {
-  opacity: 0;
-  max-height: 0;
-  font-size: 0;
-  transition: .2s ease;
-}
-
-.read-more-state:checked ~ .read-more-wrap .read-more-target {
-  opacity: 1;
-  font-size: inherit;
-  max-height: 999em;
-}
-
-.read-more-state ~ .read-more-trigger:before {
-  content: 'Show more';
-}
-
-.read-more-state:checked ~ .read-more-trigger:before {
-  content: 'Show less';
-}
-
-.read-more-trigger {
-  cursor: pointer;
-  display: inline-block;
-  padding: 0 .5em;
-  color: #666;
-  font-size: .9em;
-  line-height: 2;
-  border: 1px solid #ddd;
-  border-radius: .25em;
-  font-family: 'Open Sans', sans-serif;
-font-size: 80%;
-transition: .3s ease;
-}
-
-.read-more-trigger:hover {
-  cursor: pointer;
-  display: inline-block;
-  padding: 0 .5em;
-  color: #444;
-  font-size: .9em;
-  line-height: 2;
-  border: 1px solid limegreen;
-  border-radius: .25em;
-  font-family: 'Open Sans', sans-serif;
-font-size: 80%;
-transition: .3s ease;
-
-}
-
-
-
-@media only screen and (max-width: 1190px) {
-.skip{
-
-    float:left;
-    margin-bottom: 3em;
-}
-
-.left-column {
-     width: 100%;
-     padding-bottom: 10px;
-     float: none;
-     display:inline;
-     animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-    -o-animation: fadein 2s; /* Opera */
-    }
-
-    .right-column {
-        width: 100%;
-        padding-bottom: 10px;
-        float: none;
-            display:inline;
-                animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-    -o-animation: fadein 2s; /* Opera */
-    }
-    .links a{
-
-    line-height: 1.6;
-}
-    .links a:hover{
-
-    line-height: 1.6;
-}
-.links{
-
-}
-    @keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-moz-keyframes fadein { /* Firefox */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-webkit-keyframes fadein { /* Safari and Chrome */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-o-keyframes fadein { /* Opera */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-    
-}
-
-html, body {  }
-
-.valign { display: table; width: 100%; height: 100%; }
-.valign > div { display: table-cell; width: 100%; height: 100%; }
-
-.valign.middle > div { vertical-align: middle; }
-
-
-
-
-
-
-   </style>
-   <body>
-   	<div class="hero-image">
-   		<div class="triangle triangle-0"></div>
-   		<div class="triangle2 triangle-1"></div>
-  <div class="hero-text">
-    <h1 style="font-size:50px">I am John Doe</h1>
-    <p>And I'm a Photographer</p>
-    <button>Hire me</button>
-  </div>
+<html lang=en>
+<head>
+  <title>Caleb</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel=icon href=#>
+  <style>
+  body {
+    font-family: Liberation Sans, Arial, sans-serif;
+    background-color: #fff9fe;
+  }
+  main {
+    max-width: 70ch;
+    padding: 2ch;
+    margin: auto;
+  }
+  section {
+    margin-bottom: 2rem;
+  }
+  a {
+    color: #cc7a6b;
+    text-decoration: none;
+    outline: 0;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  ::selection {
+    background-color: #D8ADA5;
+  }
+  div{
+    margin: 3em 0em;
+
+  }
+  h5{
+    font-weight: normal;
+  }
+  code:hover{
+    color:red;
+  }
+
+  </style>
+</head>
+<body>
+<main>
+  <section>
+    <h1>calebtaylor.ca</h1>
+    <p>I'm a junior developer studying Interactive arts and Technology at SFU (3rd year). I'm graduating in 2021.</p>
+    <p>In my work I focus on:</p>
+    <ul>
+      <li>intuitive, accessible and practical design choices</li>
+      <li>scalable & future-proof solutions</li>
+      <li>modulability through refactoring</li>
+      <li>readability & simplicity</li>
+    </ul>
+    <p> Currently seeking employment in game development. </p>
+  </section>
+  <section>
+    <h3>links</h3>
+    <p><a href="https://github.com/CalebTaylor?tab=repositories" target="_blank">github</a> | <a href="https://www.linkedin.com/in/calebtaylor26/" target="_blank">linkedin</a></p>
+  </section>
+  <section>
+    <h3>contact</h3>
+    <p>Email me at calebtaylor26@gmail.com <a href="mailto:calebtaylor26@gmail.com">(MailTo)</a>.</p>
+  </section>
+  <section>
+    <h3>website statement</h3>
+    <p>I want this website to be as accesible and readable by as many people as possible, be as fast and lightweight as possible, for as long as possible. No superfluous network requests, no javascript, with minimal styling. </p>
+
+  </section>
+
+
+  <hr>
+
+  <section>
+
+
+<h2> project history </h2>
+
+<div>
+<h4>Flyer wizard<em> (Web App) </em></h4>
+<h5>SanMar Canada - 2019</h5><p>
+The Flyer Wizard was an old design tool which let customers make flyers using our product pictures. The UI was poorly done and it lacked a ton of features, which I fixed and added. The tool recieved instant positive feedback and kept users on our site longer, as intented. </p> <p>It was a challenge to work with our API to generate the results I needed for new features to work, because it was highly customized for the legacy tool. The same goes for account specific actions like saving and loading old flyers, uploading images, etc.</p> <p>The tool saw around <b>40</b> unique users a month compared to the 1 or 2 users previous.</p>
+<p><code>Javascript / HTML / CSS / Fabric.js / jQuery / AngularJS / JSON (from API)</code></p>
 </div>
-      <div class="left-column">
-         <h1>Caleb<img src="caleb.png">Taylor</h1>
-         <h4>Front-End Web Developer & Designer</h4>
-         <p>3rd Year School of Interactive Arts and Technology student,<br> Interactive Systems BSc Candidate<br>Simon Fraser University</p>
-         <p>
-            Welcome to my website. Learn about what I’ve done, what I know, and how I do things. Feel free to contact me at:<br> <strong>calebtaylor26@gmail.com</strong> or <strong>+1 778-791-2870</strong>.
-         </p>
-         <p>
-         <div class="skip">
-            (Don't like this layout? <a href="#">Cick here to skip to the resume</a>)<br>
-         </div>
-      </div>
-      <div class="right-column">
-         <p class="links"><a href=""><i class="fab fa-linkedin"></i> LinkedIn: Caleb Taylor<br></a><a href=""><i class="fab fa-github"></i> GitHub: Caleb Taylor<br></a><a href=""><i class="fas fa-file"></i> Resume (September 2018)</a></p>
-      </div>
-      </div>
-      <div class="valign bottom">
-         <div>
-               <br><br><br><br>
-            <div class="left-column">
-               <h2>Work Experience</h2>
-               <h3>Junior Developer | <a href="#">Sanmar Canada</a> (Part time, July 2018 - Present)</h3>
-            </div>
-            <div class="left-column">
-               <div>
-                  <input type="checkbox" class="read-more-state" id="post-1" />
-                  <p class="read-more-wrap">
-                     I developed proprietary B2B web tools for our clients/customers and internal use.<span class="read-more-target">
-                     <strong>I coded needed functionalities from scratch when an open-source solution didn't exist.</strong> I made a tool with which customers or staff could search product photos by style number, sort by color, shot angle/type,etc. and add wanted images to a “cart”. At session end, the user would download their cart contents in a folder. The site in question was built with Magento, <strong>so a strict MVC structure had to be followed when creating this tool.</strong></span>
-                  </p>
-                  </p>
-                  <p class="read-more-wrap">I designed and styled proprietary tools & elements of our online properties.<span class="read-more-target"> My personal process involved <strong>a ton of design sketches and rubber ducking debugging notes.</strong> I mostly worked independently but I didn't hesitate to ask for help and assist others where needed.</span></p>
-                  <p class="read-more-wrap">
-                     I spearhead SEO efforts with the marketing and retail department and provide analytics updates. I regularly applied my knowledge in digital marketing to assist in the development of online marketing strategies. <span class="read-more-target">I provided in-depth SEO audits for our online properties and <strong>fixed outlined issues.</strong></span>
-                  </p>
-                  <p class="read-more-wrap">
-                     We applied Scrum principles to our development cycle. <span class="read-more-target">To avoid writing code that would require refactoring/copious amounts of upkeep, we start projects with <strong>Product Backlog planning sessions to mitigate these problems.</strong> We engaged in periodic Scrums to avoid “feature creep” and keep communication about problems or progress open.</span>
-                  </p>
-                  <label for="post-1" class="read-more-trigger"></label>
-               </div>
-               <h6>Skills used/obtained:</h6>
-               <p class="skills">HTML 5 | CSS 3 | PHP | Javascript | React | Node | | JSON | AJAX | XML | API Design | AWS | Magento | MVC | Scrum | B2B | eCommerce | Git | Apache Solr</p>
-            </div>
 
-         </div>
-      </div>
-      <br><br><br><br>
-      <div class="valign bottom">
-         <div>
-            <div class="left-column">
-               <h3>Digital Marketing Coordinator | <a href="#">Vireo Video</a> (December 2017 - July 2018)</h3>
-               <!-- Include unstyled a href links to these company listings, the underlined part -->
-            </div>
-            <div class="left-column">
-               <input type="checkbox" class="read-more-state" id="post-2" />
-               <p class="read-more-wrap">
-                  Designed and developed websites for clients and internal use.<span class="read-more-target">Using wordpress, UnBounce, or custom code, <strong>I deployed websites and landing pages. </strong>Applying conversion optimization techniques, I created pages with the intention of converting visitors into warm leads or paying customers.
-                  </span>
-               </p>
-               <p class="read-more-wrap">
-                  Tracked ad performance, web traffic, social media performance and more for clients and Vireo Video. <span class="read-more-target"> Using analytics tools like SERPStat, HotJar, Google Analytics and more to <strong>track ROI across the board.</strong></span>
-               </p>
-               <p class="read-more-wrap">
-                  Created material for and updated internal digital front-facing aspects of the business. <span class="read-more-target">Developed automated sales funnel using <> and created promotional material to <strong> improve ad performance. traffic and conversions</strong></span>
-               </p>
-               <p>
-                  Designed and created well performing image ads for Vireo Video and clients.
-               </p>
-               <p class="read-more-wrap">
-                  Conducted content research and planning for Vireo Video and clients.
-               </p>
-               <label for="post-2" class="read-more-trigger"></label>
-               <h6>Skills used/obtained:</h6>
-               <p class="skills">Funnel thing | UnBounce | HotJar | Faceebook Ads | Google Adwords | Photoshop | Illustrator | Premier | Google Analytics
-</p>
-            </div>
 
-         </div>
-      </div>
-      <br><br><br><br>
-      <div class="valign bottom">
-         <div>
-            <div class="left-column">
-<h3>SEO Speialist & Web Developer | <a href="#">ElementIQ</a> (June 2016 - September 2017)</h3>
-               <!-- Include unstyled a href links to these company listings, the underlined part -->
-            </div>
-            <div class="left-column">
-               <input type="checkbox" class="read-more-state" id="post-3" />
-               <p class="read-more-wrap">
-                  Developed websites on Wordpress, Joomla.<span class="read-more-target">Handled <strong>different hosting platforms, wordpress installs, themes, proprietary code, plugin interaction </strong>while catering to client’s needs.
+<div>
+<h4>Batch image cropping script<em> (Program) </em></h4>
+<h5>SanMar Canada - 2019</h5><p>
+The website manager was bogged down with repetitve cropping and resizing of product images. I developed a Python script that automated this process, which also uploaded the images once finished to our customer image library and respective product pages on the production site.</p>
 
-                  </span>
-               </p>
-               <p class="read-more-wrap">
-                  Developed  tools for internal use. <span class="read-more-target"> Coded 2 python programs to assist in <strong>SEO related research.</strong></span>
-               </p>
-               <p class="read-more-wrap">
-                  Conducted SEO audits and developed SEO strategies. <span class="read-more-target">Designed reports and tests ased on industry & site structure,<strong> campaign intent</strong> and client need.</span>
-               </p>
-               <p class="read-more-wrap">
-                  Managed Client accounts.
-<span class="read-more-target">Oversaw SEO efforts & performance, ran correspondence with clients, <strong>ensured the client’s wants and needs were met</strong> and that the client was sufficiently educated on how our work would improve their business.</span>
-               </p>
-               <p class="read-more-wrap"> Lead weekly meetings and daily Scrums. <span class="read-more-target">Taught team about SEO/Web development practices and <strong>ran morning Scrums</strong> to ensure optimal team performance.</span></p>
+<p>It was challenging working with the image processing library OpenCV, as it used a lot of math and functions I didn't understand. Admitedly, it took a lot of trial and error to make the script perform accurate edits.
 
-               <label for="post-3" class="read-more-trigger"></label>
+<p>The script saved the website manager <b>weeks</b> of work per batch, as it would edit tens of hundreds of images in a few seconds.</p>
 
-               <h6>Skills used/obtained:</h6>
-               <p class="skills">Python | HTML 5 | CSS 3 | Javascript | Ahrefs | Search Console | Excel | Screaming Frog | Wordpress | Wordpress Engine | Joomla</p>
-            </div>
+<p><code>Python / OpenCV / numpy</code></p>
+</div>
 
-         </div>
-      </div>
-      <br><br><br><br>
-      <div class="valign bottom">
-         <div>
-            <div class="left-column">
-               <h2>Other positions/freelance work:</h2>
-               <h6>-Content Manager | <a href="#">Teccrab inc.</a> (December 2015 - Present)</h6>
-               <h6>-Columnist | <a href="#">Slickster Magazine</a> (April 2016 - May 2018)</h6>
-               <h6>-Web Developer | <a href="#">Quarterback Academy</a> (October 2017 - March 2018)</h6>
-               <h6>-Marketing Coordinator | <a href="#">TEDxSFU</a> (February 2017 - November 2017)</h6>
-               <h6>-PPC, Paid Traffic & Video Advertisment | <a href="#">Zenva Academy</a> (April 2017 - May  2017)</h6>
+<div>
+<h4>Windows 10 on Raspberry pi<em> (IT) </em></h4>
+<h5>SanMar Canada - 2019</h5><p>
+The Director of Technology wanted to replace all laptops with Raspberry Pis running thin remote desktop sessions connected to virtual machines centralized on one Windows server. That way, physical repairs were cheaper and anything to do with software could be managed from one place.</p> <p>The Pi's would need to support dual monitor display, local printer sharing, shared audio, and VLAN for the remote desktop session.</p> <p>Performance and drivers presented a huge issue. Windows 10 isn't made to run on the ARM CPU architecture so it took many tweaks, reinstallations, and optimizations to get it running. Thankfully, a lot of seperate solutions were posted online, which I consolidated into one working installation.
+<p>This upgrade saved us around <b>$450</b> per unit replaced (around 20 units currently) and freed up time spent fixing individual machines.
+</p><p><code>UEFI / ARM64</code></p>
+</div>
 
-         </div>
-      </div>
-     
-   </body>
+<div>
+<h4>Batch image downloader interface<em> (Web App) </em></h4>
+<h5>SanMar Canada - 2019</h5><p>
+The marketing department was overwhelmed with requests from customers needing groups of product images for download. The working solution was to give them access to an FTP server, which was hard to use and very insecure. I created a front-end interface for customers to add images to their "cart" and download them in batches.</p>
+<p>Usually, if an open source solution exists, I would use it. This project required many custom functions which I had to make from scratch.</p>
+<p>The tool allowed us to reallocate the FTP server space for more sensible uses and totally eliminated any insecurities, along with making the entire process <b>easier</b> to use by all.
+</p><p><code>HTML / CSS / JSON (from API) / MVC / jQuery / Ajax</code></p>
+</div>
+
+<div>
+<h4>Company mobile app <em> (Android App) </em></h4>
+<h5>SanMar Canada - 2019</h5><p>
+The Director of Technology wanted to create a streamlined mobile application for registered customers to quickly place orders with. Our main website isn't too mobile friendly, which made a stripped down app version make sense. </p><p> The team was not familiar with mobile development, so small tweaks they couldn't outsource I <b>assisted</b> with in-office. 
+</p><p><code>Android Studio / Java / XML</code></p>
+</div>
+
+<div>
+<h4>Mobile styling<em> (Web Design) </em></h4>
+<h5>SanMar Canada - 2018</h5><p>
+The company's website had many features that were designed without mobile platforms in consideration.</p><p> I styled and upgraded many components to be more accesible in general, but in particular <b>improved</b> the mobile experience navigating our website.
+</p><p><code>CSS / MVC / Magento</code></p>
+</div>
+
+<div>
+<h4>The Wishing Tower <em> (Computer Game) </em></h4>
+<h5>Personal - 2019</h5><p>
+Currently, I have a working prototype for the main aspects of TWT completed. To speed up development, I made the combat and story chunks of the game <b>modular</b>, so if I wanted to add new hostile encounters or story moments, I could do so in just a few minutes with little effort.</p>
+
+<p>It's a 2D, story driven platformer, set in a post-apocalyptic America. </p> <p>The combat is a Dance Dance Revolution-esq experience where the player lines up shapes in a correct order to execute attacks.
+</p><p>Shipping December 2019.
+</p><p><code>GameMaker Studio 2 / GML / Aseprite / FL Studio</code></p>
+</div>
+
+<div>
+<h4>Legends of the Traveler<em> (Computer Game) </em><h4>
+<h5>Teccrab - 2018</h5><p>
+I created a protoype for a morality balancing feature for Legends of the Traveler. It was a proof of concept for an idea we had wanted to implement. We wanted the player's choices in the game to affect the story in a meaningful way, not just block certain paths from the player.</p><p>As a sort of global morality meter, if the player made a questionable choice, the entire game world would change and react as a result (for better or worse). After testing some specifics given by the Creative Director, we concluded that the system would work on a <b>grand scale</b> as would be implemented as a core feature of the game.
+</p><p>
+I also wrote scripts, parts of the story, and designed missions and levels. I managed the online community/following, coordinated marketing events and managed the kickstarted campaign (unfortunately we did not reach our target goal). 
+</p><p> Did not ship.
+</p><p><code>Unreal Engine / Processing (Prototyping)</code></p>
+</div>
+
+<div>
+<h4>Emily Against All Ends<em> (Computer Game) </em><h4>
+<h5>Snake-Eye Studio - 2019</h5><p>
+Was recently hired on as a part time programmer and artist for a 2D puzzle platformer developed by Snake-Eye studio.
+</p><p>Shipping April 2020.
+</p><p><code>Godot Engine (C++) / Aseprite</code></p>
+</div>
+
+<div>
+<h4>Silly Seagull<em> (Mobile Game) </em></h4>
+<h5>SFU - 2019</h5><p>
+Using mobile phone sensors, I created a motion game where you shoot incoming evil seagulls with a shotgun. </p> <p>Users can sign in and see how their personal high scores stack up agaisnt other players on the same phone.
+</p><p><code>Android Studio / Java / XML / Aseprite</code></p>
+</div>
+
+<div>
+<h4>Division Excercise<em> (Mobile Game) </em></h4>
+<h5>SFU - 2019</h5><p>
+Coded a relaxing math game for android.</p><p> Not much in the way of groundbreaking design or sophisticated programming but it performed well as a time passer and taught me a lot about API calls and asynchronous tasks.</p> <p>Built with Android Studio in Java and utilized an online random number generator API.
+</p><p><code>Android Studio / Java / XML</code></p>
+</div>
+
+<div>
+<h4>Buddy Dodger<em> (Computer Game) </em><h4>
+<h5>SFU - 2018</h5><p>
+Created a local 2 player platformer game for a short game design study. </p><p>Basic, but explored the use of various power-ups.
+</p><p><code>GameMaker Studio 1.4 / GML / Aseprite / FL Studio</code></p>
+</div>
+
+<div>
+<h4>Fungler Shootout<em> (Computer Game) </em><h4>
+<h5>SFU - 2017</h5><p>
+Made a single player reaction-time based game for Windows. Created CPU enemies with increasing skill as the game progressed. Created all art and sound myself.
+</p><p><code>Processing / Aseprite</code></p>
+</div>
+
+<div>
+<h4>Trap Shoot<em> (Computer Game) </em><h4>
+<h5>SFU - 2016</h5><p>
+Made a simple 2D shooter for Windows.
+</p><p><code>Processing / Aseprite</code></p>
+</div>
+
+<div>
+<h4>Medimind<em> (Mobile App) </em><h4>
+<h5>Competition - 2019</h5><p>
+Designed and coded a chatroom app for IOS/Android. </p><p>We were tasked with creating a solution for first responders dealing with difficult pyscological trauma. After some reasearch, we applied aspects of group therapy and healthy conversation to a chatroom concept. First responders could join groups based on career or location, anonymously, and talk to each other about anything they wanted to talk about. </p> It was challenging working with <b>React Native</b> for the first time, especially in the rushed setting of a hackathon. Thankfully, React Native's extensive doccumentation helped.<p>We also implemented the Algolia search engine to work with a local database on device.
+</p><p><code>React Native / Javascript / Algolia</code></p>
+</div>
+
+<div>
+<h4>Classifier hack<em> (Program) </em><h4>
+<h5>Competition - 2018</h5><p>
+Using an HTTP scraper, I replicated the server environment of an online classifier tool for race detection, then <b>reverse engineered</b> the tool to expose data to a python script. </p> <p>This project was for a joke competition, but was a rather challenging thing to make. It was really hacked together (for example, using a OCR program to read an output when we couldn't get data from one program to another) but was a fun nonetheless!
+</p><p><code>Python / Javascript</code></p>
+</div>
+
+<div>
+<h4>Drawesome Bot<em> (Robot) </em><h4>
+<h5>Competition - 2017</h5><p>
+Coded the UI and some core functionality for a drawing robot. </p> <p>The robot used the image processing library OpenCV to convert images into coordinates, which were parsed by another script into instructions for servo motors. It then "painted" the picture with a sharpie on the end of its arm (3 bar linkage).
+</p><p><code>Python / OpenCV / Guidata</code></p>
+</div>
+
+<div>
+<h4>Lumo Light<em> (App/Hardware) </em><h4>
+<h5>Competition - 2017</h5><p>
+Coded the app and assembled/designed the hardware for a <b>winning</b> Hackathon product.</p><p> App was built with Processing (a Java library), which interfaced with an arduino device. </p><p>Time restricted competitions like this really teach you a lot in a short amount of time, and favour creative/quick and dirty solutions over perhaps the best optimized or scalable option. </p><p>I appreciate this aspect of the event the most as it really forces you to just go with what works and what can be built in a short amount of time.
+</p><p><code>Processing / Arduino</code></p>
+</div>
+
+
+
+
+
+
+
+
+</section>
+<hr>
+<section>
+
+<h2> work history </h2>
+
+<div>
+<h4>Junior Developer / IT</h4>
+<h5>SanMar Canada - 2018 to Present</h5>
+</div>
+
+<div>
+<h4>Sales<h4>
+<h5>Teccrab Digital Marketing Agency - December 2018 to Present</h5>
+</div>
+
+<div>
+<h4>Java Tutor<h4>
+<h5>Freelance - October 2018</h5>
+</div>
+
+<div>
+<h4>Vice President<h4>
+<h5>Technovus Student Group - June 2018 to Present</h5>
+</div>
+
+<div>
+<h4>Digital Marketing Manager<h4>
+<h5>Vireo Video - December 2017 to June 2018</h5>
+</div>
+
+<div>
+<h4>Freelance Web Developer<h4>
+<h5>Freelance - July 2015 to April 2018</h5>
+</div>
+
+<div>
+<h4>Video Game Journalist<h4>
+<h5>Slickster Magazine - April 2016 to May 2018</h5>
+</div>
+
+<div>
+<h4>Marketing Coordinator<h4>
+<h5>TEDxSFU - February 2017 to November 2017</h5>
+</div>
+
+<div>
+<h4>Ad manager<h4>
+<h5>Zenva Academy - April 2017 to May 2017</h5>
+</div>
+
+<div>
+<h4>Web Developer / SEO<h4>
+<h5>ElementIQ - August 2016 to September 2017</h5>
+</div>
+
+</section>
+
+
+</main>
+</body>
 </html>
