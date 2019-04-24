@@ -48,7 +48,10 @@
     opacity: 1;
     cursor: pointer;
   }
+  .game{
 
+    color:#ff006a;
+  }
   </style>
 </head>
 <body>
@@ -58,75 +61,17 @@
     <nav><a href="/">home</a> | <a href="/work/">work</a> | <a href="/games/">games</a> | <a href="/writing/">writing</a></nav>
 </header>
 <section>
+<p><a href="prick.zip" class="game">Click to download (Windows)</a></p>
+<p>An exploration in an alternative health/stamina resource management system.</p>
 
-<p>Tic Tac Toe is what's known as a "solved game". Assuming both players play perfectly, the best outcome is a draw. This is due to the game's limited "game tree" / possible outcomes. This basically means that a computer can simulate all possible moves it and its opponent can make.</p>
+<p>This project was a good example of know the rules before you break them. I wanted to make a system where you couldn’t just horde a resource without repercussions, which ended up just making a bad player experience. </p>
 
-  <p>Think in Chess, how one typically consider the possible moves their opponent can make before they commit to moving a piece. Computers do this, but for every possible outcome to the end of the game. In Chess for example, computers assign probability scores to these "branches" and commits to one with the best score, after simulating as much as they can. </p>
-<h2>Analysis</h2>
-  <p> A few things that make Tic Tac Toe horrible / easy to solve:</p>
-  <ul>
-    <li>The game board is small.</li>
-    <li>The number of possible moves shrinks as you play.</li>
-    <li>There is a first-turn bias, whoever goes first wins or draws.</li>
-  </ul>
-  <p>Right off the bat, there isn't too much to simulate, <em>especially</em> in terms of good opening moves. There are really only 3 opening moves, as the board is just reflected acros the x and y axis. This means the possible opening moves are either a corner, the middle, or an edge. Between perfect players, there is no perfect or bad opening.</p>
-  <p>Furthermore, as the game progresses, the computer can systematically eliminate branches of the game tree as spots are filled, since there is no chance of using a filled square. And a computer would never waste a move intentionally if it was trying to win, so it would only explore branches that allow it to win or draw the fastest by blocking or winning outright. So pretty quickly, the game tree shrinks from around 765 enumerations to a handful of meaningful terminal nodes (win conditions).</p>
-  <p>This makes sense, right? if it could win in one turn, it would. So the computer wouldn't waste time exploring the game further if it could just analyze the board and see an open spot that would instantly end the game. This check is only meaningful in the end game for similar games, but since Tic Tac Toe's end game is something like 2 turns in, it's a valid strategy.</p>
-  <p>I was challenged to come up with a way to fix and improve Tic Tac Toe by introducing a square piece. He left it pretty opened ended, so it was totally up to me to come up with rules surrounding this new piece. <p>Who could use it?</p><p> How many times could you use it? </p><p>What did it do?</p>
-  <h2>Process</h2>
-  <p>Since Tic Tac Toe is typically played on paper, I couldn't have the piece do something like clear the board or randomize the pieces. The square piece had to do something that's possible to keep track of on paper.</p>
-  <p>Also, it should be easy to learn. No weird countdowns or conditions based off of arbitrary placements or anything. It's a simple game, so I'd like to keep it one. Adding complexity without depth is a death trap.</p>
-  <p>One idea was to let the square piece be a "block" piece, which just makes a space unusable. This is strictly worse than normal Tic Tac Toe, as blocking with your conventional X and O pieces sometimes allows you to connect 3 and win. A square piece, serving only as a block, is useless. This also shortened the game and game trees, which is the exact opposite of what we were trying to achieve. This whole "blocking" idea was scrapped all together. </p>
-  <p>Another idea was to allow the square piece to be drawn over a placed piece to "flip" it's value. This seemed like a good idea until play test, when a foolproof strategy for the second player emerged. All the second player had to do was unconditionally switch the first player's piece as soon as they placed it, until the first player was forced to fill the board and eventually get their last value flipped. Scrapped.</p>
-  <p>Hang on. What if this switching mechanic was a bad thing? Not conventionally bad, but risky. That might be a better word to use. There are risky moves in chess, but no risky moves in Tic Tac Toe. Just <em>bad</em> moves.</p>
-  <p>I continued to explore and modify the "switching" mechanic. I wanted players to still use it, but if used incorrectly, it could cost them the game. I came up with what I think fixed the game, or at least made it harder / more involved.</p>
-  <h2>Corrupted Tic Tac Toe</h2>
-  <p>Welcome to Corrupted Tic Tac Toe!</p>
-  <p>Each player can "corrupt" any piece by drawing a square around it, flipping its value to the opposite piece. If a square is drawn around a O, it's now an X. Square drawn around an X? It's an O now. You can only corrupt a piece once, no flipping a piece back and forth.</p>
-  <p>However, corrupted pieces are bad. They're corrupted, afterall! If a row is a valid win in old Tic Tac Toe, but has a corrupted piece in it, that player loses. It could be the whole row, two pieces, or just one.</p>
-  <p>This can simply be used to make your opponents row become invalid. Are they about to complete a row of Os? Just flip on of their Os to an X and stop worrying about that row being completed.
-  <p>However, this will force you to play smart. If you have two X pieces lined up, and your opponent blocks with an O piece, corrupt your own piece the next turn. Otherwise, they'll corrupt their piece, giving you a completed row of Xs containing a corrupted piece. Bad news.</p>
-  <p>The second player might try to get away with only corrupting their opponent's O pieces, but that will make them lose. In the end, you'll have a row of "flipped" Os, which equates to a row of corrupted Xs. X loses!</p>
-  <p>Sometimes your opponent is about to win, and you need to either block or corrupt a piece to keep playing. Be careful not to corrupt a piece that will give you a valid row, or you lose. Don't block with a piece that'll set you up for a corruption, either. Corrupted Tic Tac Toe complicates every move you make, as corruptions can help or be used against you.</p>
-  <h2>Findings</h2>
-  <p>I found this mode of play removes the ability for a tie. Someone will always win.</p>
-  <p>This mechanic also increases the game trees by, like, a lot! It's hard to say by what magnitude this complicates things, but it does definitely "expand" the board in a way and opens up new strategies. This solves the limited board space by a bit, as the board state isn't reaching a final state as quickly. Pieces are changing, and completing a row isn't the best course of action anymore if it contains a corrupted piece.</p>
-  <p>As for fixing the first turn bias? I don't know. I think this actually supports my theory that Corrupted Tic Tac Toe is fixed (until someone computes otherwise) because it was hard for me to program a bot to test this. I looked at existing Tic Tac Toe "AI" to modify them to my new rules. That way I could test thousands of matches and see if going first made a difference.</p>
-  <h2>Computable?</h2>
-  <p>Existing Tic Tac Toe AI, at least the ones I looked at, aren't AI at all. They simply scan the whole board and check, in this order:</p>
-    <ol>
-      <li>Can I place a piece and win? If so, place a winning piece.</li>
-      <li>Am I about to lose? If so, block.</li>
-      <li>If the above are false, place a piece in a logical place to set myself up to win or block.</li>
-      <li>If there is no prefered place, place a random piece.</li>
-    </ol>
-  <p>Since Tic Tac Toe is so small, these checks and board states were basically hard coded in. There was no planning ahead, or real time analysis. They looked at the board state, looked up the matching board state, and played according to the pre-programmed best play. No room for mistakes, as everything was planned out.</p>
-  <p>I'm not entirely sure if my "Corrupted" mechanic fixes this (makes it impossible to pre-program), but it definitely makes for a lot more possible board states. If I were to program an "AI" to play against including these new rules, I would have to implement the following checks, in this order of importance:</p>
-  <ol>
-    <li>Can I place a piece and win? If so, place a winning piece.</li>
-    <li>Can I corrupt a piece and win? If so, corrupt a winning piece.</li>
-    <li>If I'm not about to win this turn, have I been blocked by an opponent's piece? If so, corrupt my own piece to avoid this</li>
-    <p>Which sprouts a new tree of checks as follows:</p>
-    <ul>
-      <li>If I corrupt this piece, will it set me up to be blocked or played against such that my opponent can corrupt a piece and cause me to lose? If so, explore other pieces to corrupt.</li>
-      <li>Would corrupting my opponent's piece be a better play? Would corrupting their piece force them to make a bad move, or would it benefit them?</li>
-    </ul>
-    <p>Once this is evaluated, continue with the main analysis:</p>
-    <li>Is my opponent about to win? If so, check whether blocking or corrupting a piece is a better play</li>
-    <p> Which opens up another tree, and continues on as the game state changes.</p>
-  </ol>
-  <p>My brain hurts. I don't even know if I wrote those steps out in the right priority, or if those step are the right ones. I might've even missed a step! I'll explore this idea further, but for now I think I've succeeded in making Tic Tac Toe fixed, and, more importantly, more fun.</p>
-  <ul>
-    <li>The game never ends in a draw.</li>
-    <li>The game isn't first turn biased anymore (I think)</li>
-    <li>The game is harder to solve because:</li>
-    <ul>
-      <li>The game board is expanded (virtually, you can play on occupied spaces)</li>
-      <li>There are multiple good plays of supposed equal "goodness", with each good play changing the game state in a different way (blocking will change the game differently than corrupting, as corrupting opens up the possibility for a corrupted row "win").</li>
-    </ul>
-</ul>
-<h2>Conclusion</h2>
-    <p>People argue that Chess is a solved game. However, with more possible chess games than atoms in the universe, this would be hard to compute. Corrupted Tic Tac Toe hasn't unsolved the original game by a significant amount, as I'm sure the number of possible Corrupted Tic Tac Toe games is still a solvable quantity. Regardless, I'm happy to know that my version of Tic Tac Toe is a little further away from its current number at 765.
+<p>Playing off the idea that the character you control is a cactus, if you drank too much water (which restored health and stamina) your health and stamina levels would drop dangerously low. This simply caused the player to almost never have full health or stamina, due to the fear of losing it all after consuming too much.</p>
+
+<p>Otherwise, It’s a standard 2D 8-directional hack n’ slash.</p>
+
+<p>I programmed the game, made all the art and even the music. Go easy on me, I was still in High School.</p>
+
 </section>
 
 
