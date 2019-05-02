@@ -3362,6 +3362,7 @@ var adj = [
 var item;
 var final;
 var finalres;
+var timeleft;
 
 function roll() {
     console.log(adj.length);
@@ -3410,13 +3411,15 @@ const userAction = async () => {
       realword = item;
         finalres = words[0].meta.syns[0];
         document.getElementById("p1").textContent = realword;
+    timeleft = 9;
+    document.getElementById("progressBar").value = 10;
     
     }
 }
 
 
 
-
+//check stems, implement score, sprite changes, countdown timer
 userAction();
 
 
@@ -3440,6 +3443,21 @@ function see(st) {
 
     }
 }
+
+
+
+var downloadTimer = setInterval(function(){
+  document.getElementById("progressBar").value = timeleft;
+  console.log(document.getElementById("progressBar").value);
+  timeleft -= 1;
+if (document.getElementById("progressBar").value == 0){
+
+          roll();
+        userAction();
+
+}
+}, 1000);
+
 
 
 </script>
@@ -3510,13 +3528,15 @@ function see(st) {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+
     </style>
 </head>
 <body>
   <main>
     <section><h1>Your word is: <span id="p1"> </span></h1>
 
-	
+	<progress value="0" max="10" id="progressBar"></progress>
 	<input type="text" placeholder="..." class="search" id ="gorilla" onkeydown="search(this)"/>  
 </section>
 <!-- <img style="position: fixed; bottom:0; left:0;" src="image_location"/> -->
