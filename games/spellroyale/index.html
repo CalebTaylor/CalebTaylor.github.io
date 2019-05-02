@@ -3363,9 +3363,13 @@ var item;
 var final;
 var finalres;
 var timeleft;
-var realscore;
+var realscore = 0;
+
 
 function roll() {
+  if (document.getElementById("p1") != null) {
+  document.getElementById("p2").textContent =  realscore;
+}
     console.log(adj.length);
     item = adj[Math.floor(Math.random() * adj.length)];
     console.log(item);
@@ -3433,7 +3437,8 @@ function search(ele) {
 
 function see(st) {
     if ((finalres.indexOf(st)) != -1) {
-      document.getElementById("p3").textContent +=  " Nice! +"+st.length;
+      realscore += st.length;
+      document.getElementById("p4").textContent =  " Nice! +"+st.length;
       
         // alert("You win. Score: " + st.length)
         roll();
@@ -3441,7 +3446,7 @@ function see(st) {
     }
     if ((finalres.indexOf(st)) == -1) {
       
-        document.getElementById("p3").textContent +=  " Oops. Answers to " + item + " were: "+finalres;
+        concatme();
         roll();
         userAction();
 
@@ -3456,9 +3461,22 @@ var downloadTimer = setInterval(function(){
   timeleft -= 1;
 if (document.getElementById("progressBar").value == 0){
 console.log(typeof finalres);
+
+concatme();
           roll();
         userAction();// disable api calls for now
-       var node = document.createElement("P"); 
+       
+                // document.getElementById("p3").textContent +=  " Oops. Answers to " + item + " were: "+finalres;
+
+
+}
+}, 1000);
+
+
+function concatme(){
+
+
+var node = document.createElement("P"); 
        var stringed = JSON.stringify(finalres) 
        var spaced = stringed.split(',').join(', ');
        var quoted = spaced.replace(/['"]+/g, '');
@@ -3466,12 +3484,8 @@ console.log(typeof finalres);
        var textnode = document.createTextNode(" Oops. Answers to \"" + item + "\" were: "+squared);
        node.appendChild(textnode);  
        document.getElementById("p3").appendChild(node);
-                // document.getElementById("p3").textContent +=  " Oops. Answers to " + item + " were: "+finalres;
-
-
+document.getElementById("p4").textContent =  String.fromCharCode(160);
 }
-}, 1000);
-
 
 
 </script>
@@ -3572,11 +3586,11 @@ console.log(typeof finalres);
 <body>
   <main>
     <section><p>Your word is: <span id="p1"> </span></p>
-
+<p><span id="p4">   &nbsp; </span></p>
 	<progress value="0" max="10" id="progressBar"></progress>
 	<input type="text" placeholder="..." class="search" id ="gorilla" onkeydown="search(this)"/>  
   <section><p>Score: <span id="p2"> </span></p>
-    <p><span id="p3"> </span></p>
+    <p><span id="p3"></span></p>
 </section>
 <section>
   <!-- <img src="glyph.gif" width="50%" class="glyph"> -->
