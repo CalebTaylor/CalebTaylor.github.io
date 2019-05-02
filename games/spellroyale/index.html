@@ -3364,11 +3364,13 @@ var final;
 var finalres;
 var timeleft;
 var realscore = 0;
+var badscore = 0;
 
 
 function roll() {
   if (document.getElementById("p1") != null) {
   document.getElementById("p2").textContent =  realscore;
+  document.getElementById("p9").textContent =  badscore;
 }
     console.log(adj.length);
     item = adj[Math.floor(Math.random() * adj.length)];
@@ -3424,7 +3426,7 @@ const userAction = async () => {
 
 
 
-//check stems, implement score, sprite changes, show answers after
+//check stems, implement score, sprite changes, show answers after, show missed words, hide answers until you click to show
 userAction();
 
 
@@ -3481,12 +3483,23 @@ var node = document.createElement("P");
        var spaced = stringed.split(',').join(', ');
        var quoted = spaced.replace(/['"]+/g, '');
        var squared = quoted.replace(/[[\]]/g,'');
-       var textnode = document.createTextNode(" Oops. Answers to \"" + item + "\" were: "+squared);
+       var textnode = document.createTextNode("Answers to \"" + item + "\" were: "+squared);
        node.appendChild(textnode);  
        document.getElementById("p3").appendChild(node);
 document.getElementById("p4").textContent =  String.fromCharCode(160);
+badscore += 1;
 }
 
+
+
+function hide() {
+  var x = document.getElementById("p3");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
 
 </script>
     <style>
@@ -3538,7 +3551,15 @@ document.getElementById("p4").textContent =  String.fromCharCode(160);
         h5 {
             font-weight: normal;
         }
-        
+        #p4{
+          color:#5CEB44;
+        }
+                #p2{
+          color:#ebEB44;
+        }
+                        #p9{
+          color:#eb4444;
+        }
         code:hover {
             color: red;
         }
@@ -3566,6 +3587,9 @@ document.getElementById("p4").textContent =  String.fromCharCode(160);
     margin-left: auto;
     margin-right: auto;
         }
+        #p3{
+          display: none;
+        }
 
       progress{
         width: 100%;
@@ -3579,6 +3603,23 @@ document.getElementById("p4").textContent =  String.fromCharCode(160);
   border-radius: 4px;
   box-sizing: border-box;
 }
+button{
+            color: white;
+            font-family: undefined;
+            src: url(undefined-medium.woff) format('woff');
+            border:none;
+            text-decoration: underline; 
+            background: none;
+            stroke: none;
+
+}
+button:hover{
+
+  cursor: pointer;
+}
+button:active{
+  border-color: black;
+}
 
 
     </style>
@@ -3590,6 +3631,10 @@ document.getElementById("p4").textContent =  String.fromCharCode(160);
 	<progress value="0" max="10" id="progressBar"></progress>
 	<input type="text" placeholder="..." class="search" id ="gorilla" onkeydown="search(this)"/>  
   <section><p>Score: <span id="p2"> </span></p>
+    <section><p>Missed words: <span id="p9"> </span></p>
+
+    <button onclick="hide()">Show answers</button>
+
     <p><span id="p3"></span></p>
 </section>
 <section>
