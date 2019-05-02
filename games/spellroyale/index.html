@@ -3460,7 +3460,9 @@ function see(st) {
 var downloadTimer = setInterval(function(){
   document.getElementById("progressBar").value = timeleft;
   console.log(document.getElementById("progressBar").value);
+  if (item != ""){
   timeleft -= 1;
+}
 if (document.getElementById("progressBar").value == 0){
 console.log(typeof finalres);
 
