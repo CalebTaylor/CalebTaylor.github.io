@@ -53,27 +53,7 @@
     <nav><a href="/">home</a> | <a href="/work/">work</a> | <a href="/games/">games</a> | <a href="/writing/">writing</a></nav>
   </header>
 <section>
-<p>Tic Tac Toe is what's known as a "solved game". Assuming both players play perfectly, the best outcome is a draw. This is due to the game's limited "game tree" / possible outcomes. This basically means that a computer can simulate all possible moves it and its opponent can make.</p>
 
-  <p>Think in Chess, how one typically consider the possible moves their opponent can make before they commit to moving a piece. Computers do this, but for every possible outcome to the end of the game. In Chess for example, computers assign probability scores to these "branches" and commits to one with the best score, after simulating as much as they can. </p>
-<h2>Analysis</h2>
-  <p> A few things that make Tic Tac Toe horrible / easy to solve:</p>
-  <ul>
-    <li>The game board is small.</li>
-    <li>The number of possible moves shrinks as you play.</li>
-    <li>There is a first-turn bias, whoever goes first wins or draws.</li>
-  </ul>
-  <p>Right off the bat, there isn't too much to simulate, <em>especially</em> in terms of good opening moves. There are really only 3 opening moves, as the board is just reflected across the x and y axis. This means the possible opening moves are either a corner, the middle, or an edge. Between perfect players, there is no perfect or bad opening.</p>
-  <p>Furthermore, as the game progresses, the computer can systematically eliminate branches of the game tree as spots are filled, since there is no chance of using a filled square. And a computer would never waste a move intentionally if it was trying to win, so it would only explore branches that allow it to win or draw the fastest by blocking or winning outright. So pretty quickly, the game tree shrinks from around 765 enumerations to a handful of meaningful terminal nodes (win conditions).</p>
-  <p>This makes sense, right? if it could win in one turn, it would. So the computer wouldn't waste time exploring the game further if it could just analyze the board and see an open spot that would instantly end the game. This check is only meaningful in the end game for similar games, but since Tic Tac Toe's end game is something like 2 turns in, it's a valid strategy.</p>
-  <p>I was challenged to come up with a way to fix and improve Tic Tac Toe by introducing a square piece. He left it pretty opened ended, so it was totally up to me to come up with rules surrounding this new piece. <p>Who could use it?</p><p> How many times could you use it? </p><p>What did it do?</p>
-  <h2>Process</h2>
-  <p>Since Tic Tac Toe is typically played on paper, I couldn't have the piece do something like clear the board or randomize the pieces. The square piece had to do something that's possible to keep track of on paper.</p>
-  <p>Also, it should be easy to learn. No weird countdowns or conditions based off of arbitrary placements or anything. It's a simple game, so I'd like to keep it one. Adding complexity without depth is a death trap.</p>
-  <p>One idea was to let the square piece be a "block" piece, which just makes a space unusable. This is strictly worse than normal Tic Tac Toe, as blocking with your conventional X and O pieces sometimes allows you to connect 3 and win. A square piece, serving only as a block, is useless. This also shortened the game and game trees, which is the exact opposite of what we were trying to achieve. This whole "blocking" idea was scrapped all together. </p>
-  <p>Another idea was to allow the square piece to be drawn over a placed piece to "flip" it's value. This seemed like a good idea until play test, when a foolproof strategy for the second player emerged. All the second player had to do was unconditionally switch the first player's piece as soon as they placed it, until the first player was forced to fill the board and eventually get their last value flipped. Scrapped.</p>
-  <p>Hang on. What if this switching mechanic was a bad thing? Not conventionally bad, but risky. That might be a better word to use. There are risky moves in Chess, but no risky moves in Tic Tac Toe. Just <em>bad</em> moves.</p>
-  <p>I continued to explore and modify the "switching" mechanic. I wanted players to still use it, but if used incorrectly, it could cost them the game. I came up with what I think fixed the game, or at least made it harder / more involved.</p>
   <h2>Corrupted Tic Tac Toe</h2>
   <p>Welcome to Corrupted Tic Tac Toe! The new, fun way to play Tic Tac Toe.</p>
   <p>Each player can "corrupt" any piece by drawing a square around it, flipping its value to the opposite piece. If a square is drawn around a O, it's now an X. Square drawn around an X? It's an O now. You can only corrupt a piece once, no flipping a piece back and forth. This uses up a turn, so once per turn you can either corrupt a piece or place a new piece down.</p>
@@ -124,6 +104,27 @@
     </ul>
 </ul>
 <h3>Update:</h3> We have a demo! My girlfriend worked on a c++ demo to play with. Check it out here: <a href="https://github.com/CalebTaylor/Corrupted-Tic-Tac-Toe">https://github.com/CalebTaylor/Corrupted-Tic-Tac-Toe</a>
+<p>Tic Tac Toe is what's known as a "solved game". Assuming both players play perfectly, the best outcome is a draw. This is due to the game's limited "game tree" / possible outcomes. This basically means that a computer can simulate all possible moves it and its opponent can make.</p>
+
+  <p>Think in Chess, how one typically consider the possible moves their opponent can make before they commit to moving a piece. Computers do this, but for every possible outcome to the end of the game. In Chess for example, computers assign probability scores to these "branches" and commits to one with the best score, after simulating as much as they can. </p>
+<h2>Analysis</h2>
+  <p> A few things that make Tic Tac Toe horrible / easy to solve:</p>
+  <ul>
+    <li>The game board is small.</li>
+    <li>The number of possible moves shrinks as you play.</li>
+    <li>There is a first-turn bias, whoever goes first wins or draws.</li>
+  </ul>
+  <p>Right off the bat, there isn't too much to simulate, <em>especially</em> in terms of good opening moves. There are really only 3 opening moves, as the board is just reflected across the x and y axis. This means the possible opening moves are either a corner, the middle, or an edge. Between perfect players, there is no perfect or bad opening.</p>
+  <p>Furthermore, as the game progresses, the computer can systematically eliminate branches of the game tree as spots are filled, since there is no chance of using a filled square. And a computer would never waste a move intentionally if it was trying to win, so it would only explore branches that allow it to win or draw the fastest by blocking or winning outright. So pretty quickly, the game tree shrinks from around 765 enumerations to a handful of meaningful terminal nodes (win conditions).</p>
+  <p>This makes sense, right? if it could win in one turn, it would. So the computer wouldn't waste time exploring the game further if it could just analyze the board and see an open spot that would instantly end the game. This check is only meaningful in the end game for similar games, but since Tic Tac Toe's end game is something like 2 turns in, it's a valid strategy.</p>
+  <p>I was challenged to come up with a way to fix and improve Tic Tac Toe by introducing a square piece. He left it pretty opened ended, so it was totally up to me to come up with rules surrounding this new piece. <p>Who could use it?</p><p> How many times could you use it? </p><p>What did it do?</p>
+  <h2>Process</h2>
+  <p>Since Tic Tac Toe is typically played on paper, I couldn't have the piece do something like clear the board or randomize the pieces. The square piece had to do something that's possible to keep track of on paper.</p>
+  <p>Also, it should be easy to learn. No weird countdowns or conditions based off of arbitrary placements or anything. It's a simple game, so I'd like to keep it one. Adding complexity without depth is a death trap.</p>
+  <p>One idea was to let the square piece be a "block" piece, which just makes a space unusable. This is strictly worse than normal Tic Tac Toe, as blocking with your conventional X and O pieces sometimes allows you to connect 3 and win. A square piece, serving only as a block, is useless. This also shortened the game and game trees, which is the exact opposite of what we were trying to achieve. This whole "blocking" idea was scrapped all together. </p>
+  <p>Another idea was to allow the square piece to be drawn over a placed piece to "flip" it's value. This seemed like a good idea until play test, when a foolproof strategy for the second player emerged. All the second player had to do was unconditionally switch the first player's piece as soon as they placed it, until the first player was forced to fill the board and eventually get their last value flipped. Scrapped.</p>
+  <p>Hang on. What if this switching mechanic was a bad thing? Not conventionally bad, but risky. That might be a better word to use. There are risky moves in Chess, but no risky moves in Tic Tac Toe. Just <em>bad</em> moves.</p>
+  <p>I continued to explore and modify the "switching" mechanic. I wanted players to still use it, but if used incorrectly, it could cost them the game. I came up with what I think fixed the game, or at least made it harder / more involved.</p>
 <h2>Conclusion</h2>
     <p>People argue that Chess is a solved game. However, with more possible Chess games than atoms in the universe, this would be hard to compute. Corrupted Tic Tac Toe hasn't unsolved the original game by a significant amount, as I'm sure the number of possible Corrupted Tic Tac Toe games is still a solvable quantity. Regardless, I'm happy to know that my version of Tic Tac Toe is a little further away from its current number at 765.
 </section>
