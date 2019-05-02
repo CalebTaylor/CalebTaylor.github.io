@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
 <!--     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" /> -->
-<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
 <script type="text/javascript">
 var adj = [
 'abound',
@@ -3363,6 +3363,7 @@ var item;
 var final;
 var finalres;
 var timeleft;
+var realscore;
 
 function roll() {
     console.log(adj.length);
@@ -3419,7 +3420,7 @@ const userAction = async () => {
 
 
 
-//check stems, implement score, sprite changes, countdown timer
+//check stems, implement score, sprite changes, show answers after
 userAction();
 
 
@@ -3432,12 +3433,15 @@ function search(ele) {
 
 function see(st) {
     if ((finalres.indexOf(st)) != -1) {
-        alert("You win. Score: " + st.length)
+      document.getElementById("p3").textContent +=  " Nice! +"+st.length;
+      
+        // alert("You win. Score: " + st.length)
         roll();
         userAction();
     }
     if ((finalres.indexOf(st)) == -1) {
-        alert("Wrong sorry, next word is")
+      
+        document.getElementById("p3").textContent +=  " Oops. Answers to " + item + " were: "+finalres;
         roll();
         userAction();
 
@@ -3451,9 +3455,19 @@ var downloadTimer = setInterval(function(){
   console.log(document.getElementById("progressBar").value);
   timeleft -= 1;
 if (document.getElementById("progressBar").value == 0){
-
+console.log(typeof finalres);
           roll();
-        userAction();
+        userAction();// disable api calls for now
+       var node = document.createElement("P"); 
+       var stringed = JSON.stringify(finalres) 
+       var spaced = stringed.split(',').join(', ');
+       var quoted = spaced.replace(/['"]+/g, '');
+       var squared = quoted.replace(/[[\]]/g,'');
+       var textnode = document.createTextNode(" Oops. Answers to \"" + item + "\" were: "+squared);
+       node.appendChild(textnode);  
+       document.getElementById("p3").appendChild(node);
+                // document.getElementById("p3").textContent +=  " Oops. Answers to " + item + " were: "+finalres;
+
 
 }
 }, 1000);
@@ -3462,10 +3476,21 @@ if (document.getElementById("progressBar").value == 0){
 
 </script>
     <style>
+        @font-face {
+            font-family: undefined;
+            src: url(undefined-medium.woff) format('woff')
+        }
         body {
-            font-family: Liberation Sans, Arial, sans-serif;
-            background-color: #ABEDFF;
-            line-height: 1.3;
+            
+            background-color: #000;
+            line-height: 1.7em;
+            color: white;
+                        font-family: undefined;
+            src: url(undefined-medium.woff) format('woff')
+
+        }
+        section{
+         
         }
         
         main {
@@ -3503,7 +3528,13 @@ if (document.getElementById("progressBar").value == 0){
         code:hover {
             color: red;
         }
-        
+        h2{
+          color: white;
+            font-family: undefined;
+            src: url(undefined-medium.woff) format('woff')
+            font-weight: 400;
+        }
+/*        
         img {
             margin: 0.2rem;
             opacity: 0.25;
@@ -3512,18 +3543,24 @@ if (document.getElementById("progressBar").value == 0){
         img:hover {
             opacity: 1;
             cursor: pointer;
-        }
+        }*/
         .read{
             color:#D61AD3;
         }
-      h1{
-        font-family: 'Press Start 2P', cursive;
+        .glyph{
+              display: block;
+    margin-left: auto;
+    margin-right: auto;
+        }
+
+      progress{
+        width: 100%;
       }
       input[type=text], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  font-family: 'Press Start 2P', cursive;
+  
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -3534,12 +3571,17 @@ if (document.getElementById("progressBar").value == 0){
 </head>
 <body>
   <main>
-    <section><h1>Your word is: <span id="p1"> </span></h1>
+    <section><p>Your word is: <span id="p1"> </span></p>
 
 	<progress value="0" max="10" id="progressBar"></progress>
 	<input type="text" placeholder="..." class="search" id ="gorilla" onkeydown="search(this)"/>  
+  <section><p>Score: <span id="p2"> </span></p>
+    <p><span id="p3"> </span></p>
 </section>
-<!-- <img style="position: fixed; bottom:0; left:0;" src="image_location"/> -->
+<section>
+  <!-- <img src="glyph.gif" width="50%" class="glyph"> -->
+</section>
+<!-- <img style="position: fixed; bottom:0; left:0;" src="island.png"/> -->
 </main>
 	</body>
 </html>
