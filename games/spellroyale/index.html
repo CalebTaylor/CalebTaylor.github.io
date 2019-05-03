@@ -3401,7 +3401,7 @@ const userAction = async () => {
     console.log(typeof myJson);
     var words = myJson;
     console.log(typeof words[0].meta);
-    while (words[0].meta == undefined) {
+    while (words[0].meta == undefined || words[0].meta.syns[0] == undefined) {
       realword = " ";
         document.getElementById("p1").textContent = " ";
         console.log(words);
