@@ -29,12 +29,11 @@
         <hr></page>
         <page no-universe="">
             <p><span class="h">"Oh."</span> He said. <span class="h">"Darkness? Why?"</span></p>
-            <p><span class="d">"You gave me the choice. I thought I had the agency to chose."</span> She said.</p>
+            <p><span class="d">"I have the agency to chose, don't I?"</span> She asked.</p>
             <p>He pondered for a moment.</p>
-            <p><span class="h">"It's just that... No one has chosen darkness before."</span> He said.</p>
-            <p><span class="d">"All the more reason to chose it then."</span> She replied.</p>
-            <p>He smiled.</p>
-            <p><span class="h">"Very well. Go ahead."</span></p>
+            <p><span class="h">"It's just that... not many choose darkness."</span> He said.</p>
+            <p>Moments later a smile spread across his face. He shrugged, and seemed satisfied.</p>
+            <p><span class="h">"Let's see how this goes."</span></p>
             <button choice create-stars-later="">Light.</button>
             <button choice no-stars-again>Darkness.</button>
         <hr></page>
@@ -48,15 +47,51 @@
         <hr></page>
         <page no-stars-again="">
             <p>They both waited. No time passed, and nothing changed. Nothing was there <em>to</em> change, afterall.</p>
-            <p>She smiled a satisfied smile before turning to ask a question.</p>
+            <p>She smiled a satisfied smile before turning to ask him a question.</p>
             <p>"Isn't it nice?" She asked.</p>
             <p>He was confused.</p>
             <p>"How can <em>nothing</em> be nice?" He asked.</p>
-            <p>"Exactly. No pain, or suffering, or confusion. Nothing being destroyed, or corrupted. Peace. True peace." She said.</p>
-            <p>She waved her hands in front of her and a lone hydrogen atom appeared before them. The erratic particle spun and jumped.</p>
-            <p>"See here." She said. "Now an atom is infont of us. The rest of the Universe lacks atoms. Isn't that terrible? "</p>
+            <p>"No pain, or suffering, or confusion. Nothing being destroyed, or corrupted, or lost. It's peace. True peace." She said.</p>
+            <p>He looked puzzled. He tried in vain, unable to reach an understanding. She noticed.</p>
+            <p>She waved her hands in front of her and a lone hydrogen atom appeared before them. The particle spun and jumped, erratic and random.</p>
+            <p>"Look." She said. "Here we have an atom, somewhere else has none. <em>Everywhere</em> but here has none. Isn't that terrible? "</p>
+            <p>He watched the atom dart back and forth infront of him. The lone particle amplified the lonliness of the Universe before them, and a chill ran through him.</p>
+            <p>"You have a point. Get rid of it. Please." He said. She quickly removed the particle from existance and he sighed with relief.</p>
+            <button choice create-stars-latest="">Light.</button>
+            <button choice no-stars-final>Darkness.</button>
+        <hr></page>
+
+ <page create-stars-latest="">
+            <p>You play the flute, and the troll disappears in a cloud of smoke.</p>
+            <p>"I'll get you, Owl!" he curses.</p>
+            <p>You and Smeemog escape the forest safely.</p>
+            <p><i>You win!</i>
+            </p>
             <button restart>Play again?</button>
         <hr></page>
+        <page no-stars-final="">
+            <p>No time passed, yet they sat for what felt like forever.</p>
+            <p>"You know..." He said. There was hesitation in his voice.</p>
+            <p>"Yeah?" She asked. She turned to him and waited for him to continue.</p>
+            <p>"I think you made the perfect choice." He said. She cocked her head sideways.</p>
+            <p>"Is that so?" She asked. "What makes you say that?"</p>
+            <p>He placed his hand on hers.</p>
+            <p>"I have to admit. It's nice. Nothing can happen. It's predicatble." He said. She layed her head on his shoulder and thought for a minute before speaking.</p>
+            <p>"Does that count as a choice?" She asked. "I didn't chose anything. In fact, I chose <em>nothing</em>."</p>
+            <p>"Eve." He said. "In a way, you chose to <em>stay</em> here, with me."</p>
+            <p>They sat in silence for moments more. She didn't object, nor agree, but simply squeezed him harder.</p>
+            <p>"And guess what?" He said.</p>
+            <p>"What, Adam?" She said with a laugh. It was if she knew what he was about to say.</p>
+            <p>"I chose to stay too."</p>
+            <p>And they did just that. Stay.</p>
+            <button restart>Restart</button>
+        <hr></page>
+
+
+
+
+
+
         <page create-stars="">
             <p>You play the flute, and the troll disappears in a cloud of smoke.</p>
             <p>"I'll get you, Owl!" he curses.</p>
@@ -140,6 +175,21 @@ p, button{
 @-moz-keyframes slide-down {
       0% { opacity: 0;  }   
     100% { opacity: 1;  }
+}
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
 }
 </style>
 
