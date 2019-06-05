@@ -94,179 +94,390 @@
         <hr>
         <section>
             <h2> project history </h2>
-            <div>
-                <h4>Flyer wizard<em> (Web App) </em></h4>
-                <h5>SanMar Canada - 2019</h5>
-                <p>The Flyer Wizard was an old design tool which let customers make flyers using our product pictures. The UI was poorly done and it lacked a ton of features, which I fixed and added. The tool received instant positive feedback and kept users on our site longer, as intended. </p>
-                <p>It was a challenge to work with our API to generate the results I needed for new features to work, because it was highly customized for the legacy tool. The same goes for account specific actions like saving and loading old flyers, uploading images, etc.</p>
-                <p>The tool saw around <b>40</b> unique users a month compared to the 1 or 2 users previous.</p>
-                <p><code>JavasCript / HTML / CSS / Fabric.js / jQuery / AngularJS / JSON (from API)</code></p>
-            </div>
-            <div>
-                <h4>Batch image cropping script<em> (Program) </em></h4>
-                <h5>SanMar Canada - 2019</h5>
-                <p>The website manager was bogged down with repetitive cropping and resizing of product images. I developed a Python script that automated this process, which also uploaded the images once finished to our customer image library and respective product pages on the production site.</p>
-                <p>It was challenging working with the image processing library OpenCV, as it used a lot of math and functions I didn't understand. Admittedly, it took a lot of trial and error to make the script perform accurate edits.
-                    <p>The script saved the website manager <b>weeks</b> of work per batch, as it would edit tens of hundreds of images in a few seconds.</p>
-                    <a href="c1.png" target="_blank">
-                        <picture><img src="cc1.png"></picture>
-                    </a>
-                    <p><code>Python / OpenCV / numpy</code></p>
-            </div>
-            <div>
-                <h4>Windows 10 on Raspberry pi<em> (IT) </em></h4>
-                <h5>SanMar Canada - 2019</h5>
-                <p>The Director of Technology wanted to replace all laptops with Raspberry Pis running thin remote desktop sessions connected to virtual machines centralized on one Windows server. That way, physical repairs were cheaper and anything to do with software could be managed from one place.</p>
-                <p>The Pi's would need to support dual monitor display, local printer sharing, shared audio, and VLAN for the remote desktop session.</p>
-                <p>Performance and drivers presented a huge issue. Windows 10 isn't made to run on the ARM CPU architecture so it took many tweaks, reinstallations, and optimizations to get it running. Thankfully, a lot of separate solutions were posted online, which I consolidated into one working installation.
-                    <p>This upgrade saved us around <b>$450</b> per unit replaced (around 20 units currently) and freed up time spent fixing individual machines.</p>
-                    <p><code>UEFI / ARM64</code></p>
-            </div>
-            <div>
-                <h4>Batch image downloader interface<em> (Web App) </em></h4>
-                <h5>SanMar Canada - 2019</h5>
-                <p>The marketing department was overwhelmed with requests from customers needing groups of product images for download. The working solution was to give them access to an FTP server, which was hard to use and very insecure. I created a front end interface for customers to add images to their "cart" and download them in batches.</p>
-                <p>Usually, if an open source solution exists, I would use it. This project required many custom functions which I had to make from scratch.</p>
-                <p>The tool allowed us to reallocate the FTP server space for more sensible uses and totally eliminated any insecurities, along with making the entire process <b>easier</b> to use by all.</p>
-                <p><code>HTML / CSS / JSON (from API) / MVC / jQuery / Ajax</code></p>
-            </div>
-            <div>
-                <h4>Company mobile app <em> (Android App) </em></h4>
-                <h5>SanMar Canada - 2019</h5>
-                <p>The Director of Technology wanted to create a streamlined mobile application for registered customers to quickly place orders with. Our main website isn't too mobile friendly, which made a stripped down app version make sense. </p>
-                <p> The team was not familiar with mobile development, so small tweaks they couldn't outsource I <b>assisted</b> with in office. </p>
-                <p><code>Android Studio / Java / XML</code></p>
-            </div>
-            <div>
-                <h4>Mobile styling<em> (Web Design) </em></h4>
-                <h5>SanMar Canada - 2018</h5>
-                <p>The company's website had many features that were designed without mobile platforms in consideration.</p>
-                <p> I styled and upgraded many components to be more accessible in general, but in particular <b>improved</b> the mobile experience navigating our website.</p>
-                <p><code>CSS / MVC / Magento</code></p>
-            </div>
-            <div>
-                <h4>The Wishing Tower <em> (Computer Game) </em></h4>
-                <h5>Personal - 2019</h5>
-                <p>Currently, I have a working prototype for the main aspects of TWT completed. To speed up development, I made the combat and story chunks of the game <b>modular</b>, so if I wanted to add new hostile encounters or story moments, I could do so in just a few minutes with little effort.</p>
-                <p>It's a 2D, story driven platformer, set in a post apocalyptic America. </p>
-                <p>The combat is a Dance Dance Revolution-esque experience where the player lines up shapes in a correct order to execute attacks.</p>
-                <a href="games/the-wishing-tower/" class="read">Read more.</a>
-                <p>Shipping December 2019.</p>
-                <a href="w1.png" target="_blank">
-                    <picture><img src="ww1.png"></picture>
-                </a>
-                <a href="w2.png" target="_blank">
-                    <picture><img src="ww2.png"></picture>
-                </a>
-                <a href="w3.png" target="_blank">
-                    <picture><img src="ww3.png"></picture>
-                </a>
-                <a href="w4.png" target="_blank">
-                    <picture><img src="ww4.png"></picture>
-                </a>
-                <p><code>GameMaker Studio 2 / GML / Aseprite / FL Studio</code></p>
-            </div>
-            <div>
-                <h4>Legends of the Traveler<em> (Computer Game) </em></h4>
-                <h5>Teccrab - 2018</h5>
-                <p>I created a prototype for a morality balancing feature for Legends of the Traveler. It was a proof of concept for an idea we had wanted to implement. We wanted the player's choices in the game to affect the story in a meaningful way, not just block certain paths from the player.</p>
-                <p>As a sort of global morality meter, if the player made a questionable choice, the entire game world would change and react as a result (for better or worse). After testing some specifics given by the Creative Director, we concluded that the system would work on a <b>grand scale</b> as would be implemented as a core feature of the game.</p>
-                <p>I also wrote scripts, parts of the story, and designed missions and levels. I managed the online community/following, coordinated marketing events and managed the Kickstarter campaign (unfortunately we did not reach our target goal). </p>
-                <a href="games/legends-of-the-traveler/" class="read">Read more.</a>
-                <p> Did not ship.</p>
-                <a href="t1.png" target="_blank">
-                    <picture><img src="tt1.png"></picture>
-                </a>
-                <a href="t2.png" target="_blank">
-                    <picture><img src="tt2.png"></picture>
-                </a>
-                <p><code>Unreal Engine / Processing (Prototyping)</code></p>
-            </div>
-            <div>
-                <h4>Emily Against All Ends<em> (Computer Game) </em></h4>
-                <h5>Snake-Eye Studio - 2019</h5>
-                <p>Was recently hired on as a part time programmer and artist for a 2D puzzle platformer developed by Snake-Eye studio.</p>
-                <p>Shipping April 2020.</p>
-                <p><code>Godot Engine (C++) / Aseprite</code></p>
-            </div>
-            <div>
-                <h4>Silly Seagull<em> (Mobile Game) </em></h4>
-                <h5>SFU - 2019</h5>
-                <p>Using mobile phone sensors, I created a motion game where you shoot incoming evil seagulls with a shotgun. </p>
-                <p>Users can sign in and see how their personal high scores stack up against other players on the same phone.</p>
-                <a href="games/silly-seagull/" class="read">Read more.</a>
-                <p><code>Android Studio / Java / XML / Aseprite</code></p>
-            </div>
-            <div>
-                <h4>Division Exercise<em> (Mobile Game) </em></h4>
-                <h5>SFU - 2019</h5>
-                <p>Coded a relaxing math game for android.</p>
-                <p> Not much in the way of groundbreaking design or sophisticated programming but it performed well as a time passer and taught me a lot about API calls and asynchronous tasks.</p>
-                <p>Built with Android Studio in Java and utilized an online random number generator API.</p>
-                <p><code>Android Studio / Java / XML</code></p>
-            </div>
-            <div>
-                <h4>Buddy Dodger<em> (Computer Game) </em></h4>
-                <h5>SFU - 2018</h5>
-                <p>Created a local 2 player platformer game for a short game design study. </p>
-                <p>Basic, but explored the use of various power-ups.</p>
-                <p><a href="games/buddy-dodger/" class="read">Read more.</a></p>
-                <a href="b1.png" target="_blank">
-                    <picture><img src="bb1.png"></picture>
-                </a>
-                <a href="b2.png" target="_blank">
-                    <picture><img src="bb2.png"></picture>
-                </a>
-                <a href="b3.png" target="_blank">
-                    <picture><img src="bb3.png"></picture>
-                </a>
-                <p><code>GameMaker Studio 1.4 / GML / Aseprite / FL Studio</code></p>
-            </div>
-            <div>
-                <h4>Fungler Shootout<em> (Computer Game) </em></h4>
-                <h5>SFU - 2017</h5>
-                <p>Made a single player reaction time based game for Windows. Created CPU enemies with increasing skill as the game progressed. Created all art and sound myself.</p>
-                <a href="games/fungler-shootout/" class="read">Read more.</a>
-                <p><code>Processing / Aseprite</code></p>
-            </div>
-            <div>
-                <h4>Trap Shoot<em> (Computer Game) </em></h4>
-                <h5>SFU - 2016</h5>
-                <p>Made a simple 2D shooter for Windows.</p>
-                <p><code>Processing / Aseprite</code></p>
-            </div>
-            <div>
-                <h4>Medimind<em> (Mobile App) </em></h4>
-                <h5>Competition - 2019</h5>
-                <p>Designed and coded a chatroom app for IOS/Android. </p>
-                <p>We were tasked with creating a solution for first responders dealing with difficult psychological trauma. After some research, we applied aspects of group therapy and healthy conversation to a chatroom concept. First responders could join groups based on career or location, anonymously, and talk to each other about anything they wanted to talk about. </p>It was challenging working with <b>React Native</b> for the first time, especially in the rushed setting of a hackathon. Thankfully, React Native's extensive documentation helped.
-                <p>We also implemented the Algolia search engine to work with a local database on device.</p>
-                <p><code>React Native / JavasCript / Algolia</code></p>
-            </div>
-            <div>
-                <h4>Classifier hack<em> (Program) </em></h4>
-                <h5>Competition - 2018</h5>
-                <p>Using an HTTP scraper, I replicated the server environment of an online classifier tool for race detection, then <b>reverse engineered</b> the tool to expose data to a python script. </p>
-                <p>This project was for a joke competition, but was a rather challenging thing to make. It was really hacked together (for example, using a OCR program to read an output when we couldn't get data from one program to another) but was a fun nonetheless!</p>
-                <p><code>Python / JavasCript</code></p>
-            </div>
-            <div>
-                <h4>Drawesome Bot<em> (Robot) </em></h4>
-                <h5>Competition - 2017</h5>
-                <p>Coded the UI and some core functionality for a drawing robot. </p>
-                <p>The robot used the image processing library OpenCV to convert images into coordinates, which were parsed by another script into instructions for servo motors. It then "painted" the picture with a sharpie on the end of its arm (3 bar linkage).</p>
-                <p><code>Python / OpenCV / Guidata</code></p>
-            </div>
-            <div>
-                <h4>Lumo Light<em> (App/Hardware) </em></h4>
-                <h5>Competition - 2017</h5>
-                <p>Coded the app and assembled/designed the hardware for a <b>winning</b> Hackathon product.</p>
-                <p> App was built with Processing (a Java library), which interfaced with an arduino device. </p>
-                <p>Time restricted competitions like this really teach you a lot in a short amount of time, and favour creative/quick and dirty solutions over perhaps the best optimized or scalable option. </p>
-                <p>I appreciate this aspect of the event the most as it really forces you to just go with what works and what can be built in a short amount of time.</p>
-                <p><code>Processing / Arduino</code></p>
-            </div>
-        </section>
+            <div class="entry">
+        <div>
+<table>
+<tr>
+<td><a href="##">synonym royale</a></td>
+<td>game</td>
+<td>web</td>
+<td>beat the clock, lexicographer style</td>
+</tr>
+
+
+<tr>
+<td><a href="##">tic tac toe redesign</a></td>
+<td>study</td>
+<td>web</td>
+<td>i think i fixed tic tac toe</td>
+</tr>
+
+
+<tr>
+<td><a href="##">the wishing tower</a></td>
+<td>game</td>
+<td>pc</td>
+<td>DDR combat in a post apocalyptic America</td>
+</tr>
+
+
+<tr>
+<td><a href="##">legends of the traveler</a></td>
+<td>game</td>
+<td>pc</td>
+<td>A twitter-based pixel art group</td>
+</tr>
+
+
+<tr>
+<td><a href="##">emily against all ends</a></td>
+<td>game</td>
+<td>pc</td>
+<td>two lovers are on their way to save the world.</td>
+</tr>
+
+
+<tr>
+<td><a href="##">silly seagull</a></td>
+<td>2019</td>
+<td>phone</td>
+<td>shoot seagulls with your phone</td>
+</tr>
+
+
+<tr>
+<td><a href="##">article</a></td>
+<td>2018</td>
+<td>web</td>
+<td>how to take 7 years to ship a beta</td>
+</tr>
+
+
+<tr>
+<td><a href="##">yearbook</a></td>
+<td>2018</td>
+<td>web</td>
+<td>700+ pixel dailies portraits <a href="http://jamierollo.com/pd/yearbook.html">(original)</a></td>
+</tr>
+
+
+<tr>
+<td><a href="##">avatar</a></td>
+<td>2018</td>
+<td>web</td>
+<td>change my twitter avatar</td>
+</tr>
+
+
+<tr>
+<td><a href="##">example game</a></td>
+<td>2018</td>
+<td>c++</td>
+<td>code example for a game (<a href="https://bp.io/rl/">play in browser</a>)</td>
+</tr>
+
+
+<tr>
+<td><a href="##">rorshach</a></td>
+<td>2017</td>
+<td>web</td>
+<td>rorshach generator</td>
+</tr>
+
+
+<tr>
+<td><a href="##">galaxy</a></td>
+<td>2017</td>
+<td>web</td>
+<td>interactive 3d planet generator</td>
+</tr>
+
+
+<tr>
+<td><a href="##">@cosmic_txt</a></td>
+<td>2017</td>
+<td>bot</td>
+<td>a planet generator bot</td>
+</tr>
+
+
+<tr>
+<td><a href="##">star wars</a></td>
+<td>2017</td>
+<td>web</td>
+<td>infinite star wars intro</td>
+</tr>
+
+
+<tr>
+<td><a href="##">fantasy consoles</a></td>
+<td>2017</td>
+<td>web</td>
+<td>fantasy console generator</td>
+</tr>
+
+
+<tr>
+<td><a href="##">#NotGDC</a></td>
+<td>2017</td>
+<td>text</td>
+<td>a collection of short gamedev articles</td>
+</tr>
+
+
+<tr>
+<td><a href="##">procgen article</a></td>
+<td>2017</td>
+<td>text</td>
+<td>dynamic vs static procgen</td>
+</tr>
+
+
+<tr>
+<td><a href="##">field</a>:<a href="http://bp.io/field_white">white</a>:<a href="http://bp.io/field_one">one</a></td>
+<td>2016</td>
+<td>web</td>
+<td>3 emoji map editors</td>
+</tr>
+
+
+<tr>
+<td><a href="##">ecs w decorators</a></td>
+<td>2016</td>
+<td>code</td>
+<td>ECS using Python decorators</td>
+</tr>
+
+
+<tr>
+<td><a href="##">if</a></td>
+<td>2016</td>
+<td>web</td>
+<td>infinite firefighter, a tiny roguelike</td>
+</tr>
+
+
+<tr>
+<td><a href="##">how roguelike</a></td>
+<td>2016</td>
+<td>web</td>
+<td>determine your rogue-like rating</td>
+</tr>
+
+
+<tr>
+<td><a href="##">DMCA&#8217;s sky</a></td>
+<td>2016</td>
+<td>all</td>
+<td>because no mario&#8217;s sky got <a href="https://itch.io/takedowns/82746">DMCA&#8217;ed</a></td>
+</tr>
+
+
+<tr>
+<td>no mario&#8217;s sky</td>
+<td>2016</td>
+<td>all</td>
+<td>infinite procedural space mario</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/ulam/">spiral</a>/<a href="http://bp.io/ulam2/">drain</a></td>
+<td>2016</td>
+<td>web</td>
+<td>ulam spiral</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/gamenamegen">gamenamegen</a></td>
+<td>2016</td>
+<td>web</td>
+<td>game name generator</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/adverbly_verbed">adverbly verbed </a></td>
+<td>2016</td>
+<td>web</td>
+<td>idea generator</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/twitter">10000 pets</a></td>
+<td>2016</td>
+<td>web</td>
+<td>pixel twitter-pet generator</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/chargen">chargen</a></td>
+<td>2016</td>
+<td>web</td>
+<td>character generator</td>
+</tr>
+
+
+<tr>
+<td><a href="http://eigenbom.itch.io/pirates">pirates</a></td>
+<td>2015</td>
+<td>web</td>
+<td>pirate face generator</td>
+</tr>
+
+
+<tr>
+<td><a href="http://eigenbom.itch.io/wyrm">wyrm</a></td>
+<td>2015</td>
+<td>web</td>
+<td>wyrm</td>
+</tr>
+
+
+<tr>
+<td><a href="https://medium.com/@eigenbom/365-days-of-pixel-art-f6131f280537">365 days of art</a></td>
+<td>2015</td>
+<td>art</td>
+<td>365 consecutive days of pixel art</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/cactus">somnipsychium</a></td>
+<td>2015</td>
+<td>web</td>
+<td>a game for #clonejamcactus</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/sicktoday.html">i&#8217;m sick</a></td>
+<td>2014</td>
+<td>web</td>
+<td>infect everyone</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/post/1647">crash</a></td>
+<td>2014</td>
+<td>web</td>
+<td>steal coin$ &#8211; hack robot$ &#8211; cra$h</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/post/1732">xbrzpxl.exe</a></td>
+<td>2014</td>
+<td>pc</td>
+<td>curvy paint program</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/post/1303">shade dogs</a></td>
+<td>2013</td>
+<td>ios</td>
+<td>canine physics shadow puzzler</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/bombajam.com">bombajam.com</a></td>
+<td>2013</td>
+<td>web</td>
+<td>game studio site (archive)</td>
+</tr>
+
+
+<tr>
+<td><a href="fugu">fugu</a></td>
+<td>2012</td>
+<td>pc</td>
+<td>make procedural forms with Lua</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/ddd">ddd</a></td>
+<td>2012</td>
+<td>web</td>
+<td>a xmas action-puzzler</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/post/1139">eye quest</a></td>
+<td>2012</td>
+<td>pc</td>
+<td>you are an eye on a quest</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/post/504">ascii-paint</a></td>
+<td>2011</td>
+<td>pc</td>
+<td>ascii animation program</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/post/135">sds</a></td>
+<td>2010</td>
+<td>text</td>
+<td>my PhD dissertation in procedural generation</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/post/177">jsfxr</a></td>
+<td>2008</td>
+<td>web</td>
+<td>make 8-bit sound effects (a port of sfxr)</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/post/category/game">archived games</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/post/category/project">archived projects</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/post/category/blog">archived blog</a></td>
+<td></td>
+<td></td>
+<td>games, art, random</td>
+</tr>
+
+
+<tr>
+<td><a href="http://bp.io/papers">archived papers</a></td>
+<td></td>
+<td></td>
+<td>generative geometry research</td>
+</tr>
+
+
+</table>
+</div>
+    </div>
+</div>
+
         <hr>
         <section>
             <h2> work history </h2>
