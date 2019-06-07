@@ -1,330 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <title>Home - Caleb Taylor</title>
+      <meta http-equiv="Content-Type" content="text/html" ;charset=UTF-8>
+      <style type="text/css">
+         /*    svg {
+         -webkit-filter: invert(100%);  safari 6.0 - 9.0 
+         filter: invert(100%);
+         }*/
 
-<head>
-    <title>Home - Caleb Taylor</title>
-    <meta http-equiv="Content-Type" content="text/html" ;charset=UTF-8>
-    <style type="text/css">
-/*    svg {
-  -webkit-filter: invert(100%);  safari 6.0 - 9.0 
-          filter: invert(100%);
-}*/
-svg{
-	outline: red;
-}
-path { outline: 3px solid green; }
-        @font-face {
-font-family: undefined;
-            src: url(undefined-medium.woff) format('woff')
-        }
-        
-        body {
-            background-color: #fff;
-            color: #000;
-font-family:undefined;
-            margin-top: 10em;
-            text-align: justify;
-            line-height: 1.7em
-        }
-        
-        h1,
-        h2,
-        h3,
-        img,
-        p {
-            padding-left: 30%;
-            padding-right: 30%;
-        }
-        
-        h3 {
+         @font-face {
+font-family: 'Poppins', sans-serif;
+         }
+         body {
+         background-color: #fff;
+         color: #000;
+font-family: 'Poppins', sans-serif;
 
-            font-weight: 400
-        }
-        
-        h1,
-        h2 {
-            font-weight: 400
-        }
-        
-
-        
-        hr.yes {
-            border-top: 1px solid #000;
-            width: 40%
-        }
-        
-        strong {
-            text-decoration: none;
-            border-bottom: 1px solid #fff;
-            font-weight: 400
-        }
-        
-        a {
-            color: red;
-            text-decoration: none
-        }
-        
-        a:focus,
-        a:hover {
-            text-decoration: none
-        }
-        picture{
-/*        	display: flex;
-        	flex-direction: column;*/
-        }
-        .jobdesc{
-
-        }
-        .portrait{
-
-        }
-        .team{
-
-        	 display: flex;
-        	flex-direction: row;
-        	justify-content: space-between;
-        }
+         text-align: justify;
+         line-height: 1.7em
+         }
+         h1,
+         h2,
+         h3,
+         h4,
+         h5,
+         h6,
+         img,
+         p {
+         padding-left: 30%;
+         padding-right: 30%;
+         }
 
 
-picture img{
-
-width: 100%;
-padding: 0;
-}
-
-footer{
-	text-align: center;
-}
-
-
-
-
-
-
-
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-.column {
-  float: left;
-  width: 100%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-
-}
-
-@media screen and (max-width: 1000px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-}
-
-
-/*.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}*/
-
-.container{
-  padding: 0;
-}
-
-.card img{
-
-  width:64px;
-}
-
-
-.button:hover {
-  background-color: #555;
-}
-        
-
-
-
-        
-        @media only screen and (max-width:1000px) {
-            h1,
-            h2,
-            h3,
-            img,
-            p {
-                padding-left: 5%;
-                padding-right: 5%
-            }
-            body {
-                font-size: 200%
-            }
-            hr.yes {
-                border-top: 1px solid #000;
-                width: 100%
-            }
-        }
-    </style>
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
   
-</head>
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
 
-<body>
-   <!-- <div class="navigation"><a href="index.html">Home</a> <a href="projects.html">Projects</a> <a href="contact.html">Contact</a> <a href="styleguide.html">Styleguide</a></div> -->
-   <p>   
-   <img src="logo.svg">
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
 
 
-         <p>
-   <h2>	
-      Emily against all Ends <a href="https://calebtaylor.ca/">(Dev Blog)</a>
-   </h2>
-   <p>
-   	Two lovers, stranded and alone, are on their way to save the world. 
-   </p>
-   <p>
-    <em>Bullet-hell action adventure for PC, Mac, Linux, and HTML5</em> 
-   </p>
-   <p>
-   <picture>
-   <img src="e0.png">
-</picture>
+            .navigation {
+            background-color: #fff;
+            position: fixed;
+            width: 100%;
+            top: -5px;
+            padding-top: 1%;
+            padding-bottom: 2%;
+            text-align: center;
+            height: 5%
 
-   	<p>
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h3>Remy Luisant</h3>
-        <p class="title">Director | Game tools | Sound/Music</p>
-        <p>Remy likes snow.</p>
-        <p>remy@snake-eye.ca</p>
-
-      </div>
-    </div>
+        }
+                    .navigation a{
+            color:#999;
+            font-size:2em;
+        }
+         .column{
+         text-align:right;
+         }
+         h3 {
+         font-weight: 400
+         }
+         h1,
+         h2,h3,h4,h5,h6 {
+         font-weight: 400
+         }
+         hr.yes {
+         border-top: 1px solid #000;
+         width: 40%
+         }
+         strong {
+         text-decoration: none;
+         border-bottom: 1px solid #fff;
+         font-weight: 400
+         }
+         a {
+         color: red;
+         text-decoration: none
+         }
+         a:focus,
+         a:hover {
+         text-decoration: none
+         }
+         picture{
+         /*         display: flex;
+         flex-direction: column;*/
+         }
+         .jobdesc{
+         }
+         .portrait{
+         }
+         .team{
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         }
+         picture img{
+         width: 100%;
+         padding: 0;
+         }
+         footer{
+         text-align: center;
+         }
+         strong {
+         color: red;
+         }
+         html {
+         box-sizing: border-box;
+         }
+         *, *:before, *:after {
+         box-sizing: inherit;
+         }
+         .column {
+         float: left;
+         text-align: justify;
+         width: 100%;
+         margin-bottom: 16px;
+         padding: 0 8px;
+         }
+h1{
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+         @media screen and (max-width: 1000px) {
+         .column {
+         width: 100%;
+         display: block;
+         }
+         }
+         /*.container::after, .row::after {
+         content: "";
+         clear: both;
+         display: table;
+         }*/
+         .container{
+         padding: 0;
+         }
+         .card img{
+         width:64px;
+         }
+         .button:hover {
+         background-color: #555;
+         }
+         @media only screen and (max-width:1000px) {
+         h1,
+         h2,
+         h3,
+         h4,
+         h5,
+         h6,
+         img,
+         p {
+         padding-left: 5%;
+         padding-right: 5%
+         }
+         body {
+         font-size: 200%
+         }
+         hr.yes {
+         border-top: 1px solid #000;
+         width: 100%
+         }
+         }
+      </style>
+      <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+   </head>
+   <body>
+   <nav role="navigation">
+  <div id="menuToggle">
+    <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+    <input type="checkbox" />
+    
+    <!--
+    Some spans to act as a hamburger.
+    
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+    
+    <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+    <ul id="menu">
+      <a href="#"><li>Home</li></a>
+      <a href="#"><li>About</li></a>
+      <a href="#"><li>Info</li></a>
+      <a href="#"><li>Contact</li></a>
+      <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+    </ul>
   </div>
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h3>Caleb Taylor</h3>
-        <p class="title">Gameplay programmer | Artist</p>
-        <p>He likes London Fog tea.</p>
-        <p>caleb@snake-eye.ca</p>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!--    <img src="et1.png"> -->
-   </p>
-      <hr class="yes">
-
-
-
-
-
-
-   <p>
-   <h2>	
-      Galaxias Stella <a href="https://play.google.com/store/apps/details?id=ca.luisant.engine">(Link)</a>
-   </h2>
-   <p>
-I am a lone star, lost in this vast galaxy.
-
-Will you help me find my way home?   </p>
-   <p>
-    <em>Physics based puzzle game for Android.</em> 
-   </p>
-   <p>
-   <picture>
-   <img src="gs0.png">
-   <img src="gs1.png">
-   <img src="gs2.png">
-</picture>
-   </p>
-
-
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h3>Remy Luisant</h3>
-        <p class="title">Director | Game tools | Sound/Music</p>
-        <p>Remy likes snow.</p>
-        <p>remy@snake-eye.ca</p>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h3>166 Girl</h3>
-        <p class="title">Not sure</p>
-        <p>Remy likes snow.</p>
-        <p>remy@snake-eye.ca</p>
-
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-      <hr class="yes">
-
-         <p>
-   <h2>	
-      Synesar <a href="https://play.google.com/store/apps/details?id=ca.luisant.med">(Link)</a>
-   </h2>
-   <p>
-Synesar is a very hard indie game that believes in you. Your hand will not be held. Can you learn how to play? It won't be easy.
-   </p>
+</nav>
+      <!-- <div class="navigation"><a href="index.html">Home</a> <a href="projects.html">Projects</a> <a href="contact.html">Contact</a> <a href="styleguide.html">Styleguide</a></div> -->
+      <p>   
+         <img src="logo.svg">
       <p>
-    <em>What is this about? Available on Android.</em> 
-   </p>
-   <p>
-   <picture>
-   <img src="s0.png">
-   <img src="s1.png">
-   <img src="s2.png">
-   <img src="s3.png">
-   <img src="s4.png">
-</picture>
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h3>Remy Luisant</h3>
-        <p class="title">Director | Game tools | Sound/Music</p>
-        <p>Remy likes snow.</p>
-        <p>remy@snake-eye.ca</p>
-
+        <h1>Games</h1>
+      <h2>  
+         Emily against all Ends <a href="https://calebtaylor.ca/">(DevBlog)</a>
+      </h2>
+      <p>
+      <h3>Two lovers, stranded and alone, are on their way to save the world. </h3>
+      </p>
+      <p>
+      <h4><em>Bullet-hell action adventure for PC, Mac, Linux, and HTML5</em></h4>
+      </p>
+      <p>
+         <picture>
+            <img src="e0.png">
+         </picture>
+      <p>
+      <div class="column">
+         <div class="card">
+            <div class="container">
+               <h3>Remy Luisant</h3>
+               <p class="title">Director | Game tools | Sound/Music</p>
+               <p>Remy likes snow.</p>
+               <p>remy@snake-eye.ca</p>
+            </div>
+         </div>
       </div>
-    </div>
-  </div>
-
-
-   </p>
+      <div class="column">
+         <div class="card">
+            <div class="container">
+               <h3>Caleb Taylor</h3>
+               <p class="title">Gameplay programmer | Artist</p>
+               <p>He likes London Fog tea.</p>
+               <p>caleb@snake-eye.ca</p>
+            </div>
+         </div>
+      </div>
+      </div>
+      <!--    <img src="et1.png"> -->
+      </p>
+      <hr class="yes">
+      <p>
+      <h2>  
+         Galaxias Stella <a href="https://play.google.com/store/apps/details?id=ca.luisant.engine">(Link)</a>
+      </h2>
+      <p>
+         I am a lone star, lost in this vast galaxy.
+         Will you help me find my way home?   
+      </p>
+      <p>
+         <em>Physics based puzzle game for Android.</em> 
+      </p>
+      <p>
+         <picture>
+            <img src="gs0.png">
+            <img src="gs1.png">
+            <img src="gs2.png">
+         </picture>
+      </p>
+      <div class="column">
+         <div class="card">
+            <div class="container">
+               <h3>Remy Luisant</h3>
+               <p class="title">Director | Game tools | Sound/Music</p>
+               <p>Remy likes snow.</p>
+               <p>remy@snake-eye.ca</p>
+            </div>
+         </div>
+      </div>
+      <div class="column">
+         <div class="card">
+            <div class="container">
+               <h3>Girl</h3>
+               <p class="title">Artist</p>
+               <p>She likes the beach.</p>
+               <p>girl@snake-eye.ca</p>
+            </div>
+         </div>
+      </div>
+      <hr class="yes">
+      <p>
+      <h2>  
+         Synesar <a href="https://play.google.com/store/apps/details?id=ca.luisant.med">(Link)</a>
+      </h2>
+      <p>
+         Synesar is a very hard indie game that believes in you. Your hand will not be held. Can you learn how to play? It won't be easy.
+      </p>
+      <p>
+         <em>What is this about? Available on Android.</em> 
+      </p>
+      <p>
+         <picture>
+            <img src="s0.png">
+            <img src="s1.png">
+            <img src="s2.png">
+            <img src="s3.png">
+            <img src="s4.png">
+         </picture>
+      <div class="column">
+         <div class="card">
+            <div class="container">
+               <h3>Remy Luisant</h3>
+               <p class="title">Director | Game tools | Sound/Music</p>
+               <p>Remy likes snow.</p>
+               <p>remy@snake-eye.ca</p>
+            </div>
+         </div>
+      </div>
+      </p>
       <hr class="yes">
 
 
-<footer>
-	<p>
-		<a href="https://play.google.com/store/apps/developer?id=Snake+Eye+Studios">Google Play</a> |
-		<a href="https://store.steampowered.com/">Steam</a> |
-	<a href="mailto:contact@snake-eye.ca">contact@snake-eye.ca</a>
-</p>
-</footer>
+      <p>
+        <h1>About</h1>
+              </p>
+                    <p>
+        <h2>Our Philosophy</h2>
+              </p>
+        <p>
+          No crunch. No burnout. We value our emplyee's health and well being, first and foremost. 
+        </p>
+                <h2>Our Games</h2>
+              </p>
+        <p>
+          Our games come from within. Every game was a team member's idea that we worked on together. 
+        </p>
+<hr class="yes">
+      <p>
+        <h1>Careers</h1>
+              </p>
+                    <p>
+        <h2>Open positions:</h2>
+              </p>
+              <p><em>Last updated June 2019.</em> </p>
+        <p>No positions open. </p>
+<p>However, please send your resume to <a href="mailto:contact@snake-eye.ca">contact@snake-eye.ca</a> and we'll take a look!
+        </p>
 
 
 
 
-</body>
 
+
+
+
+
+
+
+
+
+
+      <footer>
+         <p>
+            <a href="https://play.google.com/store/apps/developer?id=Snake+Eye+Studios">Google Play</a> |
+            <a href="https://store.steampowered.com/">Steam</a> |
+            <a href="mailto:contact@snake-eye.ca">contact@snake-eye.ca</a>
+         </p>
+      </footer>
+   </body>
 </html>
