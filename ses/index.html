@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Home - Caleb Taylor</title>
-      <meta http-equiv="Content-Type" content="text/html" ;charset=UTF-8>
-      <style type="text/css">
-         /*    svg {
-         -webkit-filter: invert(100%);  safari 6.0 - 9.0 
-         filter: invert(100%);
-         }*/
+      <title>Snake-Eye Studios</title>
+      <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
+      <style>
          @font-face {
 font-family: 'Poppins', sans-serif;
          }
@@ -75,15 +71,13 @@ h3 {
   
   cursor: pointer;
   
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  opacity: 0; 
+  z-index: 2; 
   
   -webkit-touch-callout: none;
 }
 
-/*
- * Just a quick hamburger
- */
+
 #menuToggle span
 {
   display: block;
@@ -114,10 +108,7 @@ h3 {
   transform-origin: 0% 100%;
 }
 
-/* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
+
 #menuToggle input:checked ~ span
 {
   opacity: 1;
@@ -125,27 +116,20 @@ h3 {
   background: #232323;
 }
 
-/*
- * But let's hide the middle one.
- */
+
 #menuToggle input:checked ~ span:nth-last-child(3)
 {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-/*
- * Ohyeah and the last one should go the other direction
- */
+
 #menuToggle input:checked ~ span:nth-last-child(2)
 {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
+
 #menu
 {
   position: absolute;
@@ -157,7 +141,7 @@ h3 {
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
+
   
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
@@ -171,9 +155,7 @@ h3 {
   font-size: 42px;
 }
 
-/*
- * And let's slide it in from the left
- */
+
 #menuToggle input:checked ~ ul
 {
   transform: none;
@@ -223,8 +205,6 @@ h3 {
          text-decoration: none
          }
          picture{
-         /*         display: flex;
-         flex-direction: column;*/
          }
          .jobdesc{
          }
@@ -268,11 +248,6 @@ h1{
          display: block;
          }
          }
-         /*.container::after, .row::after {
-         content: "";
-         clear: both;
-         display: table;
-         }*/
          .container{
          padding: 0;
          }
@@ -306,53 +281,41 @@ h1{
       <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
    </head>
    <body>
-   <nav role="navigation">
+   <nav>
   <div id="menuToggle">
-    <!--
-    A fake / hidden checkbox is used as click reciever,
-    so you can use the :checked selector on it.
-    -->
+   
     <input type="checkbox" />
     
-    <!--
-    Some spans to act as a hamburger.
-    
-    They are acting like a real hamburger,
-    not that McDonalds stuff.
-    -->
+   
     <span></span>
     <span></span>
     <span></span>
     
-    <!--
-    Too bad the menu has to be inside of the button
-    but hey, it's pure CSS magic.
-    -->
+   
     <ul id="menu">
-      <a href="#games"><li>Games</li></a>
-      <a href="#about"><li>About</li></a>
-      <a href="#careers"><li>Careers</li></a>
-      <a href="#contact"><li>Contact</li></a>
+      <li><a href="#games">Games</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a href="#contact">ontact</a></li>
     </ul>
   </div>
 </nav>
-      <!-- <div class="navigation"><a href="index.html">Home</a> <a href="projects.html">Projects</a> <a href="contact.html">Contact</a> <a href="styleguide.html">Styleguide</a></div> -->
       <p>   
-         <img src="logo.svg">
+         <img src="logo.svg" alt="SES Logo">
       <p>
         <h2><a id="games"></a>Games</h2>
       <h3>  
          Emily against all Ends <a href="https://calebtaylor.ca/">(Devlog)</a>
       </h3>
-      <p>
+
       <p>Two lovers, stranded and alone, are on their way to save the world. </p>
-      </p>
+
       <p>
 <em>Bullet-hell action adventure for PC, Mac, Linux, and HTML5</em>
       </p>
       <p>
          <picture>
-            <img src="e0.png">
+            <img src="e0.png" alt="Emily against all Ends Screenshot">
          </picture>
       <p>
       <div class="column">
@@ -375,9 +338,6 @@ h1{
             </div>
          </div>
       </div>
-      </div>
-      <!--    <img src="et1.png"> -->
-      </p>
       <hr class="yes">
       <p>
       <h3>  
@@ -392,9 +352,11 @@ h1{
       </p>
       <p>
          <picture>
-            <img src="gs0.png">
-            <img src="gs1.png">
-            <img src="gs2.png">
+            <img src="gs0.png" alt="Galaxias Stella Screenshot 1">
+            </picture><picture>
+            <img src="gs1.png" alt="Galaxias Stella Screenshot 2">
+            </picture><picture>
+            <img src="gs2.png" alt="Galaxias Stella Screenshot 3">
          </picture>
       </p>
       <div class="column">
@@ -410,10 +372,10 @@ h1{
       <div class="column">
          <div class="card">
             <div class="container">
-               <h3>Girl</h3>
+               <h3>TBA</h3>
                <p class="title">Artist</p>
-               <p>She likes the beach.</p>
-               <p>girl@snake-eye.ca</p>
+               <p>TBA</p>
+               <p>TBA@snake-eye.ca</p>
             </div>
          </div>
       </div>
@@ -430,11 +392,15 @@ h1{
       </p>
       <p>
          <picture>
-            <img src="s0.png">
-            <img src="s1.png">
-            <img src="s2.png">
-            <img src="s3.png">
-            <img src="s4.png">
+            <img src="s0.png" alt="Synesar Screenshot 1">
+            </picture><picture>
+            <img src="s1.png" alt="Synesar Screenshot 2">
+            </picture><picture>
+            <img src="s2.png" alt="Synesar Screenshot 3">
+            </picture><picture>
+            <img src="s3.png" alt="Synesar Screenshot 4">
+            </picture><picture>
+            <img src="s4.png" alt="Synesar Screenshot 5">
          </picture>
       <div class="column">
          <div class="card">
@@ -446,31 +412,30 @@ h1{
             </div>
          </div>
       </div>
-      </p>
+
       <hr class="yes">
 
 
-      <p>
+
         <h2><a id="about"></a>About</h2>
-              </p>
-                    <p>
+
+
         <h3>Our Philosophy</h3>
-              </p>
+
         <p>
           No crunch. No burnout. We value our emplyee's health and well being, first and foremost. 
-        </p>
+
                 <h3>Our Games</h3>
-              </p>
+
         <p>
           Our games come from within. Every game was a team member's idea that we worked on together. 
         </p>
 <hr class="yes">
-      <p>
         <h2><a id="careers"></a>Careers</h2>
-              </p>
-                    <p>
+
+
         <h3>Open positions:</h3>
-              </p>
+
               <p><em>Last updated June 2019.</em> </p>
         <p>No positions open. </p>
 <p>However, please send your resume to <a href="mailto:careers@snake-eye.ca">careers@snake-eye.ca</a> and we'll take a look!
@@ -479,12 +444,9 @@ h1{
 
 
 <hr class="yes">
-      <p>
-        <h2><a id="contact"></a>Contact</h2>
-              </p>
-                    <p>
 
-              </p>
+        <h2><a id="contact"></a>Contact</h2>
+
               <p>Contact us at <a href="mailto:contact@snake-eye.ca">contact@snake-eye.ca</a> and we'll try to get back to you!
         </p>
 
