@@ -73,23 +73,23 @@ console.log(5 + 6);
 
 		function downloadRom(name, url, callback)
 		{
-			// var req = new XMLHttpRequest();
+			var req = new XMLHttpRequest();
 
-			// req.open("GET", url, true);
-			// req.responseType = "arraybuffer";
+			req.open("GET", url, true);
+			req.responseType = "arraybuffer";
 
-			// req.onload = function (event) 
-			// {
-			// 	FS.writeFile(name, new Uint8Array(req.response), { encoding: 'binary' });
+			req.onload = function (event) 
+			{
+				FS.writeFile(name, new Uint8Array(req.response), { encoding: 'binary' });
 
-			// 	downloadSaveState(name+".save", function(withSave)
-			// 	{
-			// 		callback(name, withSave);
-			// 	});
+				downloadSaveState(name+".save", function(withSave)
+				{
+					callback(name, withSave);
+				});
 
-			// };
+			};
 
-			// req.send(null);
+			req.send(null);
 			console.log(5 + 6);
 		}
 
@@ -97,60 +97,61 @@ console.log(5 + 6);
 
 		function requestOneDrive(path, callback)
 		{
-			// if(!oneDriveToken) return;
+			if(!oneDriveToken) return;
 
-			// oneDriveData = [];
+			oneDriveData = [];
 
-			// var url = root + ":" + currentPath + path + ":/children?access_token=" + oneDriveToken;
+			//var url = root + ":" + currentPath + path + ":/children?access_token=" + oneDriveToken;
+			var url = currentPath;
 
-			// var req = new XMLHttpRequest();
+			var req = new XMLHttpRequest();
 
-			// req.open("GET", url, true);
-			// req.responseType = "json";
+			req.open("GET", url, true);
+			req.responseType = "json";
 
-			// req.onload = function (event) 
-			// {
-			// 	var data = req.response;
+			req.onload = function (event) 
+			{
+				var data = req.response;
 
-			// 	if(data)
-			// 	{
-			// 		if(path.length)
-			// 			currentPath += path + '/';
+				if(data)
+				{
+					if(path.length)
+						currentPath += path + '/';
 
-			// 		var exts = "gen smd bin md smc sfc nes gba gbc gb".split(' ');
+					var exts = "gen smd bin md smc sfc nes gba gbc gb".split(' ');
 
-			// 		for(var i in data.value)
-			// 		{
-			// 			var item = data.value[i];
-			// 			if(item.file)
-			// 			{
-			// 				var ext = item.name.split('.').pop().toLowerCase();;
+					for(var i in data.value)
+					{
+						var item = data.value[i];
+						if(item.file)
+						{
+							var ext = item.name.split('.').pop().toLowerCase();;
 
-			// 				if(exts.indexOf(ext) != -1)
-			// 				{
-			// 					callback(item.name, 1);
-			// 					oneDriveData.push({name:item.name, url:item['@content.downloadUrl']});
-			// 				}
-			// 			}
-			// 			else if(item.folder && item.folder.childCount)
-			// 			{
-			// 				callback('[' + item.name + ']', 0);
-			// 				oneDriveData.push({name:item.name, url:null});
-			// 			}
-			// 		}
+							if(exts.indexOf(ext) != -1)
+							{
+								callback(item.name, 1);
+								oneDriveData.push({name:item.name, url:item['@content.downloadUrl']});
+							}
+						}
+						else if(item.folder && item.folder.childCount)
+						{
+							callback('[' + item.name + ']', 0);
+							oneDriveData.push({name:item.name, url:null});
+						}
+					}
 
-			// 		if(oneDriveData.length == 0)
-			// 		{
-			// 			callback(0, 0);
-			// 		}
-			// 	}
-			// 	else
-			// 	{
-			// 		alert('onedrive error');
-			// 	}
-			// };
+					if(oneDriveData.length == 0)
+					{
+						callback(0, 0);
+					}
+				}
+				else
+				{
+					alert('onedrive error');
+				}
+			};
 
-			// req.send(null);
+			req.send(null);
 			console.log(5 + 6);
 		}
 
