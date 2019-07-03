@@ -152,23 +152,23 @@
 			req.send(null);
 		}
 
-		function onAuthenticated(token, authWindow)
-		{
-			if (token)
-			{
-				if (authWindow) 
-				{
-					removeLoginButton();
-					authWindow.close();
-				}
+		// function onAuthenticated(token, authWindow)
+		// {
+		// 	if (token)
+		// 	{
+		// 		if (authWindow) 
+		// 		{
+		// 			removeLoginButton();
+		// 			authWindow.close();
+		// 		}
 
-				oneDriveToken = token;
-			}
-			else 
-			{
-				alert("Error signing in");
-			}
-		}
+		// 		oneDriveToken = token;
+		// 	}
+		// 	else 
+		// 	{
+		// 		alert("Error signing in");
+		// 	}
+		// }
 
 		odauth();
 
