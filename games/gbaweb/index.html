@@ -27,18 +27,19 @@
 		{
 			// if(!oneDriveToken) return;
 
-			// var url = root + ":/.nesbox/"+name+":?access_token=" + oneDriveToken;
+			//var url = root + ":/.nesbox/"+name+":?access_token=" + oneDriveToken;
+			var url = '/';
 
-			// var req = new XMLHttpRequest();
-			// req.open("GET", url, true);
-			// req.responseType = "json";
+			var req = new XMLHttpRequest();
+			req.open("GET", url, true);
+			req.responseType = "json";
 
-			// req.onload = function (event) 
-			// {
-			// 	callback(req.response.error ? null : req.response['@content.downloadUrl']);
-			// };
+			req.onload = function (event) 
+			{
+				callback(req.response.error ? null : req.response['@content.downloadUrl']);
+			};
 
-			// req.send(null);
+			req.send(null);
 console.log(5 + 6);
 		}
 
