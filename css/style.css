@@ -394,7 +394,7 @@ h1, h2, h3, h4, h5, h6, figure {
   background: #DECEC2;
 }
 #fh5co-features .services-padding {
-  padding: 7em 0;
+  padding-bottom: 7em;
 }
 #fh5co-features .feature-left {
   margin-bottom: 40px;
@@ -428,17 +428,18 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #7a9b76 !important;
 }
 #fh5co-features .feature-left .feature-copy {
-  float: right;
-  width: 78%;
+  /* float: right;
+  width: 78%; */
+  width:100%;
 }
 @media screen and (max-width: 768px) {
   #fh5co-features .feature-left .feature-copy {
-    width: 84%;
+    width: 100%;
   }
 }
 @media screen and (max-width: 480px) {
   #fh5co-features .feature-left .feature-copy {
-    width: 70%;
+    width: 100%;
   }
 }
 #fh5co-features .feature-left h3 {
