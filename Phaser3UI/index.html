@@ -50,31 +50,68 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Title of Project - Tag Line of Project</h2>
+					<h2>Phaser 3 UI Library - Programmer</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-5 animate-box">
 					<div class="user-frame">
-						<h3>Title of Project</h3>
+						<h3>Phaser 3 UI Library</h3>
 						<div class="blog-text">
-							<span>Game</span>
+							<span>Features and Technical Abilities</span>
 						</div>
-						<p>Blurb of what I did, the same on the homepage.</p>
-						<span>Client - Year/Duration</span><br>
-						<small>Skills / Tech</small>
+						<br>
+						<p>A real-time, responsive/reflexive UI Library for the Phaser 3 game engine.</p>
+						<p>Works on most mobile and desktop resolutions.</p>
+						<span>Phaser 3 UI Library - 2020</span><br>
+						<small>Phaser 3 / JS</small>
 					</div>
 				</div>
 				<div class="col-md-7 animate-box">
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. </p>
 					<blockquote>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+						<p>A responsive library I built for the Phaser 3 game engine. Makes UI work across PC and Mobile resolutions using anchor points.</p>
 					</blockquote>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-					<img src="https://snake-eye.ca/logo.svg">
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+					<p>While Phaser has some support for responsive interfaces and anchor points, overall I found it lacked the granularity we needed. We needed pixel-perfect and controllable scaling, anchor points, and real-time responsiveness (rotating a phone screen or resizing a desktop window), so this called for a custom JS plugin. I applied my web development/UI skills to create a bespoke UI library for Phaser, which allows you to align sets of UI elements to 9 anchor points on the screen: Top row, middle row, bottom row, and left edge, middle, or right edge for each.</p>
+					<p>I began testing the plugin before I touched game art at all. To us and our employer, it was a mutually shared priority that the game would play well on mobile and desktop equally.</p>
+					<img src="./assets/UI_test.png">
+					<p>This screenshot shows one of my earliest tests. I wanted to make sure interactable elements could anchor to edges of the screen and adjust in real-time as the window resized. It doesn't look like much yet, but soon my UI library would be crucial to the performance and playability of our game.</p>
+					<img src="./assets/ui.gif">
+					<p>Because of the way Phaser handled different classes of objects (text, sprites, masks, etc.), writing an inclusive library wasn't trivial, and needed a pattern that could be extended to each class of object in order to be inherited. Take a look at the brief extension I wrote, enabling Phaser to anchor UI elements in real time (specifically for sprites):</p>
+					<pre>
+class UI extends Phaser.GameObjects.Sprite {
+	constructor(s, t, e, i, h, a, n, d, r, c) {
+		super(s, t, e, i, h), (this.centered = a), (this.floatX = n), (this.floatY = d), (this.xOffset = r), (this.yOffset = c), s.sys.displayList.add(this), s.sys.updateList.add(this), s.add.existing(this), a || this.setOrigin(0, 0);
+	}
+	jiggleUI(s, t, e, i) {
+		switch (s) {
+			case 0:
+				this.setX(0 + e);
+				break;
+			case 1:
+				this.setX(window.innerWidth / 2 + e);
+				break;
+			case 2:
+				this.setX(window.innerWidth + e);
+		}
+		switch (t) {
+			case 0:
+				this.setY(0 + i);
+				break;
+			case 1:
+				this.setY(window.innerHeight / 2 + i);
+				break;
+			case 2:
+				this.setY(window.innerHeight + i);
+		}
+	}
+}
+
+					</pre>
+					<p>The same extension was applied to any class of object we needed to have responsive (text, masks, etc.)</p>
+					<p>The library simply extends the Sprite constructor provided by Phaser 3, checks the values of the flags, and anchors the sprite according to the presented arguments. You can even adjust an offest if you want the sprite to be centered around a different origin point.</p>
+					<p>The flag labled "a" centers the sprite at a specific point, or 0,0 by default. "s" and "t" determine how it's anchored horizontally and vertically. "n", "d", "r", and "c" determine offsets for all four dimensions. "e" and "i" refer to the sprite's width and height.</p>
+					<img src="./assets/mobile.png">
+					<p>Overall, it did its job, making the game look great on desktop and mobile.</p>
 				</div>
 			</div>
 		</div>
