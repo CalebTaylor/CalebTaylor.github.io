@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Caleb Taylor &mdash; "Screenplay"</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="../css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="../css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="../css/flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="../css/style.css">
+
+
+	</head>
+	<body>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="../index.html">CT<span>.</span></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href="../index.html">Home</a></li>
+							<li class="active"><a href="../index.html#portfolio">Portfolio</a></li>
+							<li class="btn-cta"><a href="../caleb_taylor_resume.pdf" target="_blank"><span>Resume</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+
+
+	<div id="fh5co-wireframe">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>"Screenplay" - Programmer, Writer</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-5 animate-box">
+					<div class="user-frame">
+						<h3>"Screenplay"</h3>
+						<div class="blog-text">
+							<span>Features and Technical Abilities</span>
+						</div>
+						<br>
+						<p>Script-driven dialogue system; less coding for the writer.</p>
+						<p>Scalable up to an arbitrary amount of branches and unique endings across hundreds of scriptable objects.</p>
+						<p>Uses the model-view-controller architecture.</p>
+						<p>Capable of branches within branches, foldback narrative structures, and fine-tuned custom behavior.</p>
+						<span>The Wishing Tower - 2021</span><br>
+						<small>GMS:2</small>
+					</div>
+				</div>
+				<div class="col-md-7 animate-box">
+
+					
+					<blockquote>
+						<p>This is how I made my own script-driven branching dialogue system using the MVC architecture with custom end-behavior from scratch in GMS:2. I wanted to make a script-driven, branching-capable dialogue system with the ability to easily trigger in-game changes in real time. I wanted to optimize the script-to-game pipeline as much as possible while using native GMS:2 code and functionality with no outside libraries or dependencies.</p>
+					</blockquote>
+					<p>Watch the tutorial I made for the system here:</p>
+					<iframe width="100%" height="300px" src="https://www.youtube.com/embed/s7RdqOLnov0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<p>Visit the github repo here:<a href="https://github.com/CalebTaylor/GMS2Screenplay">https://github.com/CalebTaylor/GMS2Screenplay</a> </p>
+					
+					<p>The dialogue system is capable of branching dialogue and custom end-behaviour. This means some dialogue options can trigger events or change variables easily, and some dialogue options can lock you out of a conversation forever or let you talk to an NPC again.</p>
+					<h4>The Model</h4>
+					<p>
+						First, the M in MVC, the model or data behind the system. Here’s how that syntax looks:
+					</p>
+					<pre>
+branch1 = [
+	[oTalkToMe95, "Very well. This is branch 1."],
+	[oPlayer, "You're sure this is branch 1?"],
+	[oTalkToMe95, "I'm sure it's branch 1."],
+	[oTalkToMe95, "Wait, one more branch to test."],
+	[oPlayer, ["Branch 3.", "Branch 4."]],
+	[oTalkToMe95, "Let's come back to branch 1."],
+]
+
+branch2 = [
+	[oTalkToMe95, "Cool. Branch 2 it is."],
+	[oPlayer, "I've never been to branch 2."],
+	[oTalkToMe95, "Enjoy it, we're joining trunk soon."],
+	[oTalkToMe95, "Wait, one more branch to test."],
+	[oPlayer, ["Branch 3.", "Branch 4."]],
+	[oTalkToMe95, "Let's come back to branch 2."],
+]
+
+branch3 = [
+	[oTalkToMe95, "Are you kidding? Branch 3 works?"],
+	[oPlayer, "This looks like branch 3 doesn't it?"],
+	[oTalkToMe95, "I guess so"],
+	[oPlayer, "Let's leave branch 3, then."]
+]
+
+branch4 = [
+	[oTalkToMe95, "Dude, branch 4."],
+	[oPlayer, "I know."],
+	[oTalkToMe95, "Let's test custom end behavior."],
+	[oPlayer, "TERMINATE"]
+]
+
+screenplay = [
+	[oTalkToMe95],
+	[oTalkToMe95, "Let's test auto-advance for a moment."],
+	[oPlayer, "And object switching?"],
+	[oTalkToMe95, "Sure, that too."],
+	[oTalkToMe95, "Now let's test branching. Which branch do you want?"],
+	[oPlayer, ["Branch 1.", "Branch 2."]],
+	[oTalkToMe95, "Well, hope you enjoyed whatever branch that was."],
+	[oPlayer, "I did, thank you."],
+	[oTalkToMe95, "We'll get variable changes soon."],
+	[oPlayer, "Sounds good."],
+	[oTalkToMe95, "Did you like the second batch of branches?"],
+	[oPlayer, "Yeah man."],
+	[oTalkToMe95, "Lets see if this works till the end."],
+	[oTalkToMe95, "RESTART"]
+]
+
+
+counter = 1;
+chosenBranch = "";
+alive = true;
+alert = true;
+vision = 150;
+breathing = false;
+					</pre>
+					<p>For a breakdown of the syntax of the following line:</p>
+					<pre>[oTalkToMe95, "Wait, one more branch to test."],</pre>
+					<p>The first item, the object, refers to the actor saying the line. This is passed to the "oText" object to indicate which object to draw the textbox over. The second item, the string, is the line being spoken. If there are two or more strings, the oChoice object is drawn allowing the player to select a dialogue option. This will then trigger the branching script. The branch variables, declared above as branch1, branch2, etc. are used to join with the trunk variable screenplay.</p>
+					<p>At the end of the branch variables, we have an end-behaviors defined. Ones set to RESTART will mean the script will restart from the beginning if the player chooses to talk to this NPC again, or TERMINATE to disallow the player to speak with the NPC ever again. We can also define other behaviors to get the behaviour we want once we’re done talking.</p>
+					<p>I wanted to take a “script or screenplay first” approach to the system, making a majority of the conversation and branching dictated by the script itself. I did so to cut down on the amount of code I had to wrangle during the script writing portion, and make it easier for non-coder writers to use. The format the model follows will be familiar to screenwriters; we have the actor who is speaking in the first position, then any lines that person is saying afterwards.</p>
+					<p>The writer can submit the main branch of dialogue and all possible branches in one document.</p>
+					<h4>The Controller</h4>
+					<p>This is the function behind the branching, labeled under Scripts/Dialogue/Branch:</p>
+<pre>
+function Branch(identification, branch){
+	var tempArray = identification.screenplay;
+	var tempArrayEnd = [];
+
+		array_copy(tempArrayEnd, 0, identification.screenplay, identification.counter, array_length_1d(identification.screenplay));
+		array_copy(tempArray, identification.counter, branch, 0, array_length_1d(branch));
+		array_copy(tempArray, identification.counter + array_length_1d(branch), tempArrayEnd, 0, array_length_1d(tempArrayEnd));
+		
+		identification.screenplay = tempArray;
+		identification.chosenBranch = "";
+	
+	}
+</pre>
+
+
+	
+					<p>This script takes the trunk dialogue option, the indicated branch, and stitches them together at the correct/current point in the screenplay. This constructs a larger array of strings, now with the branch and its lines, choices, and end behaviour included.</p>
+					<p>Then in the object that handles the choices being made, this if-statement handles the changing of game state, branching, and any other behavior you want to define. Here's an example, found in the Objects/Dialogue/oTalkToMe:</p>
+					<pre>
+if chosenBranch != "" {
+
+	if chosenBranch == "Branch 1." {
+		script_execute(Branch, id, branch1);
+		//custom behavior for branch 1 here
+	} 
+
+	if chosenBranch == "Branch 2." {
+		script_execute(Branch, id, branch2);
+		//custom behavior for branch 1 here
+	}
+
+	if chosenBranch == "Branch 3." {
+		script_execute(Branch, id, branch3);
+		//custom behavior for branch 1 here
+	} 
+
+	if chosenBranch == "Branch 4." {
+		script_execute(Branch, id, branch4);
+		//custom behavior for branch 1 here
+	}
+}					</pre>
+
+					<p>We can define any variable changes or custom events triggered by this specific branch being chosen. I made this part more customizable for that reason, so the writer and game designer can collaborate openly with what variables need to change and what events need to be triggered when a certain branch is chosen. After the branches are linked and the behaviour is defined, our dialogue system is ready. </p>
+					<p>The controller will automatically progress through the screenplay, link branches on the fly in real time, and change any variables or game states as needed.</p>
+					<p>The system is also capable of branches within branches, fold back narratives, and even more bespoke behaviour by correctly pointing the branches in the right direction with more custom behaviour as described.</p>
+					
+
+					<h4>The View</h4>
+					<p>Next, the V in MVC, the view. I have the game draw a simple text box, which shows the current index/line of the screenplay. Seen here:</p>
+					<pre>//Draw The Box
+draw_set_colour(c_white);
+draw_set_alpha(1);
+draw_roundrect_ext(x-halfw-border-2,y-h-(border*2)-2,x+halfw+border+2,y+2,0,0,false);
+draw_set_colour(c_black);
+draw_set_alpha(1);
+draw_roundrect_ext(x-halfw-border,y-h-(border*2),x+halfw+border,y,0,0,false);
+
+draw_sprite(sMarker,0,x,y);
+draw_set_alpha(1);
+
+//Draw text
+
+draw_set_colour(c_white);
+draw_set_font(fSign);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+
+draw_text(x,y-h-border,text_current);
+						</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer id="fh5co-footer" role="contentinfo" style="padding-top: 2em !important;padding-bottom: 1em !important;">
+		<div class="container">
+			<div class="row row-pb-md" style="padding-bottom: 0em !important;">
+				<div class="col-md-4 fh5co-widget">
+					<h4>Caleb Taylor</h4>
+					<p>Passionate narrative designer with an advanced technological and development background, focused on delivering story-driven interactive experiences.</p>
+				</div>
+				<div class="col-md-2 col-md-push-1 fh5co-widget">
+					<h4>Links</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="../index.html">Home</a></li>
+						<li><a href="../index.html#portfolio">Portfolio</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-md-push-1 fh5co-widget">
+					<h4>Social Media</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="https://www.linkedin.com/in/calebtaylor26/">LinkedIn</a></li>
+						<li><a href="https://twitter.com/CalebTaylor26">Twitter</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-4 col-md-push-1 fh5co-widget">
+					<h4>Contact Information</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="tel://17787912870">+1 778 791 2870</a></li>
+						<li><a href="mailto:calebtaylor26@gmail.com">calebtaylor26@gmail.com</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</footer>
+	</div>
+
+
+
+	</body>
+</html>
+
