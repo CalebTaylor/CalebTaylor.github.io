@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <SCRIPT language="JavaScript">
+            var password; 
+            var pass1="1q2w3e4r5t6y7u8i9o0p"; 
+            password=prompt('Enter Password',' '); 
+            if (password==pass1) 
+            alert('Correct Password! Click OK to Enter!'); 
+            else { window.location="http://google.ca/"; 
+            } 
+            </SCRIPT>
+            <meta name="robots" content="noindex">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tanglewood Dashboard</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="responsive-iframes.css">
+        <style>
+            body {
+                font-family: 'Courier New', monospace;
+                color:#B88846;
+
+                /* background-image : url(noise.png) */
+                background: #0B1319;
+}
+            * {
+              box-sizing: border-box;
+            }
+            
+            /* Create three equal columns that floats next to each other */
+            .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            height: 1080px; 
+            overflow: scroll;
+            }
+
+            .column2 {
+            float: left;
+            width: 50%;
+            height: 1080px; 
+            }
+            .column3{
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+
+            }
+            
+            /* Clear floats after the columns */
+            .row:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+            .button-12 {
+            margin-left: 5px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: none;
+
+            background: #6E6D70;
+            box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+            color: #DFDEDF;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            }
+            .button-12:focus {
+            box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+            outline: 0;
+            }
+            /* width */
+            ::-webkit-scrollbar {
+            width: 10px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+            background: #888; 
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+            }
+        </style>
+
+        <script>
+            document.getElementsByTagName("html")[0].className = "js";
+
+            function openCity(cityName) {
+                var i;
+                var x = document.getElementsByClassName("city");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                document.getElementById(cityName).style.display = "block";
+            }
+            function openCity2(cityName) {
+                var i;
+                var x = document.getElementsByClassName("city2");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                document.getElementById(cityName).style.display = "block";
+            }
+            function openCity3(cityName) {
+                var i;
+                var x = document.getElementsByClassName("city3");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                document.getElementById(cityName).style.display = "block";
+            }
+            function journal() {
+
+            document.getElementById("journal").click();
+            document.getElementById("journal2").click();
+            document.getElementById("journal3").click();
+            }
+
+        </script>
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="responsive-iframes.js"></script>
+        <script src="demo.js"></script>
+        <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+    </head>
+    <body onload="journal()">
+        <div class="row">
+
+            <div class="column3">
+
+                <h1>World
+                    <!-- <button id="journal3" class="button-12" onclick="openCity3('World')" visible="none">World</button> -->
+                    <!-- <button class="button-12" onclick="openCity3('Battle')">Characters</button> -->
+                    <!-- <button class="button-12" onclick="openCity3('Weather/Time')">Weather</button> -->
+                </h1>
+            </div>
+            <div class="column3">
+
+                <h1>Rollers 
+                    <button id="journal" class="button-12" onclick="openCity('NPCs')">NPCs</button>
+                    <button class="button-12" onclick="openCity('Locations')">Places</button>
+                    <button class="button-12" onclick="openCity('Fights')">Fights / Enemies</button>
+                    <button class="button-12" onclick="openCity('Loot')">Loot</button>
+                </h1>
+            </div>
+            <div class="column3">
+
+                <h1>Ambience
+                    <button class="button-12" onclick="openCity2('Outdoor')">Outdoor</button>
+                    <button class="button-12" onclick="openCity2('Indoor')">Indoor</button>
+                    <button class="button-12" onclick="openCity2('Weather')">Weather</button>
+                    <button id="journal2" class="button-12" onclick="openCity2('Music')">Music</button>
+                </h1>
+            </div>
+        <div class="row">
+
+            <div class="column">
+                <div id="World" class="w3-container city3">
+                
+                <h1>World Reference</h1>
+
+                <!-- <h2>Tanglewood Master Doc</h2>
+                <div class="iframe">
+                    <iframe src="https://docs.google.com/document/d/1oo87r_0E6oPxuBZQybXODCeIwVbl5NwK0mmpmcxti98/edit?usp=sharing" /></iframe>
+                </div> -->
+
+                <!-- <h2>Tanglewood Campaign Journal</h2>
+                <div class="iframe">
+                    <iframe src="https://docs.google.com/document/d/1A8FHIWGHp7xuovV8YfIq6UXg1WP3ipn6VBmBcXPdTY0/edit?usp=sharing" /></iframe>
+                </div> -->
+
+
+                <h2>Tanglewood Map</h2>
+                <div class="iframe">
+                    <iframe src="https://calebtaylor.ca/Tanglewood/" /></iframe>
+                </div>
+
+                <h2>Ritendor Empire Inspo</h2>
+                <div class="iframe">
+                    <a data-pin-do="embedBoard" data-pin-board-width="500" data-pin-scale-height="400" data-pin-scale-width="80" href="https://www.pinterest.ca/calebtaylor26/tanglewood-ritendor-empire/"></a>
+                </div>
+
+                <h2>Tanglewood Inspo</h2>
+                <div class="iframe">
+                    <a data-pin-do="embedBoard" data-pin-board-width="500" data-pin-scale-height="400" data-pin-scale-width="80" href="https://www.pinterest.ca/calebtaylor26/tanglewood-tanglewood/"></a>
+                </div>
+
+                <h2>Gaveria-Stave Coalition Inspo</h2>
+                <div class="iframe">
+                    <a data-pin-do="embedBoard" data-pin-board-width="500" data-pin-scale-height="400" data-pin-scale-width="80" href="https://www.pinterest.ca/calebtaylor26/tanglewood-gaveria-stave-coalition/"></a>
+                </div>
+
+
+                <h2>Random MTG<button class="button-12" onclick="var ifr=document.getElementsByName('MTG')[0]; ifr.src=ifr.src;">Refresh</button></h2>
+                <div class="iframe">
+                    <iframe  name="MTG" src="https://mtgrandom.com/" /></iframe>
+                </div>
+
+                <h2>Drugs</h2>
+                <div class="iframe">
+                    <iframe src="drugs.pdf" /></iframe>
+                </div>
+
+                <!-- <h2>Time/Day</h2>
+                <div class="iframe" style="background-color:white; border-color: black;">
+                    <iframe src="http://aglet.io/tools/timekeeper/" /></iframe>
+                </div> -->
+
+
+                </div>
+                <!-- <div id="Battle" class="w3-container city3" style="display:none">
+                
+                    <h1>Characters</h1>
+    
+                    <h2>Kira - Thraznalnia</h2>
+                    <div class="iframe">
+                        <iframe src="https://docs.google.com/document/d/105ZtLuaQ08379C6LOLppAX1FfPRjpkjHgXFHFZJABjc/edit?usp=sharing" /></iframe>
+                    </div>
+                    <h2>Ross - Aewan</h2>
+                    <div class="iframe">
+                        <iframe src="https://docs.google.com/document/d/17qI8NVGRyvG_PI9mRBATAxJmW0GlBtTPpN028OcIL5I/edit?usp=sharing" /></iframe>
+                    </div>
+                    <h2>Max - Bunmo</h2>
+                    <div class="iframe">
+                        <iframe src="https://docs.google.com/document/d/1gIvHfEM2HyuNnUf0wTgGpbjDinB2_syrdQ8P5eszqUo/edit?usp=sharing" /></iframe>
+                    </div>
+                    <h2>Leilani - Orange</h2>
+                    <div class="iframe">
+                        <iframe src="https://docs.google.com/document/d/12CPEUdbjZ-TeumQMQBloXLL-uzDUuBOvCIHr9p18MLU/edit?usp=sharing" /></iframe>
+                    </div>
+                    <h2>Translator</h2>
+                    <div class="iframe">
+                        <iframe src="https://docs.google.com/spreadsheets/d/1CC-TbqLBNvh1nTsm1kxcleoSYNCkOysSM9ghX-xj_pk/edit?usp=sharing" /></iframe>
+                    </div>
+                 <h2>Tanglewood Cast</h2>
+                    <div class="iframe">
+                        <iframe src="https://docs.google.com/document/d/1KXBQiU7oMpRsja_s38YY0VdQg_nfRQNVZRsZwIFYHH8/edit?usp=sharing" /></iframe>
+                    </div>
+    
+                    <h2>Tanglewood Map</h2>
+                    <div class="iframe">
+                        <iframe src="https://calebtaylor.ca/Tanglewood/" /></iframe>
+                    </div>
+    
+    
+                    </div> -->
+
+                    <!-- <div id="Weather/Time" class="w3-container city3" style="display:none">
+                
+                        <h2>Weather Gen</h2>
+                        <div class="iframe" style="background-color:white; border-color: black;">
+                            <iframe src="https://docs.google.com/spreadsheets/d/1Txf06JGGufanaU3H5t7sZ6ZGtf5C6ltX1Bkg1b_nzhk/edit#gid=1702803598" /></iframe>
+                        </div>
+                        <h2>Weather Gen</h2>
+                        <div class="iframe">
+                            <iframe src="https://www.dndnames.com/gm-tools/weather-generator.php" /></iframe>
+                        </div>
+
+        
+        
+                        </div> -->
+            </div>
+
+        <div class="column">
+
+            <div id="NPCs" class="w3-container city">
+                <a href="https://donjon.bin.sh/fantasy/random/" style="color: #DFDEDF;">Donjon Everything Generator (Quests, Planes, NPCs, Ships, Pickpocket loot, Tomes, Encounter)</a>
+                <h1>NPCs</h1>
+
+
+
+                <h2>NPC Generator</h2>
+                <div class="iframe" style="background-color:white; border-color: black;">
+                    <iframe src="http://dmheroes.com/" /></iframe>
+                </div>
+                <!-- <h2>Name Generator</h2>
+                <div class="iframe" style="background-color:white; border-color: black;">
+                    <iframe src="https://ui2.worldspinner.com/nameGenerator" /></iframe>
+                </div> -->
+                <h2>D20 Flavor</h2>
+                <div class="iframe">
+                    <iframe src="d20.html" /></iframe>
+                </div>
+
+
+            </div>
+
+            <div id="Locations" class="w3-container city" style="display:none">
+                <a href="https://donjon.bin.sh/fantasy/random/" style="color: #DFDEDF;">Donjon Everything Generator (Quests, Planes, NPCs, Ships, Pickpocket loot, Tomes, Encounter)</a>
+                <h1>Places</h1>
+                <h2>Random Tanglewood Generator</h2>
+                <div class="iframe">
+                    <iframe src="https://everweird.world/tag/forest/" /></iframe>
+                </div>
+                <h2>One Page Dungeon</h2>
+                <div class="iframe">
+                    <iframe src="https://watabou.github.io/one-page-dungeon/" /></iframe>
+                </div>
+
+                <a href="https://donjon.bin.sh/5e/dungeon/">Donjon Fantasy Dungeon Generator</a>
+                <!-- <h2>Tavern Generator</h2>
+                <div class="iframe">
+                    <iframe src="https://thecoppersanctum.github.io/thecoppersanctum/taverns.html" /></iframe>
+                </div>
+                <h2>Tavern Generator</h2>
+                <div class="iframe">
+                    <iframe src="https://www.herebetaverns.com/tavern-generator" /></iframe>
+                </div> -->
+
+
+
+
+            </div>
+
+            <div id="Fights" class="w3-container city" style="display:none">
+                <a href="https://donjon.bin.sh/fantasy/random/" style="color: #DFDEDF;">Donjon Everything Generator (Quests, Planes, NPCs, Ships, Pickpocket loot, Tomes, Encounter)</a>
+                <h1>Fights</h1>
+                <!-- <h2>Initiative Tracker</h2>
+                <div class="iframe" style="background-color:white; border-color: black;">
+                    <iframe src="https://kastark.co.uk/rpgs/encounter-tracker/" /></iframe>
+                </div> -->
+                <!-- <h2>Dice</h2>
+                <div class="iframe">
+                    <iframe src="https://tacticaltokens.com/dice-roller/" /></iframe>
+                </div> -->
+                <!-- <h2>Encounter Roller</h2>
+                <div class="iframe">
+                    <iframe src="http://tools.goblinist.com/5enc" /></iframe>
+                </div> -->
+                <h2>Ritendor Inventions</h2>
+                <div class="iframe">
+                    <a data-pin-do="embedBoard" data-pin-board-width="500" data-pin-scale-height="400" data-pin-scale-width="80" href="https://www.pinterest.ca/calebtaylor26/tanglewood-ritendor-inventions/"></a>
+                </div>
+                <h2>Tanglespawn/Oldfolk</h2>
+                <a href="https://www.google.com/search?q=forest%20creatures%20dnd&rlz=1CDGOYI_enCA808CA808&hl=en-US&prmd=isvn&sxsrf=AJOqlzUoxRvlmq0gyhszq3TJ5NvWv5_BTg%3A1674373925647&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjkvrz42Nr8AhU-ITQIHRQUCv8Q_AUoAXoECAMQAQ&biw=390&bih=669&dpr=3&fbclid=IwAR14EIMuxEPHWG5QWagiMmfbBgMBaiunrsM-BPHXbSzA3il9dsBJLrt_pf8">Google Forest Creatures</a>
+                <div class="iframe">
+                    <a data-pin-do="embedBoard" data-pin-board-width="500" data-pin-scale-height="400" data-pin-scale-width="80" href="https://www.pinterest.ca/calebtaylor26/tanglewood-tanglespawn-oldfolk/"></a>
+                </div>
+                <h2>Coalition Inventions</h2>
+                <div class="iframe">
+                    <a data-pin-do="embedBoard" data-pin-board-width="500" data-pin-scale-height="400" data-pin-scale-width="80" href="https://www.pinterest.ca/calebtaylor26/tanglewood-coalition-inventions/"></a>
+                </div>
+
+                <a href="https://www.pinterest.ca/search/my_pins/?q=dnd%20homebrew%20monster&rs=typed" style="color: #DFDEDF; font-size: large;" >Random Monsters Pinterest</a>
+                <br><br>
+                <a href="https://www.dndbeyond.com/homebrew/monsters" style="color: #DFDEDF; font-size: large;">DND Beyond Homebrew Monsters</a>
+                <br><br><br><br><br><br>
+
+
+
+                <!-- <h2>NPC Stat Block Generator</h2>
+                <div class="iframe">
+                    <iframe src="https://rpgtinker.com/index.php" /></iframe>
+                </div> -->
+                <!-- <h2>Monster List</h2>
+                <div class="iframe">
+                    <iframe src="https://www.aidedd.org/dnd-filters/monsters.php" /></iframe>
+                </div>
+                <h2>Spell List</h2>
+                <div class="iframe" style="background-color:white; border-color: black;">
+                    <iframe src="https://www.aidedd.org/dnd-filters/spells-5e.php" /></iframe>
+                </div> -->
+
+
+
+
+
+
+
+
+            </div>
+
+            <div id="Loot" class="w3-container city">
+                <a href="https://donjon.bin.sh/fantasy/random/" style="color: #DFDEDF;">Donjon Everything Generator (Quests, Planes, NPCs, Ships, Pickpocket loot, Tomes, Encounter)</a>
+                <h1>Loot</h1>
+                <!-- <h2>Treasure, Magic Item, Quest, Rooms</h2>
+                <div class="iframe">
+                    <iframe src="http://redkatart.com/dnd5tools/" /></iframe>
+                </div> -->
+                <!-- <h2>Weak Magic Items</h2>
+                <div class="iframe">
+                    <iframe src="http://www.lordbyng.net/inspiration/" /></iframe>
+                </div> -->
+                <h2>Tanglewood Items</h2>
+                <div class="iframe">
+                    <a data-pin-do="embedBoard" data-pin-board-width="500" data-pin-scale-height="400" data-pin-scale-width="80" href="https://www.pinterest.ca/calebtaylor26/tanglewood-items/"></a>
+                </div>
+                <h2>Tanglewood Guns</h2>
+                <div class="iframe">
+                    <a data-pin-do="embedBoard" data-pin-board-width="500" data-pin-scale-height="400" data-pin-scale-width="80" href="https://www.pinterest.ca/calebtaylor26/tanglewood-guns/"></a>
+                </div>
+                <!-- <h2>Sane Magical Prices</h2>
+                <div class="iframe">
+                    <iframe src="Sane_Magical_Prices.pdf" /></iframe>
+                </div> -->
+                <h2>Weird Magic Items</h2>
+                <div class="iframe">
+                    <iframe src="d100-weird-magic-items.html" /></iframe>
+                </div>
+                <!-- <h2>Trinkets</h2>
+                <div class="iframe">
+                    <iframe src="http://miniworld.com/cgi-bin/scavanged.pl" /></iframe>
+                </div> -->
+                <!-- <h2>Money Splitter</h2>
+                <div class="iframe">
+                    <iframe src="https://tofuecho.github.io/" /></iframe>
+                </div> -->
+
+            </div>
+
+        </div>
+
+            <div class="column">
+                <div id="Outdoor" class="w3-container city2">
+                    <h1>Outdoor Ambience</h1>
+                    <h2>Tanglewood</h2>
+                        <div class="player"><div class="iframe">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/pGNB_9MABSA?playlist=pGNB_9MABSA&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div></div>
+                        <h2>Forest</h2>
+                        <div class="player"><div class="iframe">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/xNN7iTA57jM?playlist=xNN7iTA57jM&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div></div>
+    
+                    <h2>Desert</h2>
+                    <div class="player"><div class="iframe">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/_YO8rKMCeck?playlist=_YO8rKMCeck&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div></div>
+                    <h2>Mountains</h2>
+                    <div class="player"><div class="iframe">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/vplX-qr4AIE?playlist=vplX-qr4AIE&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div></div>
+    
+                    <h2>Ritendor City</h2>
+                    <div class="player"><div class="iframe">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/vZxQ99eyBx4?playlist=vZxQ99eyBx4&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div></div>
+                    <h2>Gaveria-Stave City</h2>
+                    <div class="player"><div class="iframe">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/inG4BLxwlJ4?playlist=inG4BLxwlJ4&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div></div>
+    
+                <h2>Nighttime City</h2>
+                <div class="player"><div class="iframe">
+                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/bSbYpFMNxLI?playlist=bSbYpFMNxLI&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div></div>
+                    <h2>Town</h2>
+                    <div class="player"><div class="iframe">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/pYW6BYObVQM?playlist=pYW6BYObVQM&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div></div>
+    
+                    <h2>Port Side</h2>
+                    <div class="player"><div class="iframe">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/frEJTGfLOhM?playlist=frEJTGfLOhM&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div></div>
+                    <h2>Air Port Side</h2>
+                    <div class="player"><div class="iframe">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/Y2-ucBydwMI?playlist=Y2-ucBydwMI&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div></div>
+                    <h2>Ocean</h2>
+                    <div class="player"><div class="iframe">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/Lyt7enNpwvk?playlist=Lyt7enNpwvk&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div></div>
+    
+                <h2>Plains/Mongolia</h2>
+                <div class="player"><div class="iframe">
+                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/ZAnQU9PziS4?playlist=ZAnQU9PziS4&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div></div>
+                    <h2>Campsite</h2>
+                    <div class="player"><div class="iframe">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/7KFoj-SOfHs?playlist=7KFoj-SOfHs&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div></div>
+                    </div>
+
+
+                    <div id="Indoor" class="w3-container city2">
+                        <h1>Indoor Ambience</h1>
+                        <h2>Tavern</h2>
+                            <div class="player"><div class="iframe">
+                                <iframe width="1280" height="720" src="https://www.youtube.com/embed/ShH6b-Hio84?playlist=ShH6b-Hio84&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div></div>
+                            <h2>Speakeasy</h2>
+                            <div class="player"><div class="iframe">
+                                <iframe width="1280" height="720" src="https://www.youtube.com/embed/3nHmciTokEM?playlist=3nHmciTokEM&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div></div>
+        
+                        <h2>Manor/House</h2>
+                        <div class="player"><div class="iframe">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/MJeNG1R7FzM?playlist=MJeNG1R7FzM&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div></div>
+                        <h2>Factory</h2>
+                        <div class="player"><div class="iframe">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/bDZVYI_hIEs?playlist=bDZVYI_hIEs&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div></div>
+        
+                        <h2>Sky Ship</h2>
+                        <div class="player"><div class="iframe">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/tI_NfWgGXBQ?playlist=tI_NfWgGXBQ&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div></div>
+                        <h2>Boat</h2>
+                        <div class="player"><div class="iframe">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/Ft-lJyu_nuY?playlist=Ft-lJyu_nuY&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div></div>
+        
+                    <h2>Cart</h2>
+                    <div class="player"><div class="iframe">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/xE0cgp4DbwU?playlist=xE0cgp4DbwU&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div></div>
+                        <h2>Dungeon</h2>
+                        <div class="player"><div class="iframe">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/WPpVMmTt74Q?playlist=WPpVMmTt74Q&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div></div>
+        
+                        <h2>Temple</h2>
+                        <div class="player"><div class="iframe">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/gFwUEAL8A4Q?playlist=gFwUEAL8A4Q&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div></div>
+                        <h2>Library</h2>
+                        <div class="player"><div class="iframe">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/4vIQON2fDWM?playlist=4vIQON2fDWM&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div></div>
+                        <h2>Mage's Guild</h2>
+                        <div class="player"><div class="iframe">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/B2cpoEx5ZUQ?playlist=B2cpoEx5ZUQ&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div></div>
+                        <h2>Market</h2>
+                        <div class="player"><div class="iframe">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/6ksms45EOIg?playlist=6ksms45EOIg&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div></div>
+
+                        </div>
+
+
+
+                        <div id="Weather" class="w3-container city2">
+                            <h1>Weather</h1>
+                            <h2>Rain</h2>
+                                <div class="player"><div class="iframe">
+                                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/mDqOuL4RyBc?playlist=mDqOuL4RyBc&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div></div>
+                                <h2>Snow</h2>
+                                <div class="player"><div class="iframe">
+                                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/vz91QpgUjFc?playlist=vz91QpgUjFc&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div></div>
+            
+                            <h2>Wind</h2>
+                            <div class="player"><div class="iframe">
+                                <iframe width="1280" height="720" src="https://www.youtube.com/embed/a9VLbKrsuro?playlist=a9VLbKrsuro&loop=1&start=10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div></div>
+                            <h2>Storm</h2>
+                            <div class="player"><div class="iframe">
+                                <iframe width="1280" height="720" src="https://www.youtube.com/embed/Uj0DuD92TIk?playlist=Uj0DuD92TIk&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div></div>
+            
+                            <h2>Hot</h2>
+                            <div class="player"><div class="iframe">
+                                <iframe width="1280" height="720" src="https://www.youtube.com/embed/oaFN8Kaoc8Q?playlist=oaFN8Kaoc8Q&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div></div>
+</div>
+                            <div id="Music" class="w3-container city2">
+                                <h1>Music</h1>
+                                <h2>Main Theme</h2>
+                                    <div class="player"><div class="iframe">
+                                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/LTTrJk_ovcU?playlist=LTTrJk_ovcU&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div></div>
+                                    <h2>Corkscrews / Dreams / Tanglewood</h2>
+                                    <div class="player"><div class="iframe">
+                                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/NaDn0dF7bBk?playlist=NaDn0dF7bBk&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div></div>
+                                    <h2>Empire OST 1</h2>
+                                    <div class="player"><div class="iframe">
+                                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/zboL71iRFBE?playlist=zboL71iRFBE&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div></div>
+                                    <h2>Empire OST 2</h2>
+                                    <div class="player"><div class="iframe">
+                                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/6JvuWO9V3zQ?playlist=6JvuWO9V3zQ&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div></div>
+                                    <h2>Chants</h2>
+                                    <div class="player"><div class="iframe">
+                                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/ZScVjupb32E?playlist=ZScVjupb32E&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div></div>
+
+                                    <h2>Coalition Music</h2>
+                                    <div class="player"><div class="iframe">
+                                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/5O_dcZM5hDs?playlist=5O_dcZM5hDs&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div></div>
+
+                                    <h2>Mysterious adventure</h2>
+                                    <div class="player"><div class="iframe">
+                                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/3IVQOMLW_4w?playlist=3IVQOMLW_4w&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div></div>
+
+                                    <h2>Scary adventure</h2>
+                                    <div class="player"><div class="iframe">
+                                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/TAnoryONNWI?playlist=TAnoryONNWI&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div></div>
+                
+                                <h2>Mystery adventure</h2>
+                                <div class="player"><div class="iframe">
+                                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/AXfbowFneqc?playlist=AXfbowFneqc&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div></div>
+                                <h2>Fight normal</h2>
+                                <div class="player"><div class="iframe">
+                                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/R7ie2x1oiDk?playlist=R7ie2x1oiDk&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div></div><!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                <h2>Fight Steampunk</h2>
+                                <div class="player"><div class="iframe">
+                                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/videoseries?list=PL1KZI3hMNO38eaA1srHD6gbvChYhRS8OB&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div></div>
+                                <h2>Fight City</h2>
+                                <div class="player"><div class="iframe">
+                                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/-JTpb31SjLk?playlist=-JTpb31SjLk&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div></div>
+                                <h2>Horror</h2>
+                                <div class="player"><div class="iframe">
+                                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/-2LOaw8fiEo?playlist=-2LOaw8fiEo&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div></div>
+                
+                            <h2>Sad</h2>
+                            <div class="player"><div class="iframe">
+                                <iframe width="1280" height="720" src="https://www.youtube.com/embed/QifCYaJgDVM?playlist=QifCYaJgDVM&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div></div>
+
+                            <h2>Upbeat Sad</h2>
+                            <div class="player"><div class="iframe">
+                                <iframe width="1280" height="720" src="https://www.youtube.com/embed/YE9wY9I8ZUo?playlist=YE9wY9I8ZUo&loop=1&start=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div></div>
+
+                                </div>
+
+
+                </div>
+            </div>
+          </div>
+
+    </body>
+</html>
