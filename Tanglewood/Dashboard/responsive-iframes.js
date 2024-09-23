@@ -1,4 +1,4 @@
-(function($){
+$(document).ready(function () {
     $.responsiveIframes = function(el, options){
         var self = this;
         
