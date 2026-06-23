@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kira and Caleb's Wedding</title>
+
+<!--
+=========================================================
+IMPORT A MINIMAL MONOSPACE FONT
+IBM Plex Mono is thin, clean and readable.
+Falls back to system monospace fonts if unavailable.
+=========================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+/*=========================================================
+GLOBAL VARIABLES
+=========================================================*/
+
+:root{
+    --paper:#f7f5ef;
+    --line:#111;
+    --text:#111;
+    --gap:20px;
+}
+
+/*=========================================================
+PAGE RESET
+=========================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/*=========================================================
+BODY
+Creates a subtle paper texture using layered gradients.
+=========================================================*/
+
+body{
+
+    font-family:
+    "IBM Plex Mono",
+    "Courier New",
+    monospace;
+
+    color:var(--text);
+
+    background:
+    radial-gradient(circle at 20% 20%, rgba(0,0,0,.03) 1px, transparent 1px),
+    radial-gradient(circle at 80% 60%, rgba(0,0,0,.025) 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(0,0,0,.02) 1px, transparent 1px),
+    var(--paper);
+
+    background-size:
+    24px 24px,
+    36px 36px,
+    42px 42px;
+
+    line-height:1.6;
+    letter-spacing:.02em;
+}
+
+/*=========================================================
+MAIN GRID CONTAINER
+=========================================================*/
+
+.wrapper{
+
+    width:min(1200px,90vw);
+
+    margin:60px auto;
+
+    display:grid;
+
+    gap:var(--gap);
+}
+
+/*=========================================================
+SECTION BOXES
+Every content block receives a thin outline.
+=========================================================*/
+
+.box{
+
+    border:1px solid var(--line);
+
+    padding:28px;
+
+    background:rgba(255,255,255,.28);
+
+}
+
+/*=========================================================
+HEADER
+=========================================================*/
+
+header{
+
+    display:grid;
+    gap:10px;
+
+}
+
+header h1{
+
+    font-size:2rem;
+    font-weight:400;
+
+}
+
+header p{
+
+    max-width:60ch;
+
+}
+
+/*=========================================================
+CONTENT GRID
+Automatically becomes one column on small screens.
+=========================================================*/
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:var(--gap);
+
+}
+
+/*=========================================================
+IMAGE PLACEHOLDER
+Images render with crisp edges.
+=========================================================*/
+
+.image{
+
+    width:100%;
+
+    aspect-ratio:4/3;
+
+    border:1px solid #111;
+
+    overflow:hidden;
+
+    background:#ddd;
+
+}
+
+.image img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    image-rendering:pixelated;
+
+}
+
+/*=========================================================
+TEXT STYLING
+=========================================================*/
+
+h2{
+
+    font-weight:400;
+    margin-bottom:14px;
+
+}
+
+p{
+
+    font-size:.95rem;
+
+}
+
+/*=========================================================
+FOOTER
+=========================================================*/
+
+footer{
+
+    text-align:center;
+
+    font-size:.8rem;
+
+}
+
+/*=========================================================
+RESPONSIVE ADJUSTMENTS
+=========================================================*/
+
+@media (max-width:700px){
+
+    .wrapper{
+
+        margin:30px auto;
+
+    }
+
+    .box{
+
+        padding:18px;
+
+    }
+
+    header h1{
+
+        font-size:1.5rem;
+
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!--
+=========================================================
+MAIN PAGE WRAPPER
+Contains every major section.
+=========================================================
+-->
+
+<div class="wrapper">
+
+<!--
+=========================================================
+HEADER SECTION
+Site introduction.
+=========================================================
+-->
+
+<header class="box">
+
+<h1>Kira and Caleb's Wedding</h1>
+
+<p>
+We invite you to celebrate our marriage.
+
+Friday, October 2nd, 2026
+12:00 Noon
+
+Inn at the Quay
+New Westminster, British Columbia
+</p>
+
+</header>
+
+<header class="box">
+
+<h1>R.S.V.P</h1>
+
+<p>
+RSVP <a href="">here</a> before <b>September 2nd</b>
+</p>
+
+</header>
+
+<!--
+=========================================================
+GRID OF CONTENT CARDS
+Cards automatically rearrange depending on screen width.
+=========================================================
+-->
+
+<section class="grid">
+
+<!-- CARD 1 -->
+
+<article class="box">
+
+<div class="image">
+<img src="dates.jpg" alt="">
+</div>
+
+<h2 style="margin-top:18px;">Dates and Times</h2>
+
+<p>
+Ceremony starts at 3:00pm <br>
+Reception at 5:00pm
+<br><br>
+900 Quayside Dr, New Westminster, BC V3M 6G1
+</p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2607.0451538565235!2d-122.91521552252881!3d49.199702976625375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5485d86fa358db4b%3A0x7da59db8243cb015!2sInn%20at%20the%20Quay!5e0!3m2!1sen!2sca!4v1782187012773!5m2!1sen!2sca"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+</article>
+
+<!-- CARD 2 -->
+
+<article class="box">
+
+<div class="image">
+<img src="hotel.jpg" alt="">
+</div>
+
+<h2 style="margin-top:18px;">Hotel Rooms and Venue</h2>
+
+<p>
+Let us know by <b>September 2nd</b> if you want to book a hotel room at the venue for a discounted price.
+</p>
+
+<br><br><br><br>
+<a href="">Browse rooms</a>
+</article>
+
+<!-- CARD 3 -->
+
+<article class="box">
+
+<div class="image">
+<img src="colors.jpg" alt="">
+</div>
+
+<h2 style="margin-top:18px;">Colours, schedule, and registry</h2>
+
+<p>
+Ceremony 3:00pm <br><br>
+Cocktail hour 4:00pm?<br><br>
+Reception start 5:00pm<br><br>
+Games, Speech, Toast<Br><br>
+Dance<br><br>
+Go home
+</p>
+
+</article>
+
+</section>
+
+<!--
+=========================================================
+FULL WIDTH INFORMATION SECTION
+=========================================================
+-->
+
+<section class="box">
+
+<h2>Kira and Caleb</h2>
+<div class="image">
+<img src="story.jpg" alt="">
+</div>
+<br>
+<p>
+After 8 loving years together, Kira and Caleb are getting married on October the 2nd, 2026.
+Whether you're family, friends, or friends-of-a-friend, we'd love to celebrate our wedding with you.
+You've all shaped us into the people we are today, and can't wait to see you all in the fall. 
+</p>
+
+</section>
+
+<!--
+=========================================================
+FOOTER
+=========================================================
+-->
+
+<footer class="box">
+
+© 2026 Caleb Taylor
+
+</footer>
+
+</div>
+
+</body>
+</html>
