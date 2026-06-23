@@ -103,7 +103,28 @@ Every content block receives a thin outline.
 /*=========================================================
 HEADER
 =========================================================*/
+.thumbnail{
 
+    display:block;
+
+    width:220px;
+    max-width:100%;
+
+    border:1px solid #111;
+
+    cursor:pointer;
+
+    transition:transform .2s ease;
+
+    image-rendering:pixelated; /* Remove if using photographs */
+
+}
+
+.thumbnail:hover{
+
+    transform:scale(1.02);
+
+}
 header{
 
     display:grid;
@@ -223,7 +244,48 @@ RESPONSIVE ADJUSTMENTS
     }
 
 }
+.image-grid{
 
+    display:grid;
+
+    grid-template-columns:repeat(5, 1fr);
+
+gap: 12px;
+
+    margin-top:90%;
+
+}
+
+/* Image styling */
+
+.image-grid img{
+
+    width:100%;
+
+    aspect-ratio:1 / 1;
+
+    object-fit:contain;
+
+
+ border-left:1px solid #111;
+    display:block;
+
+}
+
+/* ==========================================
+RESPONSIVE
+On narrow screens, images stack vertically.
+========================================== */
+
+@media (max-width:700px){
+
+    .image-grid{
+
+        grid-template-columns:repeat(5, 1fr);
+
+    }
+
+}
 </style>
 </head>
 
@@ -260,7 +322,8 @@ Friday, October 2nd, 2026, at 3:00pm<Br>
 Inn at the Quay<Br>
 New Westminster, British Columbia
 </p>
-<img src="invite.jpg" alt="" width=50%;>
+<img src="invite.jpg" alt="" width=75%;>
+
 </header>
 
 <header class="box">
@@ -272,6 +335,8 @@ RSVP <a href="">here</a> before <b>September 2nd</b>
 </p>
 
 </header>
+
+
 
 <!--
 =========================================================
@@ -286,9 +351,7 @@ Cards automatically rearrange depending on screen width.
 
 <article class="box">
 
-<div class="image">
-<img src="dates.jpg" alt="">
-</div>
+
 
 <h2 style="margin-top:18px;">Dates and Times</h2>
 
@@ -298,7 +361,7 @@ Ceremony starts at 3:00pm <br>
 Reception at 5:00pm
 <br><br>
 900 Quayside Dr, New Westminster, BC V3M 6G1
-</p>
+</p><br><br><br>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2607.0451538565235!2d-122.91521552252881!3d49.199702976625375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5485d86fa358db4b%3A0x7da59db8243cb015!2sInn%20at%20the%20Quay!5e0!3m2!1sen!2sca!4v1782187012773!5m2!1sen!2sca"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 </article>
@@ -307,9 +370,7 @@ Reception at 5:00pm
 
 <article class="box">
 
-<div class="image">
-<img src="hotel.jpg" alt="">
-</div>
+
 
 <h2 style="margin-top:18px;">Hotel Rooms and Venue</h2>
 
@@ -318,24 +379,50 @@ Let us know by <b>September 2nd</b> if you want to book a hotel room at the venu
 </p>
 
 <br><br><br><br>
-<a href="">Browse rooms</a>
+<a href="https://www.innatwestminsterquay.com/rooms/">Browse rooms</a><br><br>
+
+<a href=""><img src="https://www.innatwestminsterquay.com/img/Inn-at-the-Quay-Logo.svg"></a>
 </article>
 
 <!-- CARD 3 -->
 
 <article class="box">
 
-<div class="image">
-<img src="colors.jpg" alt="">
-</div>
 
-<h2 style="margin-top:18px;">Colours, schedule, and registry</h2>
+
+<h2 style="margin-top:18px;">Schedule & Seating</h2>
 
 <p>
-Ceremony 3:00pm <br>
-Cocktail hour 4:00pm<br>
-Reception start 5:00pm<br>
-Games, Speech, Toast, Dance until 12:00am<br>
+Ceremony 3:00pm <br><br>
+Cocktail hour 4:00pm<br><br>
+Reception start 5:00pm<br><br>
+Last call at midnight<br>
+
+</p>
+<br><br>
+<h2>Seating chart</h2>
+<a href="chart.png" target="_blank" rel="noopener noreferrer">
+
+        <img
+            src="chart.png"
+            class="thumbnail">
+
+    </a>
+
+
+</article>
+
+</section>
+
+<section class="grid">
+
+<!-- CARD 4 -->
+
+<article class="box">
+
+
+<h2 style="margin-top:18px;">Colors</h2>
+<p>Fall formal, no white please!</p><br>
 <a
   data-pin-do="embedBoard"
   data-pin-board-width="400"
@@ -343,11 +430,60 @@ Games, Speech, Toast, Dance until 12:00am<br>
   data-pin-scale-width="80"
   href="https://ca.pinterest.com/calebtaylor26/wedding/">
 </a>
+
+</p>
+
+</article>
+
+<!-- CARD 2 -->
+
+<article class="box">
+
+
+
+<h2 style="margin-top:18px;">Requests</h2>
+
+<p>
+No children under 18, please.<br> <br>
+
+Don't worry about finding us to say goodbye when you leave for the night, sign our good-bye-board at the event instead!
+</p>
+
+
+</article>
+
+<!-- CARD 3 -->
+
+<article class="box">
+
+
+<h2 style="margin-top:18px;">Registry</h2>
+
+<p>
+
+<a href="#">Registry (contribute to our honeymoon!)</a>
+    <div class="image-grid">
+
+        <img src="greece.png">
+
+                <img src="malta.png">
+
+        <img src="italy.png">
+
+
+
+        <img src="britain.png">
+
+        <img src="scotland.png">
+
+    </div>
 </p>
 
 </article>
 
 </section>
+
+
 <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
 <!--
 =========================================================
@@ -367,7 +503,9 @@ After 8 loving years together, Kira and Caleb are getting married on October the
 Whether you're family, friends, or friends-of-a-friend, we'd love to celebrate our wedding with you.
 You've all shaped us into the people we are today, and can't wait to see you all in the fall. 
 </p>
-
+<div class="image">
+<img src="colors.jpg" alt="">
+</div>
 </section>
 
 <!--
