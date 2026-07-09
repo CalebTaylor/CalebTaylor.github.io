@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vancouver Vanguard Buhurt Team</title>
+
+  <!-- Medieval-style display font + readable body font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Video Section */
+.videos {
+  background: #081f17;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.video-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.75fr);
+  gap: 1.4rem;
+  align-items: stretch;
+}
+
+.featured-video {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(3, 17, 11, 0.45);
+  box-shadow: var(--shadow);
+}
+
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #020806;
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.featured-video-copy {
+  padding: 1.5rem;
+}
+
+.featured-video-copy h3 {
+  margin: 0.5rem 0;
+  color: var(--gold);
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+}
+
+.featured-video-copy p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.video-playlist {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  background: rgba(3, 17, 11, 0.65);
+  box-shadow: var(--shadow);
+}
+
+.playlist-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--gold);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.playlist-count {
+  color: var(--muted);
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.playlist-item {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.2rem;
+  border: 0;
+  border-bottom: 1px solid rgba(200, 167, 93, 0.16);
+  background: transparent;
+  color: var(--cream);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.playlist-item:last-child {
+  border-bottom: 0;
+}
+
+.playlist-item:hover,
+.playlist-item.active {
+  background: rgba(77, 123, 85, 0.18);
+}
+
+.playlist-item.active {
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+
+.video-number {
+  color: var(--moss);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.playlist-item.active .video-number {
+  color: var(--gold);
+}
+
+.playlist-text {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.playlist-text strong {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.playlist-text small {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+/* Contact Section */
+.contact {
+  background:
+    linear-gradient(rgba(5, 21, 14, 0.94), rgba(5, 21, 14, 0.97)),
+    url("https://images.unsplash.com/photo-1518558990600-2f7c7a7a1d55?auto=format&fit=crop&w=1800&q=80")
+    center / cover;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-intro h2 {
+  margin: 0.55rem 0 1rem;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.contact-intro > p {
+  color: var(--muted);
+  max-width: 500px;
+}
+
+.contact-details {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-details div {
+  padding: 1rem 1.1rem;
+  border-left: 3px solid var(--gold);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.contact-details span,
+.contact-details a {
+  display: block;
+}
+
+.contact-details span {
+  color: var(--moss);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-details a {
+  margin-top: 0.25rem;
+  color: var(--cream);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.95rem;
+}
+
+.contact-details a:hover {
+  color: var(--gold);
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.15rem;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  background: rgba(4, 19, 13, 0.82);
+  box-shadow: var(--shadow);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--cream);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.85rem 0.9rem;
+  border: 1px solid rgba(200, 167, 93, 0.28);
+  border-radius: 0;
+  outline: none;
+  background: rgba(2, 12, 8, 0.72);
+  color: var(--cream);
+  font: inherit;
+  font-size: 0.92rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #809187;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(200, 167, 93, 0.12);
+}
+
+.contact-form .button {
+  justify-self: start;
+  cursor: pointer;
+}
+
+/* Mobile additions */
+@media (max-width: 760px) {
+  .video-layout,
+  .contact-grid,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    gap: 2.5rem;
+  }
+
+  .playlist-heading {
+    padding: 1rem;
+  }
+
+  .contact-form {
+    padding: 1.25rem;
+  }
+}
+    :root {
+      --forest: #071d16;
+      --deep-green: #0d3024;
+      --green: #1d5b3d;
+      --moss: #4d7b55;
+      --gold: #c8a75d;
+      --cream: #f2efe5;
+      --muted: #b7c4b8;
+      --border: rgba(200, 167, 93, 0.28);
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--forest);
+      color: var(--cream);
+      font-family: "Inter", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    .site-nav {
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.25rem 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-family: "Cinzel", Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      color: var(--cream);
+      opacity: 0.88;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 680px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: #06150f;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-video iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.78vh;
+      min-width: 100%;
+      height: 56.25vw;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(3, 14, 10, 0.45) 0%, rgba(3, 14, 10, 0.75) 75%, var(--forest) 100%),
+        rgba(4, 21, 14, 0.25);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(900px, calc(100% - 2.5rem));
+      text-align: center;
+      padding: 8rem 0 4rem;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Cinzel", Georgia, serif;
+      line-height: 1.15;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 1rem auto;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-shadow: 0 4px 25px rgba(0, 0, 0, 0.75);
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      margin: 0 auto 2rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.35rem;
+      border: 1px solid var(--gold);
+      background: rgba(7, 29, 22, 0.55);
+      color: var(--cream);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--gold);
+      color: var(--forest);
+    }
+
+    /* Sections */
+    section {
+      padding: 5.5rem 0;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-heading h2 {
+      margin: 0.55rem 0 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      color: var(--cream);
+    }
+
+    .section-heading p {
+      margin: 1rem 0 0;
+      color: var(--muted);
+    }
+
+    .about {
+      background: var(--deep-green);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-card {
+      padding: 2rem;
+      background: rgba(3, 17, 11, 0.28);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .about-card p {
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .club-values {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .value {
+      padding: 1rem 1.1rem;
+      border-left: 3px solid var(--gold);
+      background: rgba(0, 0, 0, 0.16);
+    }
+
+    .value strong {
+      display: block;
+      font-family: "Cinzel", Georgia, serif;
+      color: var(--cream);
+    }
+
+    .value span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Fighters */
+    .fighter-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .fighter-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--deep-green);
+      box-shadow: var(--shadow);
+    }
+
+    .fighter-image {
+      aspect-ratio: 4 / 4.5;
+      object-fit: cover;
+      filter: saturate(0.75) contrast(1.05);
+    }
+
+    .fighter-info {
+      padding: 1.25rem;
+    }
+
+    .fighter-info h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: var(--gold);
+    }
+
+    .fighter-role {
+      margin: 0.25rem 0 0.85rem;
+      color: var(--moss);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .fighter-info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* Schedule */
+    .schedule {
+      background:
+        linear-gradient(rgba(5, 22, 15, 0.92), rgba(5, 22, 15, 0.92)),
+        url("https://images.unsplash.com/photo-1508175800969-525c72a047cc?auto=format&fit=crop&w=1800&q=80")
+        center / cover;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .event-list {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .event {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 1.25rem;
+      align-items: center;
+      padding: 1.25rem;
+      background: rgba(4, 19, 13, 0.8);
+      border: 1px solid rgba(200, 167, 93, 0.22);
+    }
+
+    .event-date {
+      color: var(--gold);
+      font-family: "Cinzel", Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .event h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .event p {
+      margin: 0.2rem 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .event .button {
+      padding: 0.7rem 0.9rem;
+      font-size: 0.68rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer strong {
+      color: var(--gold);
+      font-family: "Cinzel", Georgia, serif;
+      letter-spacing: 0.06em;
+    }
+
+    /* Mobile */
+    @media (max-width: 760px) {
+      .site-nav {
+        padding-top: 1rem;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 0.85rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 0.7rem;
+      }
+
+      .hero {
+        min-height: 580px;
+      }
+
+      .hero-content {
+        padding-top: 9rem;
+      }
+
+      .about-grid,
+      .fighter-grid {
+        grid-template-columns: 1fr;
+        
+      }
+
+      .about-grid {
+        gap: 2rem;
+      }
+
+      .event {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+      }
+
+      .event .button {
+        justify-self: start;
+        margin-top: 0.35rem;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero" id="home">
+    <nav class="site-nav">
+      <div class="container nav-inner">
+        <a href="#home" class="logo"> <img src="square.png" style="width: 20px; display: inline;" > Vancouver Vanguard <img src="square.png" style="width: 20px; display: inline;" ></a>
+
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#fighters">Fighters</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#videos">Videos</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Replace VIDEO_ID with a YouTube video ID of your choice -->
+    <div class="hero-video" aria-hidden="true">
+      <iframe
+        src="https://www.youtube.com/embed/RK9tELocSe4?autoplay=1&mute=1&controls=0&loop=1&playlist=RK9tELocSe4&playsinline=1&modestbranding=1&rel=0"
+        title="The Vancouver Vanguard background video"
+        allow="autoplay; encrypted-media"
+      ></iframe>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="eyebrow">Vancouver BC's Armored Combat Team</div>
+      <h1>The Vancouver Vanguard</h1>
+      <p class="hero-copy">
+        Steel, discipline, and fellowship. We train historical martial arts,
+        compete with honor, and carry the spirit of chivalry and fun into every match.
+      </p>
+      <a class="button" href="#fighters">Meet the Fighters</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="section-heading">
+          <div class="eyebrow">About the Club</div>
+          <h2>Forged through practice, bound by friendship.</h2>
+          <p>
+            The Vancouver Vanguard is a local combat sports team built around medieval
+            martial traditions, modern athletic training, and a shared respect for
+            the craft of fighting.
+          </p><br>
+          <img src="logo.png" style="width: 50%;">
+        </div>
+
+        <div class="about-card">
+          <p>
+            Whether you are picking up a sword for the first time or preparing for
+            competition, our club offers structured training, skilled coaching, and
+            a welcoming team environment.
+          </p>
+
+          <div class="club-values">
+            <div class="value">
+              <strong>Train with purpose</strong>
+              <span>Learn technical drills, conditioning, and sparring, all while getting in the best shape of your life!</span>
+            </div>
+            <div class="value">
+              <strong>Duels</strong>
+              <span>Learn the art of one-on-one combat, using an array of medieval weaponry and shields.</span>
+            </div>
+            <div class="value">
+              <strong>Melees</strong>
+              <span>Train in the chaotic and hard-hitting melee format, where teams of up to 16 fighters clash in the lyst.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fighters">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">The Roster</div>
+          <h2>Meet the Fighters</h2>
+          <p>
+            A few of the people who make up the Vanguard's ranks.
+          </p>
+        </div>
+
+        <div class="fighter-grid">
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/cap.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Josh</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+                              <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/kris.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Kris</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+                              <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/rowan2.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Rowan</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/tristan.png"
+              alt="Fighter preparing for a match"
+            />
+            <div class="fighter-info">
+              <h3>Tristan</h3>
+              <div class="fighter-role">Shield Wall · Polearm</div>
+              <p>
+                Relentless in the clinch, calm under pressure, and always first to the line.
+              </p>
+            </div>
+          </article>
+
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/will.png"
+              alt="Fighter standing outdoors"
+            />
+            <div class="fighter-info">
+              <h3>Will</h3>
+              <div class="fighter-role">Vanguard · Sword & Buckler</div>
+              <p>
+                Fast, adaptable, and known for turning difficult bouts into close victories.
+              </p>
+            </div>
+          </article>
+                              <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/cody.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Cody</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+                              <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/caleb.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Caleb</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+                              <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/letong.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Letong</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/shaila.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Shaila</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+                              <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/moses.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Moses</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/christian.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Christian</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/dan.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Dan</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/dmitry2.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Dmitry</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/ivan.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Ivan</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/kira.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Kira</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/laura.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Laura</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/lucas.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Lucas</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/megan.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Megan</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+
+                    <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/petro.png"
+              alt="Fighter in training armor"
+            />
+            <div class="fighter-info">
+              <h3>Petro</h3>
+              <div class="fighter-role">Captain · Longsword</div>
+              <p>
+                A measured tactician known for patient footwork and a sharp counterattack.
+              </p>
+            </div>
+          </article>
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </section>
+
+    <section class="schedule" id="schedule">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Gatherings & Matches</div>
+          <h2>Upcoming Events</h2>
+          <p>
+            Join us for open practices, demonstrations, and competitive events.
+          </p>
+        </div>
+
+        <div class="event-list">
+
+                    <article class="event">
+            <div class="event-date">SATURDAYS</div>
+            <div>
+              <h3 style="color: yellow;">Open Practice</h3>
+              <p>Fort Langley · Spectators and new members encouraged</p>
+            </div>
+            <a class="button" href="#home">Details</a>
+          </article>
+          <article class="event">
+            <div class="event-date">SEP 18, 19, 20</div>
+            <div>
+              <h3>Mission BC's Renaissance Faire</h3>
+              <p>Fraser River Heritage Park, 7494 Mary St, Mission · All-ages Renaissance Faire · Demo fights for the entire event</p>
+            </div>
+            <a class="button" href="#home">Details</a>
+          </article>
+
+          <article class="event">
+            <div class="event-date">DEC 7</div>
+            <div>
+              <h3>Beat the Crap out of Cancer Fundraiser</h3>
+              <p>Academy Duelo · Fundraising duels for Cancer Research</p>
+            </div>
+            <a class="button" href="#home">Details</a>
+          </article>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+<section class="videos" id="videos">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Watch us fight!</div>
+      <h2>From the Training Grounds to the tournament lyst</h2>
+      <p>
+        Match footage, training sessions, club stories, and highlights from the
+        Vancouver Vanguard.
+      </p>
+    </div>
+
+    <div class="video-layout">
+      <div class="featured-video">
+        <div class="video-frame">
+          <iframe
+            id="featured-video"
+            src="https://www.youtube.com/embed/VIDEO_ID_1"
+            title="Ironwood Fighters featured video"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="featured-video-copy">
+          <div class="eyebrow" id="featured-label">National Competition</div>
+          <h3 id="featured-title">Team Canada IMCF Qualifiers</h3>
+          <p id="featured-description">
+Tryouts for Team Canada, in preperation for the IMCF world championships in Denmark, 2026.
+          </p>
+        </div>
+      </div>
+
+      <aside class="video-playlist" aria-label="Video playlist">
+        <div class="playlist-heading">
+          <span>Video Archive</span>
+          <span class="playlist-count">03 Videos</span>
+        </div>
+
+        <button
+          class="playlist-item active"
+          type="button"
+          data-video="RK9tELocSe4"
+          data-label="National Competition"
+          data-title="Team Canada IMCF Qualifiers"
+          data-description="Tryouts for Team Canada, in preperation for the IMCF world championships in Denmark, 2026."
+        >
+          <span class="video-number">01</span>
+          <span class="playlist-text">
+            <strong>Team Canada IMCF Qualifiers</strong>
+            <small>Fierce competition · Best of the best</small>
+          </span>
+        </button>
+
+        <button
+          class="playlist-item"
+          type="button"
+          data-video="TD4tC2QJWak"
+          data-label="Profight match"
+          data-title="Cody x Caleb - Full Profight"
+          data-description="A full, unedited submission video for AMMA's profight league."
+        >
+          <span class="video-number">02</span>
+          <span class="playlist-text">
+            <strong>Full Profight</strong>
+            <small>Full speed · Full send</small>
+          </span>
+        </button>
+
+        <button
+          class="playlist-item"
+          type="button"
+          data-video="bBp6nDZmFkE"
+          data-label="Compilation"
+          data-title="Season's Beatings"
+          data-description="Funny clips from our 2025 practices/tournaments."
+        >
+          <span class="video-number">03</span>
+          <span class="playlist-text">
+            <strong>Season's Beatings</strong>
+            <small>Funny clips · Good hits</small>
+          </span>
+        </button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-intro">
+      <div class="eyebrow">Work With the Vancouver Vanguard</div>
+      <h2>Bring the fight to your next event.</h2>
+      <p>
+        Vancouver Vanguard welcomes partnership inquiries from sponsors, event
+        organizers, media teams, local businesses, and community groups.
+      </p>
+
+      <div class="contact-details">
+        <div>
+          <span>General Inquiries</span>
+          <a href="mailto:hello@ironwoodfighters.ca">hello@vancouvervanguard.ca</a>
+        </div>
+        <div>
+          <span>Business & Sponsorships</span>
+          <a href="mailto:partners@ironwoodfighters.ca">partners@vancouvervanguard.ca</a>
+        </div>
+      </div>
+    </div>
+
+    <form
+      class="contact-form"
+      action="mailto:partners@ironwoodfighters.ca"
+      method="post"
+      enctype="text/plain"
+    >
+      <div class="form-row">
+        <label>
+          Your Name
+          <input type="text" name="name" placeholder="Name" required />
+        </label>
+
+        <label>
+          Organization
+          <input type="text" name="organization" placeholder="Company or group" />
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          Email Address
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </label>
+
+        <label>
+          Inquiry Type
+          <select name="inquiry-type">
+            <option value="Sponsorship">Sponsorship</option>
+            <option value="Event booking">Event booking</option>
+            <option value="Media request">Media request</option>
+            <option value="Business partnership">Business partnership</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        Tell Us About Your Opportunity
+        <textarea
+          name="message"
+          rows="6"
+          placeholder="Share a few details about your event, brand, project, or proposal."
+          required
+        ></textarea>
+      </label>
+
+      <button class="button" type="submit">Send Inquiry</button>
+    </form>
+  </div>
+</section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>The Vancouver Vanguard</strong><br />
+      Train hard. Stand together. Fight with honor.
+    </div>
+  </footer>
+  <script>
+  const featuredVideo = document.getElementById("featured-video");
+  const featuredLabel = document.getElementById("featured-label");
+  const featuredTitle = document.getElementById("featured-title");
+  const featuredDescription = document.getElementById("featured-description");
+  const playlistItems = document.querySelectorAll(".playlist-item");
+
+  playlistItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const videoId = item.dataset.video;
+
+      featuredVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      featuredLabel.textContent = item.dataset.label;
+      featuredTitle.textContent = item.dataset.title;
+      featuredDescription.textContent = item.dataset.description;
+
+      playlistItems.forEach((playlistItem) => {
+        playlistItem.classList.remove("active");
+      });
+
+      item.classList.add("active");
+    });
+  });
+</script>
+</body>
+</html>
