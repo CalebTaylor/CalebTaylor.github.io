@@ -701,9 +701,37 @@
         padding: 4rem 0;
       }
     }
+    .hidden-fighters {
+    display: none;
+    margin-top: 1.5rem;
+}
+
+.hidden-fighters.show {
+    display: block;
+}
+
+.fighters-button {
+    margin-top: 2rem;
+    text-align: center;
+}
   </style>
 </head>
+<script>
+const button = document.getElementById("show-fighters");
+const hiddenRoster = document.getElementById("more-fighters");
 
+button.addEventListener("click", () => {
+
+    hiddenRoster.classList.toggle("show");
+
+    if (hiddenRoster.classList.contains("show")) {
+        button.textContent = "Hide Roster";
+    } else {
+        button.textContent = "View Full Roster";
+    }
+
+});
+</script>
 <body>
   <header class="hero" id="home">
     <nav class="site-nav">
@@ -738,7 +766,8 @@
         Steel, discipline, and fellowship. We train historical martial arts,
         compete with honor, and carry the spirit of chivalry and fun into every match.
       </p>
-      <a class="button" href="#fighters">Meet the Fighters</a>
+      <a class="button" href="#book">Book us for your event</a>
+      <a class="button" href="#schedule">Practice with us</a>
     </div>
   </header>
 
@@ -791,8 +820,16 @@
           </p>
         </div>
 
-        <div class="fighter-grid">
-                    <article class="fighter-card">
+
+
+
+
+
+
+
+<div class="fighter-grid">
+
+<article class="fighter-card">
             <img
               class="fighter-image"
               src="fighters/cap.png"
@@ -817,7 +854,7 @@
               <h3>Kris</h3>
               <div class="fighter-role">Field Captain · Axe & Buckler</div>
               <p>
-                Blacksmith
+                Blacksmith.
                 <a href="https://www.instagram.com/og_armourkris/">@og_armourkris</a>
               </p>
             </div>
@@ -832,10 +869,17 @@
               <h3>Rowan</h3>
               <div class="fighter-role">Co-Captain · Axe & Punch shield</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/rowanwassanasong/">@rowanwassanasong</a>
               </p>
             </div>
           </article>
+
+</div>
+
+<div id="more-fighters" class="hidden-fighters">
+
+    <div class="fighter-grid">
+
 
                     <article class="fighter-card">
             <img
@@ -845,9 +889,9 @@
             />
             <div class="fighter-info">
               <h3>Tristan</h3>
-              <div class="fighter-role">Shield Wall · Polearm</div>
+              <div class="fighter-role">Knight Marshal · 2-handed axe</div>
               <p>
-                Relentless in the clinch, calm under pressure, and always first to the line.
+                <a href="https://www.instagram.com/big.eztz/">@big.eztz</a>
               </p>
             </div>
           </article>
@@ -860,9 +904,9 @@
             />
             <div class="fighter-info">
               <h3>Will</h3>
-              <div class="fighter-role">Vanguard · Sword & Buckler</div>
+              <div class="fighter-role">Duelist · Longsword</div>
               <p>
-                Fast, adaptable, and known for turning difficult bouts into close victories.
+                
               </p>
             </div>
           </article>
@@ -874,9 +918,9 @@
             />
             <div class="fighter-info">
               <h3>Cody</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Multi</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/tyr.ferocia/">@tyr.ferocia</a>
               </p>
             </div>
           </article>
@@ -888,9 +932,9 @@
             />
             <div class="fighter-info">
               <h3>Caleb</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Falchion & Buckler</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/calebtaylor26/">@calebtaylor26</a>
               </p>
             </div>
           </article>
@@ -902,23 +946,23 @@
             />
             <div class="fighter-info">
               <h3>Letong</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Longsword</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/iamurfather000/">@iamurfather000</a>
               </p>
             </div>
           </article>
                     <article class="fighter-card">
             <img
               class="fighter-image"
-              src="fighters/shaila.png"
+              src="fighters/shaila2.png"
               alt="Fighter in training armor"
             />
             <div class="fighter-info">
               <h3>Shaila</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Longsword</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/sk00pa/">@sk00pa</a>
               </p>
             </div>
           </article>
@@ -930,9 +974,9 @@
             />
             <div class="fighter-info">
               <h3>Moses</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Sword & Shield</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/the_mosenose/">@the_mosenose</a>
               </p>
             </div>
           </article>
@@ -944,9 +988,9 @@
             />
             <div class="fighter-info">
               <h3>Christian</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Longsword</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/mango_armour/">@mango_armour</a>
               </p>
             </div>
           </article>
@@ -959,9 +1003,9 @@
             />
             <div class="fighter-info">
               <h3>Dan</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Longsword</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/danmongraw/">@danmongraw</a>
               </p>
             </div>
           </article>
@@ -973,9 +1017,9 @@
             />
             <div class="fighter-info">
               <h3>Dmitry</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Melee · Judoka</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/d.golivets/">@d.golivets</a>
               </p>
             </div>
           </article>
@@ -987,9 +1031,9 @@
             />
             <div class="fighter-info">
               <h3>Ivan</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Longsword</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/ivan_the_greatest_ivan/">@ivan_the_greatest_ivan</a>
               </p>
             </div>
           </article>
@@ -1002,9 +1046,9 @@
             />
             <div class="fighter-info">
               <h3>Kira</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Longsword</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/kiranatsumi_/">@kiranatsumi_</a>
               </p>
             </div>
           </article>
@@ -1017,9 +1061,9 @@
             />
             <div class="fighter-info">
               <h3>Laura</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Sword & Buckler</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                
               </p>
             </div>
           </article>
@@ -1032,9 +1076,9 @@
             />
             <div class="fighter-info">
               <h3>Lucas</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Short sword</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                
               </p>
             </div>
           </article>
@@ -1046,9 +1090,9 @@
             />
             <div class="fighter-info">
               <h3>Megan</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Longsword</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                <a href="https://www.instagram.com/m3gan_bright/">@m3gan_bright</a>
               </p>
             </div>
           </article>
@@ -1061,12 +1105,36 @@
             />
             <div class="fighter-info">
               <h3>Petro</h3>
-              <div class="fighter-role">Captain · Longsword</div>
+              <div class="fighter-role">Duelist · Longsword</div>
               <p>
-                A measured tactician known for patient footwork and a sharp counterattack.
+                
               </p>
             </div>
           </article>
+
+
+    </div>
+
+</div>
+
+<div class="fighters-button">
+    <button id="show-fighters" class="button">
+        View Full Roster
+    </button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="fighter-grid">
+                    
 
 
 
