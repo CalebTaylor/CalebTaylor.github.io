@@ -714,24 +714,23 @@
     margin-top: 2rem;
     text-align: center;
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
   </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=event_available" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=swords" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=swords" />
 </head>
-<script>
-const button = document.getElementById("show-fighters");
-const hiddenRoster = document.getElementById("more-fighters");
 
-button.addEventListener("click", () => {
 
-    hiddenRoster.classList.toggle("show");
-
-    if (hiddenRoster.classList.contains("show")) {
-        button.textContent = "Hide Roster";
-    } else {
-        button.textContent = "View Full Roster";
-    }
-
-});
-</script>
 <body>
   <header class="hero" id="home">
     <nav class="site-nav">
@@ -760,14 +759,17 @@ button.addEventListener("click", () => {
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <div class="eyebrow">Vancouver BC's Armored Combat Team</div>
+      <div class="eyebrow">Vancouver BC's Premier Armored Combat Team</div>
       <h1>The Vancouver Vanguard</h1>
       <p class="hero-copy">
-        Steel, discipline, and fellowship. We train historical martial arts,
-        compete with honor, and carry the spirit of chivalry and fun into every match.
+        Trained in historical martial arts, we host weekly local practices, compete around the world, and perform exhibition fights at fairs and conventions across Canada
       </p>
-      <a class="button" href="#book">Book us for your event</a>
-      <a class="button" href="#schedule">Practice with us</a>
+      <a class="button" href="#book"><span class="material-symbols-outlined">
+event_available
+</span>&nbsp;Book us for your event</a>
+      <a class="button" href="#schedule"><span class="material-symbols-outlined">
+swords
+</span>&nbsp;Train with us</a>
     </div>
   </header>
 
@@ -775,44 +777,71 @@ button.addEventListener("click", () => {
     <section class="about" id="about">
       <div class="container about-grid">
         <div class="section-heading">
+          
+                              <img src="vanguard_group_photo.jpeg" style="width: 100%;"><br><br>
           <div class="eyebrow">About the Club</div>
-          <h2>Forged through practice, bound by friendship.</h2>
+
+          <h2>van·guard</h2>
+/ˈvanˌɡärd/<br>
+<i>noun</i><br>
+1: the <b>forefront</b> of an <b>action</b> or movement<br>
+2: the troops at the <b>head</b> of an <b>army</b><br>
+
           <p>
-            The Vancouver Vanguard is a local combat sports team built around medieval
-            martial traditions, modern athletic training, and a shared respect for
-            the craft of fighting.
+            The Vancouver Vanguard is a local combat sports team built around medieval martial traditions, modern athletic training, and a shared respect for the craft of fighting.</p>
+
+<p>Founded by Josh Caldwell-Maki in 2019, the team has grown from a handful of core members to almost 20 active fighters, including a growing roster of female fighters.</p>
+
+<p>Coming from various MMA and HEMA backgrounds, from veteran fighters to new talent, the Vancouver Vanguard is a tight-knitt team of armored combat enthusiasts.</p> 
+
           </p><br>
-          <img src="logo.png" style="width: 50%;">
+
         </div>
 
         <div class="about-card">
+                    <img src="buhurt.jpg" style="width: 50%;">
+          <h2>What is armored combat?</h2>
           <p>
-            Whether you are picking up a sword for the first time or preparing for
-            competition, our club offers structured training, skilled coaching, and
-            a welcoming team environment.
+The sport of Armored combat, armored MMA, or “Buhurt”, is a full-contact, full-speed, non-choreographed mixed martial arts discipline. Using blunted weapons, and historically accurate armor, fighters use a mix of swordsmanship, grappling, and striking to win points-based duels reminiscent of other combat sports.
           </p>
+          <div class="buhurt-button">
 
+<div id="more-buhurt" class="hidden-fighters">
           <div class="club-values">
             <div class="value">
-              <strong>Train with purpose</strong>
-              <span>Learn technical drills, conditioning, and sparring, all while getting in the best shape of your life!</span>
-            </div>
-            <div class="value">
+              <img src="duels.JPG" style="width: 50%;">
               <strong>Duels</strong>
-              <span>Learn the art of one-on-one combat, using an array of medieval weaponry and shields.</span>
+              <span>Using the same weapon loadout as their opponent (longswords, swords & shields, polearms, etc.), fighters typically engage in two 1-minute rounds of combat. The winner is determined by points earned from landing clean hits on their opponent, counted by ringside officials known as “Marshals”.</span>
             </div>
             <div class="value">
+              <img src="profight.jpeg" style="width: 50%;">
+              <strong>Profights</strong>
+              <span>Incorporating MMA (throws, kicks, punches, headbutts, takedowns) alongside fencing/swordfighting techniques, fighters face-off for at least two 2-minute rounds, each fighter using the weapon loadout of their choice. A mix of points, aggression, ring control, and active pinning are considered when scoring matches.</span>
+            </div>
+            <div class="value">
+              <img src="melees.jpeg" style="width: 50%;">
               <strong>Melees</strong>
-              <span>Train in the chaotic and hard-hitting melee format, where teams of up to 16 fighters clash in the lyst.</span>
+              <span>Typically fought between two 5-person teams, using a mixture of different weapons and shields, fighters attempt to take down enemy fighters using Judo, Sambo, and wrestling until one team achieves a ratio of 3:1 teammates still-standing, or better (4:1, 5:2, etc.)
+<p>
+At larger tournaments, the sizes of melee matches include 3 vs 3s, 5 vs 5s, 12 vs 12, and 30 vs 30s.
+</p>
+
+</span>
             </div>
           </div>
+          </div>
+              <button id="show-buhurt" class="button">
+        Read more
+    </button>
         </div>
       </div>
+      
     </section>
 
     <section id="fighters">
       <div class="container">
         <div class="section-heading">
+          
           <div class="eyebrow">The Roster</div>
           <h2>Meet the Fighters</h2>
           <p>
@@ -895,6 +924,8 @@ button.addEventListener("click", () => {
               </p>
             </div>
           </article>
+
+
 
                     <article class="fighter-card">
             <img
@@ -1111,6 +1142,20 @@ button.addEventListener("click", () => {
               </p>
             </div>
           </article>
+                                        <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/mike.png"
+              alt="Fighter preparing for a match"
+            />
+            <div class="fighter-info">
+              <h3>Mike</h3>
+              <div class="fighter-role">Marshal · Media</div>
+              <p>
+                <a href="https://www.instagram.com/mike/">@mike</a>
+              </p>
+            </div>
+          </article>
 
 
     </div>
@@ -1166,8 +1211,16 @@ button.addEventListener("click", () => {
             </div>
             <a class="button" href="#home">Details</a>
           </article>
+                    <article class="event">
+            <div class="event-date">JULY 24-25, 2026</div>
+            <div>
+              <h3>Prince George Renaissance Faire</h3>
+              <p>2280 Tapping St, Prince George, · All-ages Renaissance Faire · Demo fights for the entire event</p>
+            </div>
+            <a class="button" href="#home">Details</a>
+          </article>
           <article class="event">
-            <div class="event-date">SEP 18, 19, 20</div>
+            <div class="event-date">SEP 18, 19, 20, 2026</div>
             <div>
               <h3>Mission BC's Renaissance Faire</h3>
               <p>Fraser River Heritage Park, 7494 Mary St, Mission · All-ages Renaissance Faire · Demo fights for the entire event</p>
@@ -1176,7 +1229,7 @@ button.addEventListener("click", () => {
           </article>
 
           <article class="event">
-            <div class="event-date">DEC 7</div>
+            <div class="event-date">NOV 9</div>
             <div>
               <h3>Beat the Crap out of Cancer Fundraiser</h3>
               <p>Academy Duelo · Fundraising duels for Cancer Research</p>
@@ -1227,7 +1280,7 @@ Tryouts for Team Canada, in preperation for the IMCF world championships in Denm
           <span class="playlist-count">03 Videos</span>
         </div>
 
-        <button
+        <button id="firstVideo"
           class="playlist-item active"
           type="button"
           data-video="RK9tELocSe4"
@@ -1349,12 +1402,68 @@ Tryouts for Team Canada, in preperation for the IMCF world championships in Denm
     </form>
   </div>
 </section>
+
+
+
+    <section class="about" >
+      <div class="container about-grid">
+        <div class="section-heading">
+                              <img src="train.jpg" style="width: 100%;"><br><br>
+          <div class="eyebrow">Practice makes perfect</div>
+
+          <h2>Train with us!</h2>
+          <p>
+            Whether you are picking up a sword for the first time or preparing for competition, our club offers structured training, skilled coaching, and a welcoming team environment.
+</p>
+
+
+
+          </p><br>
+
+        </div>
+
+        <div class="about-card">
+
+          <h2>What the sport offers:</h2>
+          <p>
+
+          </p>
+          <div class="buhurt-button">
+
+
+          <div class="club-values">
+            <div class="value">
+
+              <strong>Training with purpose</strong>
+              <span>Learn technical drills, conditioning, and sparring, all while getting in the best shape of your life!</span>
+            </div>
+            <div class="value">
+
+              <strong>Duels</strong>
+              <span>Learn the art of one-on-one combat, using an array of medieval weaponry and shields.</span>
+            </div>
+            <div class="value">
+
+              <strong>Melees</strong>
+              <span>Train in the chaotic and hard-hitting melee format, where teams of up to 16 fighters clash in the lyst.
+</p>
+
+</span>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+
   </main>
 
   <footer>
     <div class="container">
       <strong>The Vancouver Vanguard</strong><br />
-      Train hard. Stand together. Fight with honor.
+      Vadere valere.
     </div>
   </footer>
   <script>
@@ -1380,6 +1489,33 @@ Tryouts for Team Canada, in preperation for the IMCF world championships in Denm
       item.classList.add("active");
     });
   });
+</script>
+<script>
+const button = document.getElementById("show-fighters");
+const hiddenRoster = document.getElementById("more-fighters");
+
+button.addEventListener("click", () => {
+    hiddenRoster.classList.toggle("show");
+
+    button.textContent = hiddenRoster.classList.contains("show")
+        ? "Read less"
+        : "Read more";
+});
+
+const button2 = document.getElementById("show-buhurt");
+const hiddenRoster2 = document.getElementById("more-buhurt");
+
+button2.addEventListener("click", () => {
+    hiddenRoster2.classList.toggle("show");
+
+    button2.textContent = hiddenRoster2.classList.contains("show")
+        ? "Read less"
+        : "Read more";
+});
+
+window.addEventListener("load", function () {
+    document.getElementById("firstVideo").click();
+});
 </script>
 </body>
 </html>
