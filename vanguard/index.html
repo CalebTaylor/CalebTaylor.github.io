@@ -1666,7 +1666,45 @@ Marshals ensure the safety of both fighters and the crowd. They referee the matc
     <input type="hidden" name="_next"
            value="https://yourwebsite.com/thankyou.html">
 
-    <!-- Your existing form fields -->
+      <div class="form-row">
+        <label>
+          Your Name
+          <input type="text" name="name" placeholder="Name" required />
+        </label>
+
+        <label>
+          Organization
+          <input type="text" name="organization" placeholder="Company or group" />
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          Email Address
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </label>
+
+        <label>
+          Inquiry Type
+          <select name="inquiry-type">
+            <option value="Sponsorship">Sponsorship</option>
+            <option value="Event booking">Event booking</option>
+            <option value="Media request">Media request</option>
+            <option value="Business partnership">Business partnership</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        Tell Us About Your Opportunity
+        <textarea
+          name="message"
+          rows="6"
+          placeholder="Share a few details about your event, brand, project, or proposal."
+          required
+        ></textarea>
+      </label>
 
     <button class="button" type="submit">
         Send Inquiry
@@ -1943,7 +1981,7 @@ Tryouts for Team Canada, in preperation for the IMCF world championships in Denm
 
                 <img
                     id="galleryImage"
-                    src="images/gallery1.jpg"
+                    src="images/1.jpg"
                     alt="Gallery image"
                 >
 
@@ -2164,28 +2202,28 @@ window.addEventListener("load", function () {
 const gallery = [
 
     {
-        image: "images/gallery1.jpg",
-        caption: "Training Session"
+        image: "images/1.jpg",
+        caption: "2026 IMCF Qualifiers - Alberta, Canada"
     },
 
     {
-        image: "images/gallery2.jpg",
-        caption: "Regional Tournament"
+        image: "images/23.jpg",
+        caption: "Misty morning practice"
     },
 
     {
-        image: "images/gallery3.jpg",
-        caption: "Club Demonstration"
+        image: "images/13.jpg",
+        caption: "Joint practice with BC's Blue Dragons"
     },
 
     {
-        image: "images/gallery4.jpg",
-        caption: "Victory Celebration"
+        image: "images/4.jpg",
+        caption: "Melee practice"
     },
 
     {
-        image: "images/gallery5.jpg",
-        caption: "Evening Sparring"
+        image: "images/36.jpg",
+        caption: "Part of Team Canada for IMCF 2026 International Championship"
     }
 
 ];
