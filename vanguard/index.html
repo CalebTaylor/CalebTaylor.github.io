@@ -994,7 +994,83 @@
 
 }
 
+.bottom-nav{
 
+    position:fixed;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:rgba(7,29,22,.92);
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+
+    border-top:1px solid rgba(200,167,93,.2);
+
+    padding:1rem 0;
+
+    transition:
+        background .3s,
+        padding .3s;
+
+}
+
+.bottom-nav .nav-inner{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:2rem;
+
+    flex-wrap:wrap;
+
+}
+
+.bottom-nav a{
+
+    color:var(--cream);
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.bottom-nav a:hover{
+
+    color:var(--gold);
+
+}
+footer{
+
+    margin-bottom:90px;
+
+}
+
+
+
+.bottom-nav-inner{
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    flex-wrap:nowrap;
+}
   </style>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=event_available" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=swords" />
@@ -1008,18 +1084,18 @@
   <header class="hero" id="home">
     <nav class="site-nav">
       <div class="container nav-inner">
-        <a href="#home" class="logo"> <img src="square.png" style="width: 20px; display: inline;" > Vancouver Vanguard <i style='font-size:24px' class='fab'>&#xf785;</i></a>
+        <a href="#home" class="logo"><img src="square.png" style="width: 20px; display: inline;" >&nbsp;Vancouver Vanguard&nbsp;<img src="square.png" style="width: 20px; display: inline;" > </a>
 
         <div class="nav-links">
           
           <a href="#about">About</a>
           <a href="#fighters">Fighters</a>
-          <a href="#schedule">Schedule</a>
-          <a href="#videos">Videos</a>
-          <a href="#contact">Book us</a>
+                    <a href="#contact">Book us</a>
           <a href="#train">Join us</a>
-          <a href="https://www.facebook.com/profile.php?id=61553029344620"><i class="fa fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/vancouvervanguardbc/"><i class="fa fa-instagram"></i></a>
+          <a href="#schedule">Schedule</a>
+          <a href="#videos">Gallery</a>
+
+
         </div>
       </div>
     </nav>
@@ -1450,6 +1526,21 @@ Marshals ensure the safety of both fighters and the crowd. They referee the matc
               </p>
             </div>
           </article>
+                    </article>
+                                        <article class="fighter-card">
+            <img
+              class="fighter-image"
+              src="fighters/dan.jpg"
+              alt="Fighter preparing for a match"
+            />
+            <div class="fighter-info">
+              <h3>Dan</h3>
+              <div class="fighter-role">Marshal · Media</div>
+              <p>
+           
+              </p>
+            </div>
+          </article>
 
 
     </div>
@@ -1505,13 +1596,13 @@ Marshals ensure the safety of both fighters and the crowd. They referee the matc
       <div class="contact-details">
         <div>
           <span>General Inquiries</span>
-          <a href="mailto:hello@ironwoodfighters.ca">josh@vancouvervanguard.ca</a>
+          <a href="mailto:vancityvanguard@gmail.com">vancityvanguard@gmail.com</a>
         </div>
 
       </div>
     </div>
 
-    <form
+    <!-- <form
       class="contact-form"
       action="mailto:partners@ironwoodfighters.ca"
       method="post"
@@ -1558,7 +1649,41 @@ Marshals ensure the safety of both fighters and the crowd. They referee the matc
       </label>
 
       <button class="button" type="submit">Send Inquiry</button>
-    </form>
+    </form> -->
+
+
+
+
+<form
+    action="https://formsubmit.co/calebtaylor26@gmail.com"
+    method="POST"
+    class="contact-form">
+
+    <input type="hidden" name="_subject" value="New Sponsorship Inquiry">
+
+    <input type="hidden" name="_captcha" value="false">
+
+    <input type="hidden" name="_next"
+           value="https://yourwebsite.com/thankyou.html">
+
+    <!-- Your existing form fields -->
+
+    <button class="button" type="submit">
+        Send Inquiry
+    </button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
   </div>
 </section>
 
@@ -1609,6 +1734,16 @@ Marshals ensure the safety of both fighters and the crowd. They referee the matc
 
 </span>
             </div>
+
+      <div class="contact-details">
+        <div>
+          <span>Practice Sign-up</span>
+          <a href="mailto:vancityvanguard@gmail.com">vancityvanguard@gmail.com</a>
+        </div>
+
+      </div>
+
+
           </div>
 
 
@@ -1782,7 +1917,8 @@ Tryouts for Team Canada, in preperation for the IMCF world championships in Denm
 <br><br>
     <div class="container">
 
-        <div class="section-heading">
+        <div class="section-heading" style="    border-top:1px solid var(--border);
+    "><Br>
             <div class="eyebrow">Team Gallery</div>
             <h2>Moments From the Field</h2>
             <p>
@@ -1841,9 +1977,9 @@ Tryouts for Team Canada, in preperation for the IMCF world championships in Denm
 
     <div id="password-screen" class="password-panel">
 
-        <div class="eyebrow"> <i class='far fa-eye-slash'></i>Members Area</div>
+        <div class="eyebrow"> Members Area</div>
 
-        <h2>Team Training Archive</h2>
+        <h2><i class="fa fa-lock" style="font-size:24px"></i>&nbsp; Team Archive <i class="fa fa-lock" style="font-size:24px"></i></h2>
 
         <p>
             Enter the password to access practice videos, pictures, and member-only files.
@@ -1855,7 +1991,7 @@ Tryouts for Team Canada, in preperation for the IMCF world championships in Denm
             placeholder="Enter password">
 
         <button class="button" onclick="unlockDrive()">
-            Access Archive
+            Access Archive &nbsp; <i class="fa fa-key" style="font-size:24px"></i>
         </button>
 
         <p class="password-message" id="password-message"></p>
@@ -1915,12 +2051,41 @@ Tryouts for Team Canada, in preperation for the IMCF world championships in Denm
 
   </main>
 
+
+
+  
   <footer>
     <div class="container">
       <strong>The Vancouver Vanguard</strong><br />
-      Vadere valere - <i>"To go forth and prosper"</i>
+      <span style="font-size: 20px; color: darkred;">&#127809;</span>Vadere valere - <i>"To go forth and prosper"</i> <span style="font-size: 20px; color: darkred;">&#127809;</span> 
+      <p>&copy; 2026 Caleb Taylor. All rights reserved.</p>
     </div>
   </footer>
+
+
+
+
+
+<nav class="bottom-nav">
+    <div class="container">
+        <div class="bottom-nav-inner">
+          <a href="https://www.facebook.com/profile.php?id=61553029344620"><i class="fa fa-facebook-f"></i>&nbsp;Facebook</a>
+          <a href="https://www.instagram.com/vancouvervanguardbc/"><i class="fa fa-instagram"></i>&nbsp;Instagram</a>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   <script>
     function unlockDrive(){
